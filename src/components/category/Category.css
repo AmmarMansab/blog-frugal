@@ -1,0 +1,154 @@
+.cate-background{
+    height: 370px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    border: solid 1px red;
+    margin-bottom: 20px;
+    padding: 0px;
+    position: relative;
+}
+
+.carousel-container {
+    position: relative;
+}
+
+.custom-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrow-btn {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.card{
+    height: 370px;
+    width: 100%;
+    border: solid 1px red;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.trending-icon{
+    height: 60px;
+    width: 55px;
+    background-color: beige;
+    position: absolute;
+    right: 0px;
+    z-index: 25;
+}
+
+.overlay{
+    background-color: black;
+    opacity: 0.5;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    position: absolute;
+}
+
+.animated-content{
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    /* border: solid 1px red; */
+    position: absolute;
+    z-index: 30;
+    margin: auto;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+}
+
+.animated-line{
+    position: absolute;
+    width: 80%;
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
+    height: 1px;
+    transition: all ease-in-out 0.30s;
+}
+
+.animated-content:hover .animated-line{
+    height: 50%;
+}
+
+.content-title{
+    /* border: solid 1px red; */
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    min-height: 6%;
+    max-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 600;
+    /* margin-top: 8px; */
+    /* margin-bottom: 8px; */
+    width: 90%;
+    color: white;
+    /* font-weight: 700; */
+    /* height: 10px; */
+}
+
+.content-cate{
+    /* border: solid 1px red; */
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    min-height: 6%;
+    max-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    /* margin-top: 8px; */
+    /* margin-bottom: 8px; */
+    width: 90%;
+    color: w;
+    /* font-weight: 700; */
+    /* height: 10px; */
+}
+
+.animated-content {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .content-title {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    min-height: 6%;
+    max-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 600;
+    width: 90%;
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  /* Add a class to hide and show the ellipsis text */
+  .hide-ellipsis {
+    white-space: initial;
+    text-overflow: initial;
+  }
+  

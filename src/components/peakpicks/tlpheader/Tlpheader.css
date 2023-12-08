@@ -1,0 +1,57 @@
+.cate-background-peakpicks{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    border: solid 1px red;
+    margin-bottom: 20px;
+    padding: 0px;
+    position: relative;
+}
+
+.carousel-container {
+    position: relative;
+}
+
+.custom-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrow-btn {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.card{
+    height: 370px;
+    width: 100%;
+    border: solid 1px red;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.trending-icon{
+    height: 60px;
+    width: 55px;
+    background-color: beige;
+    position: absolute;
+    right: 0px;
+    z-index: 25;
+}
+
+.overlay{
+    background-color: black;
+    opacity: 0.5;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    position: absolute;
+}
