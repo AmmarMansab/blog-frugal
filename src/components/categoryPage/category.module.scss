@@ -1,0 +1,519 @@
+.rounded-3{
+    width: 70px;
+    height: 45px;
+  }
+  .filght-details-tabs-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 0.2em;
+  }
+  
+  .flight-detail-information-wrapper {
+    display: flex;
+    width: 38rem;
+    gap: 1.5rem;
+    flex-shrink: 0;
+  }
+  
+  .flight-detail-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.3em;
+    text-transform: uppercase;
+    color: #374151;
+    width: 6.5rem;
+  }
+  
+  .flight-details-time {
+    margin-bottom: 0.25em;
+    font-weight: 600;
+    font-size: 22px;
+    color: #374151;
+  }
+  
+  .flight-details-fly-icon {
+    margin-top: 0.1em;
+  }
+  
+  .view-fare-button {
+    display: flex;
+    padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--tailwind-blue-500, #3f83f8);
+    background: transparent;
+  }
+  
+  .fare-details-table {
+    background: #f9fafb;
+    border-radius: 20px;
+    fill: var(--tailwind-gray-50, #f9fafb);
+    stroke-width: 1px;
+    stroke: var(--tailwind-gray-200, #e5e7eb);
+  }
+  
+  .fare-details-table-row {
+    border: 1px solid #e5e7eb;
+    border-top-left-radius: 20px;
+  }
+  
+  .fare-details-content {
+    text-transform: capitalize;
+  }
+  
+  .fare-detail-table-row-container {
+    font-size: 13px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    vertical-align: top;
+  }
+  
+  .fare-details-table-data {
+    font-size: 13px;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .view-fares-button-text {
+    color: var(--tailwind-blue-500, #3f83f8);
+    font-family: Roboto;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    width: max-content;
+  }
+  
+  .search-result-container {
+    border-radius: 1rem;
+    border: 1px solid #f4f5f7;
+    background: #fff;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .space-bottom {
+    min-height: 1.5rem;
+  }
+  
+  .first-row {
+    padding: 0 1.5rem;
+  }
+  
+  .carrier-operator {
+    color: var(--tailwind-gray-500, #6b7280);
+    font-family: Roboto;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    display: block;
+  }
+  
+  .content-container {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    align-items: center;
+  }
+  
+  .button-view-more {
+    margin-left: 2rem;
+  }
+  
+  .hotle-search-results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 0.5em;
+  }
+  
+  .hotle-search-results-wrapper {
+    width: 48%;
+    border-radius: 0.5rem;
+    @media (max-width: 880px) {
+      width: 100%;
+    }
+  }
+  
+  .hotle-search-results-wrapper-flex {
+    border-radius: 0.5rem;
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .bg-img-wrapper {
+    position: relative;
+    height: 15rem;
+    flex-shrink: 0;
+  }
+  
+  .bg-img-wrapper-flex {
+    position: relative;
+    height: 14.5rem;
+    width: 14.5rem;
+    flex-shrink: 0;
+    padding: 0.5rem;
+  }
+  
+  .bg-img-wrapper img {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+  }
+  
+  .bg-img-wrapper-flex img {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  }
+  
+  .off-perc {
+    border-radius: 0.25rem;
+    background: var(--light-green, #2aaf74);
+    padding: 0.25rem 0.5rem;
+    color: var(--white, #fff);
+    font-family: Roboto;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1rem;
+    /* 133.333% */
+    position: absolute;
+    top: 1em;
+    left: 1em;
+  }
+  
+  .pay-card {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+  }
+  
+  .overlay-sold-out {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  
+    
+    border-radius: 8px 8px 0px 0px;
+  opacity: 0.75;
+  background: var(--Black, #222);
+  }
+  
+  .blur-overlay-sold-out{
+    // filter: blur(5px);
+  }
+  
+  .pay-card img {
+    width: 40%;
+  }
+  
+  .search-results-content-wrapper {
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
+    background: var(--tailwind-white, #fff);
+    padding: 1em;
+  }
+  
+  .search-results-content-wrapper-flex {
+    background: var(--tailwind-white, #fff);
+    padding: 1em;
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  }
+  
+  .hotel-name-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 0.5rem;
+    column-gap: 1rem;
+    @media (max-width: 450px) {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .hotel-name-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .hotel-name {
+    color: var(--grey, #505050);
+    font-family: Roboto;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5rem;
+    /* 133.333% */
+  }
+  
+  .trip-card {
+    align-self: center;
+    justify-self: flex-end;
+  }
+  
+  .rating-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    @media (max-width: 424px) {
+      flex-direction: column-reverse;
+      > :nth-child(2) {
+        align-self: center;
+      }
+    }
+  }
+  
+  .rating-wrapper-flex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    @media (max-width: 690px) {
+      flex-direction: column-reverse;
+      gap: 1rem;
+    }
+  }
+  
+  .map-name-container {
+    display: flex;
+    gap: 0.3rem;
+  }
+  
+  .map-name-container-flex {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .rating-content {
+    color: var(--grey, #505050);
+    font-family: Roboto;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    margin: 0em 0.5em;
+    margin-top: 0.5em;
+    /* 142.857% */
+    width: 13rem;
+    width: 100%;
+    @media (max-width: 424px) {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
+  
+  .rating-content-flex {
+    color: var(--grey, #505050);
+    font-family: Roboto;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    max-width: 12rem;
+  }
+  
+  .rating-stars li {
+    color: #bda06a !important;
+    font-size: 17px !important;
+    margin-right: 0.2em !important;
+  }
+  
+  .info-wrapperr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .date-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 0.8em;
+    @media (max-width: 372px) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  
+  .date-wrapper-item span {
+    color: var(--grey, #505050);
+    font-family: Roboto;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    margin-left: 0.5em;
+    /* 142.857% */
+  }
+  
+  .date-wrapper-item {
+    margin-right: 0.8em;
+  }
+  
+  .total-price {
+    color: var(--grey, #505050);
+    font-family: Roboto;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1rem;
+    /* 133.333% */
+    margin-top: 1.5em;
+  }
+  
+  .bottom-tab-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .name {
+    color: var(--grey, #505050);
+    font-family: Roboto;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2rem;
+  }
+  
+  .amount-text {
+    color: var(--grey, #505050);
+    font-family: Roboto;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1rem;
+    margin-top: 0.2em;
+    /* 133.333% */
+  }
+  
+  .discount-label{
+    position: absolute; /* Set the discount label to absolute positioning */
+    top: 6px; /* Position it at the top of the wrapper */
+    left: 6px; /* Position it at the left of the wrapper */
+    color: #fff; /* Set text color */
+    padding: 5px; /* Add some padding to the label */
+    font-weight: bold; /* Make the text bold */
+  
+    display: inline-flex;
+    padding: 4px 8px;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 8px;
+    background: var(--Light-Green, #2aaf74);
+  
+    color: var(--tailwind-white, #fff);
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; /* 133.333% */
+  
+    z-index: 1;
+  }
+  
+  .price-text {
+    margin-left: 0.5rem;
+    color: var(--Grey, #505050);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Roboto;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem; /* 133.333% */
+  }
+  
+  .price-text-out{
+    color: var(--Red, #F12D2D);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 200% */
+  }
+  
+  .book-now-btn {
+    display: inline-flex;
+    padding: 0.5rem 1rem;
+    align-items: flex-start;
+    gap: 0.5rem;
+    border-radius: 0.25rem;
+    background: var(--light-green, #2aaf74);
+    color: var(--white, #fff);
+    font-family: Roboto;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5rem;
+    /* 171.429% */
+    border: none;
+  }
+  
+  .book-now-btn:hover {
+    background-color: #bda06a;
+    cursor: pointer;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1.5rem;
+    @media (max-width: 880px) {
+      flex-direction: column;
+    }
+  }
+  
+  .container-flex {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.81rem;
+  }
+  
+  .logo-img {
+    width: 20%;
+  }
+  
+  .map-container {
+    margin-top: '.4em';
+    cursor: pointer;
+    align-self: center;
+  }
+  
+  .map-container:hover {
+    stroke: #bda06a;
+  }
+  
+  .map-container-flex {
+    margin-top: 0.3rem;
+    cursor: pointer;
+    /* align-self: center; */
+  }
+  
+  .map-container-flex:hover {
+    fill: #bda06a;
+  }
+  
+  .from-div {
+    font-size: 10px;
+    align-self: flex-end;
+    color: #6b7280;
+  }
+  
