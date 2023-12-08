@@ -1,0 +1,50 @@
+.related-post-container {
+    height: 20px;
+    border: solid 1px red;
+    width: 100%;
+}
+
+/* Postrelated.css */
+
+.slick-arrow {
+    font-size: 24px;
+    /* Adjust the font size as needed */
+    line-height: 1;
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.slick-prev {
+    left: 10px;
+    /* Adjust the left position as needed */
+}
+
+.slick-next {
+    right: 10px;
+    /* Adjust the right position as needed */
+}
+
+.related-card-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.related-card{
+    width: 90%;
+    height: 280px;
+    border: solid 1px black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.carousel-container{
+    width: 80%;
+    /* border: solid 1px black; */
+    margin: auto;
+}

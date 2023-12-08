@@ -1,0 +1,60 @@
+.writemessage-container{
+    width: 80%;
+    margin: auto;
+    height: max-content;
+}
+
+.writemessage-container button{
+    width: 120px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.write-A{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: max-content;
+  /* border: solid 1px black; */
+}
+
+.write-A input{
+    width: 32%;
+    height: 40px;
+    padding-left: 15px;
+
+    
+}
+
+.write-B{
+    height: max-content;
+    width: 100%;
+    /* border: solid 2px red; */
+}
+
+.write-B textarea {
+    padding-left: 20px;
+    padding-top: 10px;
+    height: 270px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+@media screen and (min-width:0px) and (max-width:600px) {
+    .write-A input{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .write-A{
+        flex-direction: column;
+    }
+
+    .writemessage-container button{
+        width: 100%;
+    }
+}
