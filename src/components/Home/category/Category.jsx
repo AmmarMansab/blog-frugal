@@ -36,26 +36,38 @@ const Category = () => {
     const prevSlide = () => {
         carouselRef.current.prev();
     };
+
+    const truncateText = (text, maxLength) => {
+        return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+    };
+
     return (
         <>
-            <div class=" container border max-w-80 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-                <div class="bg-blue-500 pr-2 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
+            <div class=" container max-w-80 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+                <div class=" xl:pr-4 lg:pr-4 pt-16 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
                     {/* //// */}
                     <div className="carousel-container">
                         <Carousel afterChange={(currentSlide) => onChange(currentSlide)} ref={carouselRef} dots={false} >
                             {carouselData.map((item) => (
                                 <div key={item.id}>
                                     <div style={contentStyle}>
-                                        <div className='cate-background' style={{ backgroundImage: `url(${item.img})` }} >
+                                        <div className='main-scale' >
                                             <div className="overlay"></div>
-                                            <div className="animated-content">
-                                                <div className="animated-line"></div>
-                                                <div className='content-title' >you know ,Title Number 1 and slider number also 1</div>
-                                                <div className='content-cate' >by Admin Traveling 19 Dec 2001</div>
+                                            <div className='cate-background' style={{ backgroundImage: `url(${item.img})` }} >
+                                            </div>
+                                            <div className="content">
+                                                <h1>
+                                                    {truncateText('Lorem ipsum dolor sit amet consectetur adipisicing elit.', 20)}
+                                                </h1>
+                                                <div className="hero-content-type">
+                                                    By Admin / 19 Dec 2001 / Treveling
+                                                </div>
+                                                <div className="line-ani"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                             ))}
                         </Carousel>
                         <div className="custom-arrows">
@@ -69,14 +81,20 @@ const Category = () => {
                     </div>
                     {/* //// */}
                 </div>
-                <div class="  bg-green-500 pl-2 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
-                    <div style={{ backgroundImage: `url(${carouselData[0].img})` }} className="card">
-                        <div className="overlay"></div>
+                <div class=" pt-16 lg:pl-4 xl:pl-4  rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
+                    <div className='main-scale' >
                         <div className="trending-icon flex justify-center items-center text-1xl"><AiFillThunderbolt /></div>
-                        <div className="animated-content">
-                            <div className="animated-line"></div>
-                            <div className='content-title' >you know ,Title Number 1 and slider number also 1</div>
-                            <div className='content-cate' >by Admin Traveling 19 Dec 2001</div>
+                        <div className="content">
+                    <div className="line-anii"></div>
+                            <h1>
+                                {truncateText('Lorem ipsum dolor sit amet consectetur adipisicing elit.', 20)}
+                            </h1>
+                            <div className="hero-content-type">
+                                By Admin / 19 Dec 2001 / Treveling
+                            </div>
+                        </div>
+                        <div style={{ backgroundImage: `url(${carouselData[0].img})` }} className="card">
+                            <div className="overlay"></div>
                         </div>
                     </div>
                 </div>

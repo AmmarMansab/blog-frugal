@@ -1,18 +1,24 @@
 .fotter-logo{
     width: 180px;
     height: 50px;
-    border: solid 1px black;
+    /* border: solid 1px black; */
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .fotter-logo-p{
     width: 70%;
-    border: solid 1px red;
+    /* border: solid 1px red; */
     text-align: center;
     margin-top: 10px;
+    color: white
 }
 
 .fotter-social{
     width: 60%;
+    margin-top: 25px;
 }
 
 .fotter-social h3 {
@@ -23,19 +29,66 @@
 
 .fotter-icons{
     width: 100%;
-    border: solid 1px red;
+    /* border: solid 1px red; */
     font-size: 30px;
 }
 
 .fotter-cate{
     width: 100%;
     height: max-content;
-    border: solid 1px red;
+    margin-top: 20px;
+    /* border: solid 1px red; */
+}
+
+.fotter-cate p{
+    margin-left: 6px;
+}
+
+.fotter-cate h3 {
+    font-weight: 700;
 }
 
 .fotter-card-main{
     height: 175px;
     width: 100%;
-    border: solid 1px red;
+    /* border: solid 1px red; */
     position: relative;
+}
+
+.container-fotter{
+    background-attachment: fixed;
+    background-image: url('../../../images//fotter-bg.png');
+    background-size: cover;
+}
+
+.content-white{
+    color: var(--white)
+}
+
+.p-2{
+    color: white;
+    font-weight: 700;
+}
+
+.fotter-nav{
+    color: white;
+}
+
+.fotter-nav p {
+    margin-left: 10px;
+}
+
+.fotter-img{
+    background-image: url('https://images.unsplash.com/photo-1682695797221-8164ff1fafc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8');
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.fotter-end{
+    background-color: black;
+    margin-top: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* padding-top: 20px; */
 }

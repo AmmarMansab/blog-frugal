@@ -1,14 +1,16 @@
-import Category from '@/components/category/Category'
+import Hero from '@/components/Home/hero/Hero'
+import Category from '@/components/Home/category/Category'
 import Fotter from '@/components/common/fotter/Fotter'
-import Tlp from '@/components/tlp/Tlp'
+import Tlp from '@/components/Home/tlp/Tlp'
 import React from 'react'
 
 const page = () => {
   return (
     <>
-         <Category/>
-         <Tlp/>
-         <Fotter/>
+      <Hero />
+      <Category />
+      <Tlp />
+      <Fotter />
     </>
   )
 }

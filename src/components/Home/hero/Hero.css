@@ -1,0 +1,129 @@
+.carousel-container {
+    position: relative;
+}
+
+.custom-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrow-btn {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.hero-main {
+    /* border: solid 2px red; */
+    height: 75vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-overlay {
+    background-color: black;
+    opacity: var(--opacity);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+/* //// */
+.hero-content {
+    height: 100%;
+    width: 70%;
+    /* border: solid 5px white; */
+    position: absolute;
+    margin: auto;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 20;
+}
+
+.hero-content-heading {
+    color: white;
+    font-size: 37px;
+    width: 100%;
+    /* border: solid 1px black; */
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 35px !important;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.hero-content-type {
+    width: max-content;
+    height: 30px;
+    /* border: solid 1px black; */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.hero-line {
+    height: 1px;
+    border: solid 1.5px white;
+    border-left: none;
+    border-right: none;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 50%;
+    transition: all ease-in-out 0.30s;
+}
+
+.hero-content:hover .hero-line {
+    height: 220px;
+}
+
+@media screen and (min-width:0px) and (max-width:1264px) {
+
+    .hero-line {
+        top: 24px;
+    }
+
+}
+
+@media screen and (min-width:0px) and (max-width:660px) {
+
+    .hero-content-heading {
+        font-size: 25px;
+        line-height: 21px !important ;
+    }
+
+    .hero-content:hover .hero-line {
+        /* top: 100px !important; */
+        height: 300px;
+    }
+
+    .hero-content-type {
+        transform: translate(0px, -10px);
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:350px) {
+    .hero-content-type {
+        font-size: 14px;
+    }
+}
