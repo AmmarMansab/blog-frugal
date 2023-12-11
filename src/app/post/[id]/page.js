@@ -1,3 +1,4 @@
+import Fotter from "@/components/common/fotter/Fotter";
 import Postcomments from "@/components/post/postcoments/Postcomments";
 import Postcontent from "@/components/post/postcontent/Postcontent";
 import Postheader from "@/components/post/postheader/Postheader";
@@ -35,6 +36,7 @@ const page = () => {
     <Postrelated/>
     <Postcomments/>
     <Writemessage/>
+    <Fotter/>
     </>
   )
 }

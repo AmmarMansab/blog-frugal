@@ -209,14 +209,10 @@ const Postcomments = () => {
 
     return (
         <>
-            <div class="comments-block">
-                <header class="commnents-heading">
-                    <h2><span class="txt">COMMENTS</span></h2>
-                    <a href="#" class="threecomments"><span class="num">3</span> comments</a>
-                </header>
 
+            <h1 className='comments-heading' >Commentss</h1>
+            <div class="comments-block">
                 <div class="form-area">
-                    <h2>LEAVE A COMMENT</h2>
                     <form action="#" class="comment-form validate-form">
                         {/* Your form inputs go here */}
                     </form>

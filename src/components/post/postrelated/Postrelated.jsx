@@ -1,7 +1,8 @@
 'use client'
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo ,useRef } from 'react'
 import './Postrelated.css'
 import { Carousel } from 'antd';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons'; // Import arrow icons
 
 const contentStyle = {
     margin: 0,
@@ -16,6 +17,9 @@ const contentStyle = {
 };
 
 const Postrelated = () => {
+
+    const carouselRef = useRef(null);
+
     const data = [
         {
             title: 'noting',
@@ -72,32 +76,51 @@ const Postrelated = () => {
             },
         },
     ];
+    const nextSlide = () => {
+        carouselRef?.current?.next();
+    };
 
+    const prevSlide = () => {
+        carouselRef?.current?.prev();
+    };
     return (
         <>
             <div className='carousel-container' >
-                <Carousel afterChange={onChange} responsive={responsiveSettings} arrows>
+                <h1>Related Products</h1>
+                <Carousel afterChange={onChange} responsive={responsiveSettings} arrows  ref={carouselRef} >
                     <div className='related-card-main' >
                         <h3 style={contentStyle}>
-                            <div className="related-card"></div>
+                            <div className="related-card">1</div>
                         </h3>
                     </div>
                     <div className='related-card-main' >
                         <h3 style={contentStyle}>
-                            <div className="related-card"></div>
+                            <div className="related-card">2</div>
                         </h3>
                     </div>
                     <div className='related-card-main' >
                         <h3 style={contentStyle}>
-                            <div className="related-card"></div>
+                            <div className="related-card">3</div>
                         </h3>
                     </div>
                     <div className='related-card-main' >
                         <h3 style={contentStyle}>
-                            <div className="related-card"></div>
+                            <div className="related-card">4</div>
                         </h3>
                     </div>
                 </Carousel>
+                <div className="custom-arrows">
+                    <button className="arrow-btn" 
+                    onClick={prevSlide}
+                    >
+                        <LeftOutlined />
+                    </button>
+                    <button className="arrow-btn" 
+                    onClick={nextSlide}
+                    >
+                        <RightOutlined />
+                    </button>
+                </div>
             </div>
         </>
     )

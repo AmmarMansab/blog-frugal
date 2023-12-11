@@ -3,10 +3,11 @@
     width: 100%;
     background-size: cover;
     background-position: center;
-    border: solid 1px red;
+    /* border: solid 1px red; */
     margin-bottom: 20px;
     padding: 0px;
     position: relative;
+    transition: all ease-in-out 0.30s;
 }
 
 .carousel-container {
@@ -29,13 +30,17 @@
     cursor: pointer;
 }
 
+
+
 .card{
     height: 370px;
     width: 100%;
-    border: solid 1px red;
+    /* border: solid 1px red; */
     background-size: cover;
     background-position: center;
     position: relative;
+    transition: all ease-in-out 0.30s;
+    /* margin-top: -63.5%; */
 }
 
 .trending-icon{
@@ -49,7 +54,7 @@
 
 .overlay{
     background-color: black;
-    opacity: 0.5;
+    opacity: var(--opacity);
     height: 100%;
     width: 100%;
     z-index: 20;
@@ -83,9 +88,9 @@
     transition: all ease-in-out 0.30s;
 }
 
-.animated-content:hover .animated-line{
+/* .animated-content:hover .animated-line{
     height: 50%;
-}
+} */
 
 .content-title{
     /* border: solid 1px red; */
@@ -151,4 +156,66 @@
     white-space: initial;
     text-overflow: initial;
   }
-  
+/* ////   */
+
+.content{
+    height: max-content;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    /* border: solid 1px black; */
+    z-index: 25;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+}
+
+.content h1 {
+    font-size: 30px;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.line-ani{
+    height: 1px ;
+    width: 60%;
+    border: none;
+    border-top: solid 1.5px white;
+    border-bottom: solid 1.5px white;
+    position: absolute;
+}
+
+.main-scale{
+    /* border: solid 1px red; */
+    padding-bottom: 0px;
+    height: 370px;
+    position: relative;
+    overflow: hidden;
+    transition: all ease-in-out 0.30s;
+}
+
+.content{
+    /* border: solid 1px white; */
+}
+
+.main-scale:hover .card{
+    transform: scale(1.1);
+}
+
+.main-scale:hover .cate-background{
+    transform: scale(1.1);
+}
+
+.line-anii{
+    background-color: white;
+    height: 1.6px;
+    width: 60%;
+    position: absolute;
+}

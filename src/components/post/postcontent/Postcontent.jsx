@@ -4,7 +4,9 @@ import './Postcontent.css'
 const Postcontent = () => {
   return (
     <>
-    Postcontent
+     <div className="container content-container border ">
+           content of the year
+     </div>
     </>
   )
 }

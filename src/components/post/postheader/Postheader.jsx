@@ -5,6 +5,7 @@ const Postheader = () => {
   return (
     <>
        <div className="container post-header-hero ">
+        <div className="overlay-post"></div>
         <div className="line-1"></div>
         <div className="line-2"></div>
          <div className="post-header-inner">
