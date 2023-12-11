@@ -1,76 +1,99 @@
-'use client'
-import React, { useRef } from 'react';
-import { Carousel } from 'antd';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import './Hero.css'; // Import your CSS file
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+import { Carousel } from "antd";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import axios from "axios"; // Import axios for API requests
+import "./Hero.css"; // Import your CSS file
+import { formatDate } from "@/utils";
 
 const contentStyle = {
-    margin: 0,
-    height: 'max-content',
-    lineHeight: '160px',
-    textAlign: 'center',
-    background: 'transparent',
+  margin: 0,
+  height: "max-content",
+  lineHeight: "160px",
+  textAlign: "center",
+  background: "transparent",
 };
 
-
 const Hero = () => {
-    const carouselData = [
-        { id: 1, title: '1', by: 'admin', category: 'treveling', img: 'https://images.unsplash.com/photo-1682687982134-2ac563b2228b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8', },
-        { id: 2, title: '2', by: 'admin', category: 'treveling', img: 'https://images.unsplash.com/photo-1682687982134-2ac563b2228b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8', },
-        { id: 3, title: '3', by: 'admin', category: 'treveling', img: 'https://images.unsplash.com/photo-1682687982134-2ac563b2228b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8', },
-        { id: 4, title: '4', by: 'admin', category: 'treveling', img: 'https://images.unsplash.com/photo-1682687982134-2ac563b2228b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8', },
-    ];
+  const [carouselData, setCarouselData] = useState([]);
+  const carouselRef = useRef(null);
 
-    const carouselRef = useRef(null);
+  const API = "https://server.blog.digiunction.com";
 
-    const truncateText = (text, maxLength) => {
-        return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Make the API call only once and store the data
+        const response = await axios.get(
+          "https://server.blog.digiunction.com/api/post/get-all?page=0"
+        );
+        setCarouselData(response.data); // Assuming the response is an array of data
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
+    if (typeof window !== "undefined") {
+      // Check if running on the client side
+      fetchData();
+    }
+  }, []); // Empty dependency array ensures the effect runs only once
 
-    const onChange = (currentSlide) => {
-        console.log(currentSlide);
-    };
+  const truncateText = (text, maxLength) => {
+    return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+  };
 
-    const nextSlide = () => {
-        carouselRef.current.next();
-    };
+  const onChange = (currentSlide) => {
+    console.log(currentSlide);
+  };
 
-    const prevSlide = () => {
-        carouselRef.current.prev();
-    };
+  const nextSlide = () => {
+    carouselRef.current.next();
+  };
 
-    return (
-        <div className="carousel-container">
-            <Carousel afterChange={(currentSlide) => onChange(currentSlide)} ref={carouselRef}>
-                {carouselData.map((item) => (
-                    <div key={item.id}  >
-                        <div style={contentStyle}>
-                            <div className='hero-main' style={{ backgroundImage: `url(${item.img})` }} >
-                                <div className="hero-overlay"></div>
-                                <div className="hero-content">
-                                    <div className="hero-line"></div>
-                                    <div className='hero-content-heading'>
-                                        {truncateText('Lorem ipsum dolor sit amet consectetur adipisicing elit.', 50)}
-                                    </div>
-                                    <div className="hero-content-type">
-                                        By Admin / 19 Dec 2001 / Treveling
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </Carousel>
-            <div className="custom-arrows">
-                <button className="arrow-btn" onClick={prevSlide}>
-                    <LeftOutlined />
-                </button>
-                <button className="arrow-btn" onClick={nextSlide}>
-                    <RightOutlined />
-                </button>
+  const prevSlide = () => {
+    carouselRef.current.prev();
+  };
+
+  return (
+    <div className="carousel-container">
+      <Carousel
+        afterChange={(currentSlide) => onChange(currentSlide)}
+        ref={carouselRef}
+      >
+        {carouselData?.posts?.map((post) => (
+          <div key={post._id}>
+            <div style={contentStyle}>
+              <div
+                className="hero-main"
+                style={{ backgroundImage: `url(${API + post.image})` }}
+              >
+                <div className="hero-overlay"></div>
+                <div className="hero-content">
+                  <div className="hero-line"></div>
+                  <div className="hero-content-heading">
+                    {truncateText(post?.title, 50)}
+                  </div>
+                  <div className="hero-content-type">
+                    {`By Admin / ${formatDate(post.createdAt)} / ${
+                      post?.category?.name
+                    }`}
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    );
+          </div>
+        ))}
+      </Carousel>
+      <div className="custom-arrows">
+        <button className="arrow-btn" onClick={prevSlide}>
+          <LeftOutlined />
+        </button>
+        <button className="arrow-btn" onClick={nextSlide}>
+          <RightOutlined />
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default Hero;
