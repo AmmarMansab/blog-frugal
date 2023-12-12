@@ -1,8 +1,9 @@
 'use client'
-import React, { useEffect, useMemo ,useRef } from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import './Postrelated.css'
 import { Carousel } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'; // Import arrow icons
+import img1 from '../../../images//fotter-bg.png'
 
 const contentStyle = {
     margin: 0,
@@ -16,6 +17,10 @@ const contentStyle = {
     alignItems: 'center',  // Corrected property name
 };
 
+const truncateText = (text, maxLength) => {
+    return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+};
+
 const Postrelated = () => {
 
     const carouselRef = useRef(null);
@@ -26,12 +31,14 @@ const Postrelated = () => {
             category: 'traveling',
             by: 'Admin',
             date: 'Dec 19 , 2001',
+            // img:'../../../images//fotter-bg.png',
         },
         {
             title: 'noting',
             category: 'traveling',
             by: 'Admin',
             date: 'Dec 19 , 2001',
+            // img:img1,
         },
     ]
 
@@ -87,36 +94,84 @@ const Postrelated = () => {
         <>
             <div className='carousel-container' >
                 <h1>Related Products</h1>
-                <Carousel afterChange={onChange} responsive={responsiveSettings} arrows  ref={carouselRef} >
+                <Carousel afterChange={onChange} responsive={responsiveSettings} arrows ref={carouselRef} >
                     <div className='related-card-main' >
                         <h3 style={contentStyle}>
-                            <div className="related-card">1</div>
+                            <div className="related-card" >
+                                <div className="related-card-img"
+                                //  style={{backgroundImage:`url(${data[0].img})`}}
+                                ></div>
+                            </div>
                         </h3>
                     </div>
                     <div className='related-card-main' >
                         <h3 style={contentStyle}>
-                            <div className="related-card">2</div>
+                            <div className="related-card">
+                            <div className="overlay-related"></div>
+                                <div className="hero-content">
+                                    <div className="hero-line"></div>
+                                    <div className='hero-content-heading'>
+                                        {truncateText('Lorem ipsum dolor sit amet consectetur adipisicing elit.', 50)}
+                                    </div>
+                                    <div className="hero-content-type">
+                                        By Admin / 19 Dec 2001 / Treveling
+                                    </div>
+                                </div>
+                                <div className="related-card-img"
+                                //  style={{backgroundImage:`url(${data[0].img})`}}
+                                ></div>
+                            </div>
                         </h3>
                     </div>
                     <div className='related-card-main' >
                         <h3 style={contentStyle}>
-                            <div className="related-card">3</div>
+                            <div className="related-card">
+                            <div className="overlay-related"></div>
+                                <div className="hero-content">
+                                    <div className="hero-line"></div>
+                                    <div className='hero-content-heading'>
+                                        {truncateText('Lorem ipsum dolor sit amet consectetur adipisicing elit.', 50)}
+                                    </div>
+                                    <div className="hero-content-type">
+                                        By Admin / 19 Dec 2001 / Treveling
+                                    </div>
+                                </div>
+                                <div className="related-card-img"
+                                //  style={{backgroundImage:`url(${data[0].img})`}}
+                                ></div>
+                            </div>
                         </h3>
                     </div>
                     <div className='related-card-main' >
                         <h3 style={contentStyle}>
-                            <div className="related-card">4</div>
+                            <div className="related-card">
+                                <div className="overlay-related"></div>
+                                <div className="content-related">
+                                    <div className="hero-content">
+                                        <div className="hero-line"></div>
+                                        <div className='hero-content-heading'>
+                                            {truncateText('Lorem ipsum dolor sit amet consectetur adipisicing elit.', 50)}
+                                        </div>
+                                        <div className="hero-content-type">
+                                            By Admin / 19 Dec 2001 / Treveling
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="related-card-img"
+                                //  style={{backgroundImage:`url(${data[0].img})`}}
+                                ></div>
+                            </div>
                         </h3>
                     </div>
                 </Carousel>
                 <div className="custom-arrows">
-                    <button className="arrow-btn" 
-                    onClick={prevSlide}
+                    <button className="arrow-btn-left"
+                        onClick={prevSlide}
                     >
                         <LeftOutlined />
                     </button>
-                    <button className="arrow-btn" 
-                    onClick={nextSlide}
+                    <button className="arrow-btn-right"
+                        onClick={nextSlide}
                     >
                         <RightOutlined />
                     </button>

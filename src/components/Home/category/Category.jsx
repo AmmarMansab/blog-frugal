@@ -6,8 +6,17 @@ import axios from "axios"; // Import axios for API requests
 import { AiFillThunderbolt } from "react-icons/ai";
 import "./Category.css";
 import { formatDate } from "@/utils";
+import { useRouter } from 'next/navigation';
 
 const Category = () => {
+
+  const router = useRouter()
+
+  const handleNavigation = (route) => {
+    // console.log(route, 'dddd');
+    router.push(route);
+  }
+
   const [carouselData, setCarouselData] = useState([]);
   const API = "https://server.blog.digiunction.com";
 
@@ -71,7 +80,7 @@ const Category = () => {
               dots={false}
             >
               {carouselData?.map((category) => (
-                <div key={category._id}>
+                <div onClick={() => handleNavigation(`/post/${category._id}`)} key={category._id}>
                   <div style={contentStyle}>
                     <div className="main-scale">
                       <div className="overlay"></div>
@@ -104,7 +113,7 @@ const Category = () => {
           </div>
           {/* //// */}
         </div>
-        <div class=" pt-16 lg:pl-4 xl:pl-4  rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
+        <div onClick={() => handleNavigation(`/post/${topViewedData?.[0]?._id}`)} class=" pt-16 lg:pl-4 xl:pl-4  rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
           <div className="main-scale">
             <div className="trending-icon flex justify-center items-center text-1xl">
               <AiFillThunderbolt />

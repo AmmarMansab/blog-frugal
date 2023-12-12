@@ -4,7 +4,9 @@ import React from 'react'
 const page = () => {
   return (
     <>
-    <Starthere/>
+      <div className='parent-of-all' >
+        <Starthere />
+      </div>
     </>
   )
 }

@@ -5,6 +5,7 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import axios from "axios"; // Import axios for API requests
 import "./Hero.css"; // Import your CSS file
 import { formatDate } from "@/utils";
+import { useRouter } from 'next/navigation';
 
 const contentStyle = {
   margin: 0,
@@ -15,6 +16,8 @@ const contentStyle = {
 };
 
 const Hero = () => {
+  const router = useRouter()
+
   const [carouselData, setCarouselData] = useState([]);
   const carouselRef = useRef(null);
 
@@ -54,6 +57,11 @@ const Hero = () => {
     carouselRef.current.prev();
   };
 
+  const handleNavigation = (route) => {
+    console.log(route, 'dddd');
+    // router.push(route);
+  }
+
   return (
     <div className="carousel-container">
       <Carousel
@@ -61,7 +69,7 @@ const Hero = () => {
         ref={carouselRef}
       >
         {carouselData?.posts?.map((post) => (
-          <div key={post._id}>
+          <div  onClick={() => handleNavigation(`/post/${API+post._id?.[0]?._id}`)} key={post._id}>
             <div style={contentStyle}>
               <div
                 className="hero-main"
@@ -69,8 +77,8 @@ const Hero = () => {
               >
                 <div className="hero-overlay"></div>
                 <div className="hero-content">
-                  <div className="hero-line"></div>
-                  <div className="hero-content-heading">
+                  <div  onClick={() => handleNavigation(`/post/${API+post._id?.[0]?._id}`)} className="hero-line"></div>
+                  <div  className="hero-content-heading">
                     {truncateText(post?.title, 50)}
                   </div>
                   <div className="hero-content-type">

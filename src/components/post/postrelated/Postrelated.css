@@ -37,11 +37,27 @@
 .related-card{
     width: 90%;
     height: 280px;
-    border: solid 1px red;
+    /* border: solid 1px purple; */
     margin-top: 20px;
     margin-bottom: 20px;
     color: black;
+    position: relative;
     
+}
+
+.related-card-img{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-image: url('../../../images//fotter-bg.png');
+}
+
+.overlay-related{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: red;
+    opacity: 0.6;
 }
 
 .carousel-container{
@@ -60,4 +76,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.custom-arrows{
+    width: 100%;
+    /* border: solid 1px black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* height: 00px; */
+    /* top:0% */
+    /* transform: translate(0px,-500px); */
+}
+
+.arrow-btn-left{
+    transform: translate(0px,-170px);
+}
+.arrow-btn-right{
+    transform: translate(0px,-170px);
+}
+
+.hero-content-heading{
+    color: white;
+    z-index: 30;
 }

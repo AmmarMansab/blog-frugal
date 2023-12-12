@@ -91,6 +91,7 @@
     margin: auto;
     width: 50%;
     transition: all ease-in-out 0.30s;
+    /* background-color: white; */
 }
 
 .hero-content:hover .hero-line {
