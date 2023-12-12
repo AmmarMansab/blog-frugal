@@ -113,22 +113,23 @@ const Category = () => {
           </div>
           {/* //// */}
         </div>
-        <div onClick={() => handleNavigation(`/post/${topViewedData?.[5]?._id}`)} class=" pt-16 lg:pl-4 xl:pl-4  rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
+        <div onClick={() => handleNavigation(`/post/${topViewedData?.[0]?._id}`)} class=" pt-16 lg:pl-4 xl:pl-4  rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
           <div className="main-scale">
             <div className="trending-icon flex justify-center items-center text-1xl">
               <AiFillThunderbolt />
             </div>
             <div className="content">
               <div className="line-anii"></div>
-              <h1>{truncateText(topViewedData?.[5]?.title, 20)}</h1>
+              <h1>{truncateText(topViewedData?.[0]?.title, 20)}</h1>
               <div className="hero-content-type">
-                {`By Admin / ${formatDate(topViewedData?.[5]?.createdAt)} / ${topViewedData?.[5]?.category?.name
-                  }`}
+                {`By Admin / ${formatDate(topViewedData?.[0]?.createdAt)} / ${
+                  topViewedData?.[0]?.category?.name
+                }`}
               </div>
             </div>
             <div
               style={{
-                backgroundImage: `url(${API + topViewedData[5]?.image})`,
+                backgroundImage: `url(${API + topViewedData[0]?.image})`,
               }}
               className="card"
             >
