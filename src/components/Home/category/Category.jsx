@@ -111,16 +111,16 @@ const Category = () => {
             </div>
             <div className="content">
               <div className="line-anii"></div>
-              <h1>{truncateText(topViewedData?.[5]?.title, 20)}</h1>
+              <h1>{truncateText(topViewedData?.[0]?.title, 20)}</h1>
               <div className="hero-content-type">
-                {`By Admin / ${formatDate(topViewedData?.[5]?.createdAt)} / ${
-                  topViewedData?.[5]?.category?.name
+                {`By Admin / ${formatDate(topViewedData?.[0]?.createdAt)} / ${
+                  topViewedData?.[0]?.category?.name
                 }`}
               </div>
             </div>
             <div
               style={{
-                backgroundImage: `url(${API + topViewedData[5]?.image})`,
+                backgroundImage: `url(${API + topViewedData[0]?.image})`,
               }}
               className="card"
             >
