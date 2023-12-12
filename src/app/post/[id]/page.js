@@ -16,27 +16,29 @@ import Image from "next/image";
 
 const page = () => {
 
-  const carouseldata = [
-    {
-      id: '11887',
-      img: 'http://placehold.it/2000x1420',
-      title: 'FEATURED CAROUSEL POSTS A',
-      by: 'Admin',
-      date: 'Dec 19, 2001',
-      category: 'Fashion',
-      content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor repellendus est necessitatibus quis illum cupiditate porro, quo, mollitia maiores cum accusamus, tempora modi voluptatum ullam fugiat officiis maxime consectetur dolorem!',
-    },
-  ]
+  // const carouseldata = [
+  //   {
+  //     id: '11887',
+  //     img: 'http://placehold.it/2000x1420',
+  //     title: 'FEATURED CAROUSEL POSTS A',
+  //     by: 'Admin',
+  //     date: 'Dec 19, 2001',
+  //     category: 'Fashion',
+  //     content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor repellendus est necessitatibus quis illum cupiditate porro, quo, mollitia maiores cum accusamus, tempora modi voluptatum ullam fugiat officiis maxime consectetur dolorem!',
+  //   },
+  // ]
 
   return (
     <>
-    <Postheader/>
-    <Postcontent/>
-    <Postnext/>
-    <Postrelated/>
-    <Postcomments/>
-    <Writemessage/>
-    <Fotter/>
+      <div className='parent-of-all' >
+        <Postheader />
+        <Postcontent />
+        <Postnext />
+        <Postrelated />
+        <Postcomments />
+        <Writemessage />
+        <Fotter />
+      </div>
     </>
   )
 }

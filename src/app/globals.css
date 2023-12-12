@@ -20,6 +20,12 @@
   }
 }
 
+.parent-of-all{
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background-color: white;

@@ -5,8 +5,10 @@ import React from 'react'
 const page = () => {
   return (
     <>
-    <Tlpheader/>
-    <Fotter/>
+      <div className='parent-of-all' >
+        <Tlpheader />
+        <Fotter />
+      </div>
     </>
   )
 }
