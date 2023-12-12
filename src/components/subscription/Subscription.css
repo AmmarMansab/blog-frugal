@@ -16,11 +16,20 @@
     border: solid 1px black;
 }
 
-@media screen and (min-width:700px) and (max-width:1000px) {
+@media screen and (min-width:667px) and (max-width:1000px) {
       .sub-1{
         width: 35%;
       }
       .sub-2{
         width: 65%;
       }
+}
+
+@media screen and (min-width:0px) and (max-width:667px) {
+    .sub-1{
+      width: 100%;
+    }
+    .sub-2{
+      width: 100%;
+    }
 }
