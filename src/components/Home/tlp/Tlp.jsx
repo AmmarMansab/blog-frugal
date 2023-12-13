@@ -56,7 +56,7 @@ const Tlp = () => {
     <>
       <div class=" container border max-w-80 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
         <div class=" pt-8 lg:pr-4 xl:pr-4 md:pr-4 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
-          <div onClick={() => handleNavigation(`/post/${topViewedData?.[0]?._id}`)} className="card-tlp">
+          <div onClick={() => handleNavigation(`/post/${topLikedData?.[0]?._id}`)} className="card-tlp">
             <div className="overlay"></div>
             <div
               className="cate-background"
@@ -71,14 +71,14 @@ const Tlp = () => {
                 )}
               </h1>
               <div className="hero-content-type">
-                {`By Admin / ${formatDate(topLikedData?.[0]?.createdAt)} / ${topLikedData?.[0]?.category?.name}`}
+                {`By Admin / ${formatDate(topLikedData?.[0]?.updatedAt)} / ${topLikedData?.[0]?.category?.name}`}
               </div>
               <div className="line-ani"></div>
             </div>
           </div>
         </div>
         <div class=" pt-8 xl:pr-4 lg:pr-4 xl:pl-4 lg:pl-4 md:pl-4 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
-          <div onClick={() => handleNavigation(`/post/${topViewedData?.[0]?._id}`)} className="card-tlp">
+          <div onClick={() => handleNavigation(`/post/${topSharedData?.[0]?._id}`)} className="card-tlp">
             <div className="overlay"></div>
             <div
               className="cate-background"
@@ -92,14 +92,14 @@ const Tlp = () => {
                 )}
               </h1>
               <div className="hero-content-type">
-                {`By Admin / ${formatDate(topSharedData?.[0]?.createdAt)} / ${topSharedData?.[0]?.category?.name}`}
+                {`By Admin / ${formatDate(topSharedData?.[0]?.updatedAt)} / ${topSharedData?.[0]?.category?.name}`}
               </div>
               <div className="line-ani"></div>
             </div>
           </div>
         </div>
         <div class=" pt-8 xl:pl-4 lg:pl-4 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
-          <div onClick={() => handleNavigation(`/post/${topViewedData?.[0]?._id}`)} className="card-tlp">
+          <div onClick={() => handleNavigation(`/post/${recentPosts?.[0]?._id}`)} className="card-tlp">
             <div className="overlay"></div>
             <div
               className="cate-background"
@@ -116,7 +116,7 @@ const Tlp = () => {
               </h1>
               <div className="hero-content-type">
 
-              {`By Admin / ${formatDate(recentPosts?.[0]?.createdAt)} / ${recentPosts?.[0]?.category?.name}`}
+              {`By Admin / ${formatDate(recentPosts?.[0]?.updatedAt)} / ${recentPosts?.[0]?.category?.name}`}
 
               </div>
               <div className="line-ani"></div>
