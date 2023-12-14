@@ -1,15 +1,47 @@
 "use client";
 import CategoryCard from "@/components/categoryPage/categoryCard";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./category.module.scss";
 import { Pagination } from "antd";
 import Hero from "@/components/categoryPage/Hero";
-import styles1 from "../../components/categoryPage/category.module.scss";
+import styles1 from "../../../components/categoryPage/category.module.scss";
 import Image from "next/image";
-
+import { useParams } from "next/navigation";
+import axios from 'axios'
 
 
 const page = () => {
+
+  const params = useParams();
+  const { id } = params
+
+  const [recentPosts, setRecentPosts] = useState([]);
+
+
+  const API = "https://server.blog.digiunction.com";
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [postsResponse] =
+          await Promise.all([
+            axios.get(`${API}/api/post/category/${id}?page=0`),
+          ]);
+
+          setRecentPosts(postsResponse.data?.posts);
+        
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    if (typeof window !== "undefined") {
+      fetchData();
+    }
+  }, [id]); // Empty dependency array ensures the effect runs only once
+
+
+
   const pageSize = 8; // Number of items to display per page
   const [currentPage, setCurrentPage] = useState(1);
   const posts = [
@@ -99,21 +131,24 @@ const page = () => {
     },
   ];
 
-  const totalPosts = posts.length;
+  const totalPosts = recentPosts.length;
   const totalPages = Math.ceil(totalPosts / pageSize);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
-  const displayPosts = posts.slice(
+  const displayPosts = recentPosts?.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
 
+  const truncateText = (text, maxLength) => {
+    return text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+  };
 
   const CategoryCard = ({ post }) => {
-    const { title, description, date } = post;
+    const { title, description, date, author } = post;
     return (
       <div className={styles1["hotle-search-results-wrapper"]}>
         <div className={styles1["bg-img-wrapper"]}>
@@ -132,7 +167,7 @@ const page = () => {
         <div className={styles1["search-results-content-wrapper"]}>
           <div className={styles1["hotel-name-wrapper"]}>
             <div className={styles1["hotel-name-container"]}>
-              <div className={styles1["hotel-name"]}>{title}</div>
+              <div className={styles1["hotel-name"]}>{truncateText(title, 25)}</div>
             </div>
             <div className={styles1["trip-card"]}>
               {/* <Image src={""} alt="" /> */}
@@ -142,7 +177,7 @@ const page = () => {
             <div className={styles1["map-name-container"]}>
               <div className={styles1["map-container"]}>{/* <MapSVG /> */}</div>
               <span className={styles1["rating-content"]} title={"address"}>
-                {description}
+                {truncateText(description, 50)}
               </span>
             </div>
           </div>
@@ -159,7 +194,7 @@ const page = () => {
           <div className={styles1["total-price"]}>{""}</div>
           <div className={styles1["bottom-tab-wrapper"]}>
             <div className={styles1["name"]}>
-              <div>{"Author Name"}</div>
+              <div>{`${author?.firstname + " " + author?.lastname}`}</div>
             </div>
   
             <button

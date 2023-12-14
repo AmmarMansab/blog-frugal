@@ -80,7 +80,7 @@ const Category = () => {
               dots={false}
             >
               {carouselData?.map((category) => (
-                <div onClick={() => handleNavigation(`/post/${category._id}`)} key={category._id}>
+                <div onClick={() => handleNavigation(`/category/${category._id}`)} key={category._id}>
                   <div style={contentStyle}>
                     <div className="main-scale">
                       <div className="overlay"></div>
