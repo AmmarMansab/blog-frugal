@@ -66,7 +66,7 @@ const Tlp = () => {
                 )}
               </h1>
               <div className="hero-content-type">
-                {`By Admin / ${formatDate(topViewedData?.[0]?.createdAt)} / ${topViewedData?.[0]?.category?.name}`}
+                {`By Admin / ${formatDate(topLikedData?.[0]?.updatedAt)} / ${topLikedData?.[0]?.category?.name}`}
               </div>
               <div className="line-ani"></div>
             </div>
@@ -87,7 +87,7 @@ const Tlp = () => {
                 )}
               </h1>
               <div className="hero-content-type">
-                {`By Admin / ${formatDate(topSharedData?.[0]?.createdAt)} / ${topSharedData?.[0]?.category?.name}`}
+                {`By Admin / ${formatDate(topSharedData?.[0]?.updatedAt)} / ${topSharedData?.[0]?.category?.name}`}
               </div>
               <div className="line-ani"></div>
             </div>
@@ -108,7 +108,9 @@ const Tlp = () => {
                 )}
               </h1>
               <div className="hero-content-type">
-                {`By Admin / ${formatDate(topLikedData?.[0]?.createdAt)} / ${topLikedData?.[0]?.category?.name}`}
+
+              {`By Admin / ${formatDate(recentPosts?.[0]?.updatedAt)} / ${recentPosts?.[0]?.category?.name}`}
+
               </div>
               <div className="line-ani"></div>
             </div>

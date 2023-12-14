@@ -82,7 +82,7 @@ const Hero = () => {
                     {truncateText(post?.title, 50)}
                   </div>
                   <div className="hero-content-type">
-                    {`By Admin / ${formatDate(post.createdAt)} / ${
+                    {`By Admin / ${formatDate(post.updatedAt)} / ${
                       post?.category?.name
                     }`}
                   </div>

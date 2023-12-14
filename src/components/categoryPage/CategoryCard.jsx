@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./category.module.scss";
 import Image from "next/image";
 
@@ -8,12 +7,10 @@ const CategoryCard = ({ post }) => {
     <div className={styles["hotle-search-results-wrapper"]}>
       <div className={styles["bg-img-wrapper"]}>
         <Image
-          src={
-            "https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
+          src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          layout="fill" // or "responsive" depending on your use case
           objectFit="cover"
           alt=""
-          layout="fill"
           placeholder="blur"
           blurDataURL="https://picsum.photos/640/360"
         />
@@ -25,7 +22,7 @@ const CategoryCard = ({ post }) => {
             <div className={styles["hotel-name"]}>{title}</div>
           </div>
           <div className={styles["trip-card"]}>
-            <Image src={""} alt="" />
+            {/* <Image src={""} alt="" /> */}
           </div>
         </div>
         <div className={styles["rating-wrapper"]}>
@@ -49,9 +46,7 @@ const CategoryCard = ({ post }) => {
         <div className={styles["total-price"]}>{""}</div>
         <div className={styles["bottom-tab-wrapper"]}>
           <div className={styles["name"]}>
-            <div>
-              {"Author Name"}
-            </div>
+            <div>{"Author Name"}</div>
           </div>
 
           <button
