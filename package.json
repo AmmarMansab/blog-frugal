@@ -1,23 +1,30 @@
 {
   "name": "blog-frugal-next",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-sitemap": "node generate-sitemap.js"
   },
   "dependencies": {
     "antd": "^5.12.1",
     "axios": "^1.6.2",
+    "fs": "^0.0.1-security",
     "next": "^14.0.3",
+    "next-sitemap": "^4.2.3",
+    "path": "^0.12.7",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "sass": "^1.69.5",
     "sitemap": "^7.1.1",
-    "styled-components": "^6.1.1"
+    "styled-components": "^6.1.1",
+    "swr": "^2.2.4",
+    "xmlbuilder": "^15.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

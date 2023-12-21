@@ -8,39 +8,23 @@ import "./Category.css";
 import { formatDate } from "@/utils";
 import { useRouter } from 'next/navigation';
 
+import { useGetCategories } from '../../../app/api/category';
+import { useGetTopViewedPosts } from '../../../app/api/blog';
+
+
 const Category = () => {
+
+  const { categories, catsLoading } = useGetCategories();
+  const { posts, postsLoading } = useGetTopViewedPosts();
 
   const router = useRouter()
 
   const handleNavigation = (route) => {
-    // console.log(route, 'dddd');
     router.push(route);
   }
 
-  const [carouselData, setCarouselData] = useState([]);
   const API = "https://server.blog.digiunction.com";
 
-  const [topViewedData, setTopViewedData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [Response, viewedResponse] = await Promise.all([
-          axios.get(`${API}/api/category/get-all`),
-          axios.get(`${API}/api/post/top-viewed`),
-        ]);
-
-        setCarouselData(Response.data);
-        setTopViewedData(viewedResponse.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    if (typeof window !== "undefined") {
-      fetchData();
-    }
-  }, []); // Empty dependency array ensures the effect runs only once
   const contentStyle = {
     margin: 0,
     height: "max-content",
@@ -79,7 +63,7 @@ const Category = () => {
               ref={carouselRef}
               dots={false}
             >
-              {carouselData?.map((category) => (
+              {categories?.map((category) => (
                 <div onClick={() => handleNavigation(`/category/${category._id}`)} key={category._id}>
                   <div style={contentStyle}>
                     <div className="main-scale">
@@ -113,23 +97,23 @@ const Category = () => {
           </div>
           {/* //// */}
         </div>
-        <div onClick={() => handleNavigation(`/post/${topViewedData?.[0]?._id}`)} class=" pt-16 lg:pl-4 xl:pl-4  rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
+        <div onClick={() => handleNavigation(`/post/${posts?.[0]?._id}`)} class=" pt-16 lg:pl-4 xl:pl-4  rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
           <div className="main-scale">
             <div className="trending-icon flex justify-center items-center text-1xl">
               <AiFillThunderbolt />
             </div>
             <div className="content">
               <div className="line-anii"></div>
-              <h1>{truncateText(topViewedData?.[0]?.title, 20)}</h1>
+              <h1>{truncateText(posts?.[0]?.title, 20)}</h1>
               <div className="hero-content-type">
-                {`By Admin / ${formatDate(topViewedData?.[0]?.createdAt)} / ${
-                  topViewedData?.[0]?.category?.name
+                {`By Admin / ${formatDate(posts?.[0]?.createdAt)} / ${
+                  posts?.[0]?.category?.name
                 }`}
               </div>
             </div>
             <div
               style={{
-                backgroundImage: `url(${API + topViewedData[0]?.image})`,
+                backgroundImage: `url(${API + posts[0]?.image})`,
               }}
               className="card"
             >
