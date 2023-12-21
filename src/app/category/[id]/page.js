@@ -1,4 +1,6 @@
 "use client";
+
+
 import CategoryCard from "@/components/categoryPage/categoryCard";
 import React, { useEffect, useState } from "react";
 import styles from "./category.module.scss";
@@ -8,6 +10,7 @@ import styles1 from "../../../components/categoryPage/category.module.scss";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import axios from 'axios'
+
 
 
 const page = () => {
