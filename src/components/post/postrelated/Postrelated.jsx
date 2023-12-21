@@ -24,7 +24,7 @@ const truncateText = (text, maxLength) => {
 const Postrelated = ({ posts }) => {
   const carouselRef = useRef(null);
 
-  console.log(posts)
+  // console.log(posts)
 
   const data = [
     {
