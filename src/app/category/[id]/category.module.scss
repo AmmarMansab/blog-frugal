@@ -1,46 +1,185 @@
 .my-container {
   display: flex;
-  background-color: antiquewhite;
+  // background-color: antiquewhite;
+  // border: solid 1px green;
+  max-width: 92%;
+  min-width: 92%;
+  margin: 40px auto  ;
 }
+
+////
+
+.full-card {
+  height: 420px;
+  width: 100%;
+  border: solid 2px black;
+  margin-top: 40px;
+  border-radius: 10px;
+  display: flex;
+}
+.full-card-a{
+  border: solid 2px red;
+  width: 60%;
+  height: 100%;
+}
+.full-card-b{
+  border: solid 2px greenyellow;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  padding-left: 15px;
+}
+
+.full-card-b h1{
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.full-card-b p{
+  // font-size: 25px;
+  // font-weight: 700;
+  color: var(--pragraph);
+}
+
+////
+
+.grid-main-container {
+  width: 85%;
+  // border: solid 2px red;
+}
+
+@media screen and (min-width:0px) and (max-width:1200px) {
+  .my-container {
+    flex-direction: column-reverse;
+  }
+
+  .grid-main-container {
+    width: 100%;
+  }
+}
+
+
+
 .card {
+  // border: solid 2px purple;
+  width: 80%;
+}
+
+.side-content {
+  flex-basis: 20%;
+  flex-wrap: nowrap;
+  /* Set the width to 20% of the container */
+  margin-top: 50px;
+  // background-color: lightgray; 
+  margin-right: 20px;
+  // border: solid 1px red;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-tag {
+  width: max-content;
+  height: max-content;
+  padding: 2px;
+  border: solid 2px var(--pragraph);
+  transition: all ease-in-out 0.30s;
+  color: var(--pragraph);
+  border-radius: 5px;
+  margin-top: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.side-tag:hover {
+  background-color: var(--pragraph);
+  // background-color: ;
+  color: white;
+}
+
+.side-tag-main {
+  height: max-content;
+  width: 100%;
+  // border: solid 1px black;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px; /* Adjust the vertical gap based on your design */
-  padding-left: 20px;
-  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.side-search {
+  width: 100%;
+  height: max-content;
+  // border: solid 1px black;
+  // border-bottom: 125px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   padding-bottom: 20px;
-  flex-basis: 85%;
 }
-.side-content {
-  flex-basis: 15%; /* Set the width to 20% of the container */
-  margin-top: 20px;
-  background-color: lightgray;
-  margin-right: 20px;
+
+.side-search input {
+  border: none;
+  border-bottom: solid 1px black;
+  padding-left: 10px;
+  width: 190px;
+  margin-left: 10px;
 }
+
+.gird-main {
+  border: solid 2px red;
+  padding-bottom: 40px;
+  height: max-content;
+  max-height: 50vh;
+  overflow-y: scroll;
+  margin-top: 50px;
+}
+
+////
+/* For WebKit browsers */
+/* Track */
+.gird-main::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Handle */
+.gird-main::-webkit-scrollbar-thumb {
+  background-color: #c8c8c8;
+}
+
+/* Handle on hover */
+.gird-main::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+////
+
 
 /* Adjust the width and styles based on your design */
 @media (min-width: 576px) {
   .card {
-    justify-content: flex-start; /* Keep cards aligned to the start */
+    justify-content: flex-start;
+    /* Keep cards aligned to the start */
   }
 
-  .card > * {
-    flex-basis: calc(50% - 20px); /* Two cards in a row with a gap of 20px */
+  .card>* {
+    flex-basis: calc(50% - 20px);
+    /* Two cards in a row with a gap of 20px */
   }
 }
 
 @media (min-width: 768px) {
-  .card > * {
-    flex-basis: calc(
-      33.33% - 20px
-    ); /* Three cards in a row with a gap of 20px */
+  .card>* {
+    flex-basis: calc(33.33% - 20px);
+    /* Three cards in a row with a gap of 20px */
   }
 }
 
 @media (min-width: 992px) {
-  .card > * {
-    flex-basis: calc(25% - 20px); /* Four cards in a row with a gap of 20px */
+  .card>* {
+    flex-basis: calc(25% - 20px);
+    /* Four cards in a row with a gap of 20px */
   }
 }
 
@@ -51,3 +190,148 @@
     padding-right: 20px;
   }
 }
+
+////
+/// 
+
+.cate-cart {
+  width: 340px;
+  height: 370px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all ease-in-out 0.20s;
+   background-color: var(--sky);
+}
+
+// @media screen and (min-width: 1280px) and (max-width: 1420px) {
+//   .cate-cart {
+//     width: 150px !important;
+//     height: 230px !important;
+//     border: solid 2px red;
+//   }
+// }
+
+@media screen and (min-width: 1280px) and (max-width: 1450px) {
+  .cate-cart {
+    width: 240px !important;
+    height: 300px !important;
+    // border: solid 1px red;
+  }
+
+  .cate-cart-content h1 {
+    font-size: 20px !important;
+    // color: green ;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1280px) {
+  .cate-cart {
+    width: 280px !important;
+    height: 300px !important;
+  }
+
+  .cate-cart-content h1 {
+    font-size: 20px !important;
+    // color: green ;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .cate-cart {
+    width: 280px !important;
+    height: 300px !important;
+  }
+
+  .cate-cart-content h1 {
+    font-size: 20px !important;
+    // color: green ;
+  }
+}
+
+@media screen and (min-width:870px) and (max-width:1024px) {
+  .cate-cart {
+    width: 360px !important;
+    height: 380px !important;
+  }
+}
+
+@media screen and (min-width:800px) and (max-width:870px) {
+  .cate-cart {
+    width: 330px !important;
+    height: 350px !important;
+  }
+}
+
+@media screen and (min-width:700px) and (max-width:800px) {
+  .cate-cart {
+    width: 290px !important;
+    height: 320px !important;
+  }
+}
+
+@media screen and (min-width:668px) and (max-width:700px) {
+  .cate-cart {
+    width: 270px !important;
+    height: 300px !important;
+  }
+}
+
+
+@media screen and (min-width:400px) and (max-width:668px) {
+  .cate-cart {
+    width: 360px !important;
+    height: 380px !important;
+  }
+}
+
+@media screen and (min-width:0px) and (max-width:400px) {
+  .cate-cart {
+    width: 310px !important;
+    height: 350px !important;
+  }
+}
+
+
+.cate-cart:hover {
+  transform: scale(1.03);
+}
+
+.cate-cart-img {
+  height: 60%;
+  width: 100%;
+  // border: solid 2px red;
+  background-size: cover;
+  background-position: center;
+}
+
+.cate-cart-content h1 {
+  height: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.cate-cart-content h1 {
+  font-size: 22px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.cate-cart-content p {
+  margin-bottom: 10px;
+  color: var(--pragraph);
+  margin-left: 10px;
+}
+
+.my-container {
+  // border: solid 2px red;
+  // min-height: 500px;
+  // max-height: 500px;
+}
+
+///////
