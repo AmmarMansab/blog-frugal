@@ -10,6 +10,7 @@
   --yellow-shadow:rgb(255, 204, 57);
   --opacity:0.6;
   --white:white;
+  --sky:rgb(235, 249, 250);
 }
 
 @media (prefers-color-scheme: dark) {

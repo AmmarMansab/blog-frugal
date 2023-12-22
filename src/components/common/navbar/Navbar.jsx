@@ -6,6 +6,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
 // import { useRouter } from 'next/router';
 import { useRouter } from 'next/navigation';
+import logo from '../../../images/nav_logo.png'
 
 const Navbar = () => {
 
@@ -32,7 +33,7 @@ const Navbar = () => {
     <>
       <div className="container-nav">
         <div className="nav-logo">
-          Logo Of Blogs
+          {/* <img  src={logo} /> */}
         </div>
         <div className="nav-burger">
           <RxHamburgerMenu onClick={shownav} style={{ color: 'white' }} />

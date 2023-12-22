@@ -1,5 +1,4 @@
 "use client";
-
 import CategoryCard from "@/components/categoryPage/categoryCard";
 import React, { useEffect, useState } from "react";
 import styles from "./category.module.scss";
