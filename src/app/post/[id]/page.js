@@ -1,3 +1,5 @@
+'use client'
+
 import Fotter from "@/components/common/fotter/Fotter";
 import Postcomments from "@/components/post/postcoments/Postcomments";
 import Postcontent from "@/components/post/postcontent/Postcontent";
@@ -5,36 +7,63 @@ import Postheader from "@/components/post/postheader/Postheader";
 import Postnext from "@/components/post/postnext/Postnext";
 import Postrelated from "@/components/post/postrelated/Postrelated";
 import Writemessage from "@/components/post/writemessage/Writemessage";
+import axios from "axios";
 import Image from "next/image";
-// import Carousel from "@/components/home/Carousel";
-// import Postheader from "@/components/post/Postheader";
-// import Postcomments from "@/components/post/Postcomments";
-// import Relatedpost from "@/components/post/Relatedpost";
-// import NextPreviouspost from "@/components/post/NextPreviouspost";
-// import Postcontent from "@/components/post/Postcontent";
-
+import { useParams } from 'next/navigation'
+import { useEffect, useState } from "react";
 
 const page = () => {
+  const params = useParams();
+  const { id } = params
 
-  // const carouseldata = [
-  //   {
-  //     id: '11887',
-  //     img: 'http://placehold.it/2000x1420',
-  //     title: 'FEATURED CAROUSEL POSTS A',
-  //     by: 'Admin',
-  //     date: 'Dec 19, 2001',
-  //     category: 'Fashion',
-  //     content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor repellendus est necessitatibus quis illum cupiditate porro, quo, mollitia maiores cum accusamus, tempora modi voluptatum ullam fugiat officiis maxime consectetur dolorem!',
-  //   },
-  // ]
+  const [post, setPost] = useState({});
+  const [catPosts, setCatPosts] = useState([]);
+
+  const API = "https://server.blog.digiunction.com";
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Make the API call only once and store the data
+        const response = await axios.get(
+          `https://server.blog.digiunction.com/api/post/get/${id}`
+        );
+        setPost(response.data); // Assuming the response is an array of data
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    if (typeof window !== "undefined") {
+      // Check if running on the client side
+      fetchData();
+    }
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Make the API call only once and store the data
+        const response = await axios.get(
+          `https://server.blog.digiunction.com/api/post/category/${post?.category?._id}?page=0`
+        );
+        setCatPosts(response.data?.posts); // Assuming the response is an array of data
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    if (typeof window !== "undefined") {
+      // Check if running on the client side
+      fetchData();
+    }
+  }, [post]);
 
   return (
     <>
       <div className='parent-of-all' >
-        <Postheader />
-        <Postcontent />
-        <Postnext />
-        <Postrelated />
+        <Postheader post={post}/>
+        <Postcontent post={post}/>
+        {/* <Postnext /> */}
+        <Postrelated posts={catPosts}/>
         <Postcomments />
         <Writemessage />
         <Fotter />

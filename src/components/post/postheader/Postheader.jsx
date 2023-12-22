@@ -1,7 +1,9 @@
 import React from 'react'
 import './Postheader.css'
+import { formatDate } from '@/utils'
 
-const Postheader = () => {
+const Postheader = ({post}) => {
+
   return (
     <>
        <div className="container post-header-hero" style={{backgroundImage: `url(${"https://server.blog.digiunction.com"+post?.image})`}}>
@@ -9,7 +11,7 @@ const Postheader = () => {
         <div className="line-1"></div>
         <div className="line-2"></div>
          <div className="post-header-inner">
-          <h1>Title heading or anyting</h1>
+          <h1>{post?.title}</h1>
            <div className="post-category">
             <p>{post?.author?.firstname + " " + post?.author?.lastname}</p>
             <span>/</span>

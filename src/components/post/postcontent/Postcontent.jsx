@@ -1,14 +1,24 @@
-import React from 'react'
-import './Postcontent.css'
+import React from "react";
+import "./Postcontent.css";
 
-const Postcontent = () => {
+const Postcontent = ({ post }) => {
+  const createMarkup = (html) => {
+    return { __html: html };
+  };
+
   return (
     <>
-     <div className="container content-container border ">
-           content of the year
-     </div>
-    </>
-  )
-}
+      <div 
+      className="container content-container"
+      >
+        {/* Render description */}
+        <h1 style={{color: "black"}}>{post?.description}</h1>
 
-export default Postcontent
+        {/* Render content */}
+        <div style={{color: "black"}} dangerouslySetInnerHTML={createMarkup(post?.content)} />
+      </div>
+    </>
+  );
+};
+
+export default Postcontent;
