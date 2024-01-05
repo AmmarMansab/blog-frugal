@@ -1,0 +1,95 @@
+.sub-container{
+    width: 80vw;
+    height: max-content;
+    /* border: solid 1px black; */
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: var(--sky);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.sub-h-img{
+    width: 400px;
+    height: 75vh;
+}
+
+.sub-h-content{
+    width: 400px;
+    height: 75vh;
+    /* border: solid 1px black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 25px;
+}
+
+.sub-h-content h1{
+    font-size: 25px;
+    font-weight: 700;
+    width: 90%;
+    text-align: center;
+    line-height: 30px;
+}
+
+.sub-h-content p{
+  width: 90%;
+  text-align: justify;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.sub-h-content input{
+    width: 90%;
+    height: 40px;
+    border: solid 1px rgb(175, 175, 175);
+    margin-top: 15px;
+    padding-left: 15px;
+    outline: none;
+}
+
+.sub-h-content button{
+    height: 40px;
+    width: 90%;
+    background-color: black;
+    color: white;
+    margin-top: 15px;
+}
+
+@media screen and (min-width:0px) and (max-width:400px) {
+    .sub-container{
+        width: 100%;
+        flex-direction: column;
+    }
+    .sub-h-img{
+        width: 350px;
+    }
+    .sub-h-content{
+        width: 350px;
+    }
+}
+
+@media screen and (min-width:400px) and (max-width:850px) {
+    .sub-container{
+        width: 100%;
+        flex-direction: column;
+    }
+    .sub-h-img{
+        width: 450px;
+    }
+    .sub-h-content{
+        width: 450px;
+    }
+
+    @media screen and (min-width:850px) and (max-width:1200px) {
+        .sub-container{
+            min-width: 100% !important ;
+            flex-direction: column;
+            border: solid 5px greenyellow !important ;
+        }
+    }
+}

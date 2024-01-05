@@ -1,32 +1,49 @@
+'use client'
 import React from 'react'
 import './Starthere.css'
+import {
+    useGetTopViewedPosts,
+    useGetPosts,
+    useGetTopSharedPosts,
+    useGetTopLikedPosts,
+} from "@/app/api/blog";
+import '../../../components/Home/tlp/Tlp.css'
+
 
 const Starthere = () => {
+
+    const { posts: topViewedData, postsLoading: a } = useGetTopViewedPosts();
+    const { posts: recentPosts, postsLoading: b } = useGetPosts();
+    const { posts: topSharedData, postsLoading: c } = useGetTopSharedPosts();
+    const { posts: topLikedData, postsLoading: d } = useGetTopLikedPosts();
+
+    console.log(topViewedData, 'top...');
+    const API = "https://server.blog.digiunction.com";
 
     const data = [
         {
             id: '1234567'
-            , img: 'https://images.unsplash.com/photo-1701666469271-fd6c65a1e7d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8',
+            , image: 'https://images.unsplash.com/photo-1701666469271-fd6c65a1e7d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8',
             title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur enim deleniti iste a cupiditate illum rem. Eos a ratione quia velit architecto, fugit obcaecati laboriosam necessitatibu',
-            des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cumque nesciunt nihil facere minus ab eveniet suscipit dignissimos ullam, molestias sapiente saepe soluta reprehenderit repellat placeat ipsum, error provident earum?',
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cumque nesciunt nihil facere minus ab eveniet suscipit dignissimos ullam, molestias sapiente saepe soluta reprehenderit repellat placeat ipsum, error provident earum?',
         },
         {
             id: '1234567'
-            , img: 'https://images.unsplash.com/photo-1701921188059-daa354b6a91c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHx8',
+            , image: 'https://images.unsplash.com/photo-1701666469271-fd6c65a1e7d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8',
             title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur enim deleniti iste a cupiditate illum rem. Eos a ratione quia velit architecto, fugit obcaecati laboriosam necessitatibu',
-            des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cumque nesciunt nihil facere minus ab eveniet suscipit dignissimos ullam, molestias sapiente saepe soluta reprehenderit repellat placeat ipsum, error provident earum?',
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cumque nesciunt nihil facere minus ab eveniet suscipit dignissimos ullam, molestias sapiente saepe soluta reprehenderit repellat placeat ipsum, error provident earum?',
         },
         {
             id: '1234567'
-            , img: 'https://images.unsplash.com/photo-1682687219570-4c596363fd96?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHx8',
+            , image: 'https://images.unsplash.com/photo-1701666469271-fd6c65a1e7d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8',
             title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur enim deleniti iste a cupiditate illum rem. Eos a ratione quia velit architecto, fugit obcaecati laboriosam necessitatibu',
-            des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cumque nesciunt nihil facere minus ab eveniet suscipit dignissimos ullam, molestias sapiente saepe soluta reprehenderit repellat placeat ipsum, error provident earum?',
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cumque nesciunt nihil facere minus ab eveniet suscipit dignissimos ullam, molestias sapiente saepe soluta reprehenderit repellat placeat ipsum, error provident earum?',
         },
         {
             id: '1234567'
-            , img: 'https://images.unsplash.com/photo-1701674397460-82694a5da42b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D',
+            , image: 'https://images.unsplash.com/photo-1701666469271-fd6c65a1e7d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8',
             title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur enim deleniti iste a cupiditate illum rem. Eos a ratione quia velit architecto, fugit obcaecati laboriosam necessitatibu',
-            des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cumque nesciunt nihil facere minus ab eveniet suscipit dignissimos ullam, molestias sapiente saepe soluta reprehenderit repellat placeat ipsum, error provident earum?',
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cumque nesciunt nihil facere minus ab eveniet suscipit dignissimos ullam, molestias sapiente saepe soluta reprehenderit repellat placeat ipsum, error provident earum?',
         },
     ]
 
@@ -53,41 +70,114 @@ const Starthere = () => {
                     </div>
                 </div>
             </div>
-            <div class="container max-w-80 mx-auto flex ">
-                <div class=" pr-2 pb-0 rounded-md w-1/1">
+            <div class="container max-w-80 mx-auto flex starthere-con ">
+                <div class=" pr-2 pb-0 rounded-md starthere-p w-1/2 ">
                     <h1 className='here-heading' >Latest</h1>
                     <div class="flex flex-col justify-start items-start">
                         {
-                            data.map((items) => {
-                                const { id, img, title, des } = items
-                                return (
-                                    <>
-                                        <div class="  mt-8  here-card h-max-content w-95 flex justify-center items-center flex-col">
-                                            <img style={{ boxShadow: '0px 7px 23px -8px rgba(0,0,0,0.75);' }} src={img} alt="" />
-                                            <h2>{title}</h2>
-                                            <p>{des}</p>
+                            recentPosts.lenght > 0 ?
+                                // data.map((items) => {
+                                recentPosts.map((items) => {
+                                    const { id, image, title, description } = items
+                                    return (
+                                        <>
+                                            <div class="  mt-8  here-card h-max-content w-95 flex justify-center items-center flex-col ">
+                                                <img style={{ boxShadow: '0px 7px 23px -8px rgba(0,0,0,0.75);' }} src={API + image} alt="" />
+                                                <h2>{title}</h2>
+                                                <p>{description}</p>
+                                            </div>
+                                        </>
+                                    )
+                                }) :
+                                <div className='skeleton-main-cate-related  container mb-6 '>
+                                    <div className="row" >
+                                        <div className='col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12 '>
+                                            <div className="skeleton">
+                                                <div className="skeleton__Bigimg-sh-l-t shadow-sm ">
+                                                </div>
+                                            </div>
                                         </div>
-                                    </>
-                                )
-                            })
+                                        <div className='col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-6 '>
+                                            <div className="skeleton">
+                                                <div className="skeleton__Bigimg-sh-l-b shadow-sm ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-6'>
+                                            <div className="skeleton">
+                                                <div className="skeleton__Bigimg-sh-l-mb shadow-sm ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12'>
+                                            <div className="skeleton">
+                                                <div className="skeleton__Bigimg-sh-l-mb shadow-sm ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12'>
+                                            <div className="skeleton">
+                                                <div className="skeleton__Bigimg-sh-l-mb shadow-sm ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                         }
                     </div>
                 </div>
-                <div class=" pr-2 pb-0 rounded-md w-1/1">
+                <div class=" pr-2 pb-0 rounded-md starthere-p w-1/2  ">
                     <h1 className='here-heading'  >Trending</h1>
                     {
-                        data.map((items) => {
-                            const { id, img, title, des } = items
-                            return (
-                                <>
-                                    <div class="  mt-8  here-card-2 h-max-content w-95 flex justify-start items-start ">
-                                        <img src={img} alt="" />
-                                        <h2 >{title}</h2>
-                                        {/* <p>{des}</p> */}
+                        topViewedData.lenght > 0 ?
+                            // data.map((items) => {
+                            topViewedData.map((items) => {
+                                const { id, image, title, description } = items
+                                return (
+                                    <>
+                                        <div class="  mt-8  here-card-2 h-max-content w-95 flex justify-start items-start  ">
+                                            <img style={{ boxShadow: '0px 7px 23px -8px rgba(0,0,0,0.75);' }} src={API + image} alt="" />
+                                            <h2 >{title}</h2>
+                                        </div>
+                                    </>
+                                )
+                            }) :
+                            <>
+                                {/* // 1 */}
+                                <div className='skeleton-main-cate-related  container mt-6'>
+                                    <div className="row" >
+                                        <div className='col-ske col-sm-4 col-md-4 col-lg-4 col-xl-4'>
+                                            <div className="skeleton">
+                                                <div className="skeleton__Bigimg-sh-r-t shadow-sm ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-ske col-sm-8 col-md-8 col-lg-8 col-xl-8'>
+                                            <div className="skeleton">
+                                                <div className="skeleton__Bigimg-sh-r-b shadow-sm ">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </>
-                            )
-                        })
+                                </div>
+                                {/* // 2nd */}
+                                <div className='skeleton-main-cate-related  container mt-6 mb-6 '>
+                                    <div className="row" >
+                                        <div className='col-ske col-sm-4 col-md-4 col-lg-4 col-xl-4'>
+                                            <div className="skeleton">
+                                                <div className="skeleton__Bigimg-sh-r-t shadow-sm ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-ske col-sm-8 col-md-8 col-lg-8 col-xl-8'>
+                                            <div className="skeleton">
+                                                <div className="skeleton__Bigimg-sh-r-b shadow-sm ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
                     }
                 </div>
             </div>

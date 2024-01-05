@@ -73,6 +73,19 @@
      height: 170px;   
 }
 
+.post-one-header-ske{
+    height: 80vh;
+    width: 100%;
+    position: relative;
+    /* border: solid 1px greenyellow; */
+}
+
+.skeleton__Big-post-header{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
 @media screen and (min-width:600px) and (max-width:800px) {
     
     .post-header-inner{

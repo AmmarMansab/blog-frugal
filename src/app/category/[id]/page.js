@@ -8,17 +8,23 @@ import styles1 from "../../../components/categoryPage/category.module.scss";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import axios from "axios";
+import { BsSearch } from "react-icons/bs";
+import '../../../components/Home/tlp/Tlp.css'
 
 import {
   useGetPostsByCategory
 } from "../../../app/api/blog";
+import Fotter from "@/components/common/fotter/Fotter";
+import Navbar from "@/components/common/navbar/Navbar";
+import { Spin } from 'antd';
 
 const page = () => {
   const params = useParams();
   const { id } = params;
+  const [theindex, setTheindex] = useState(true)
 
   const { posts: recentPosts, postsLoading } = useGetPostsByCategory(id);
-  
+
   const API = "https://server.blog.digiunction.com";
 
   const pageSize = 8; // Number of items to display per page
@@ -40,83 +46,127 @@ const page = () => {
     return text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
   };
 
-  const CategoryCard = ({ post }) => {
+  const [Index, setIndex] = useState()
+  var BigIndex = 0;
+  let isSpecialCard
+
+  const CategoryCard = ({ post, index }) => {
+    isSpecialCard = index % 8 === 0;
     const { title, description, updatedAt, author, image } = post;
-
     return (
-      <div className={styles1["hotle-search-results-wrapper"]}>
-        <div className={styles1["bg-img-wrapper"]}>
-          {/* <Image
-            src={`${API}/${image}`}
-            // layout="fill" // or "responsive" depending on your use case
-            objectFit="cover"
-            alt=""
-            placeholder="blur"
-            blurDataURL="https://picsum.photos/640/360"
-            width={300}
-            height={100}
-          /> */}
-        </div>
-
-        <div className={styles1["search-results-content-wrapper"]}>
-          <div className={styles1["hotel-name-wrapper"]}>
-            <div className={styles1["hotel-name-container"]}>
-              <div className={styles1["hotel-name"]}>
-                {truncateText(title, 25)}
+      <>
+        {isSpecialCard ? (
+          <>
+            <div className="col-12" >
+              <div className={` shadow-md ${styles['full-card']}`} >
+                <div style={{ backgroundImage: `url(${API + image})` }} className={`${styles['full-card-a']}`} ></div>
+                <div className={`${styles['full-card-b']}`} >
+                  <p className={`${styles['full-heading']}`} >{truncateText('Lorem h ipsum dolor, sit amet consectetur adipisicing elit. Nihil eos labore ex molestias sunt dignissimos placeat hic. Amet, unde! Quibusdam inventore, autem iste doloribus laborum repudiandae! Odio ex recusandae voluptatum?', 90)}</p>
+                  <p>{truncateText(description, 350)}</p>
+                </div>
               </div>
             </div>
-            <div className={styles1["trip-card"]}>
-              {/* <Image src={""} alt="" /> */}
-            </div>
-          </div>
-          <div className={styles1["rating-wrapper"]}>
-            <div className={styles1["map-name-container"]}>
-              <div className={styles1["map-container"]}>{/* <MapSVG /> */}</div>
-              <span className={styles1["rating-content"]} title={"address"}>
-                {truncateText(description, 50)}
-              </span>
-            </div>
-          </div>
-          <div className={styles1["info-wrapperr"]}>
-            <div className={styles1["date-wrapper"]}>
-              <div className={styles1["date-wrapper-item"]}>
-                <span>{updatedAt}</span>
-              </div>
-              <div className={styles1["date-wrapper-item"]}>
-                {/* <span>{2}</span> */}
+          </>
+        ) : (
+          <>
+            <div className="col-4" >
+              <div className={` shadow-md ${styles['cate-cart']}`} >
+                <div className={`${styles['cate-cart-img']}`} style={{ backgroundImage: `url(${API + image})` }} ></div>
+                <div className={`${styles['cate-cart-content']}`} >
+                  <h1>{truncateText(title, 20)}</h1>
+                  <p>{truncateText(description, 20)}</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className={styles1["total-price"]}>{""}</div>
-          <div className={styles1["bottom-tab-wrapper"]}>
-            <div className={styles1["name"]}>
-              <div>{`${author?.firstname + " " + author?.lastname}`}</div>
-            </div>
-
-            <button
-              className={styles1["book-now-btn"]}
-              //   onClick={handleViewClick}
-            >
-              View
-            </button>
-          </div>
-        </div>
-      </div>
+          </>
+        )}
+      </>
     );
   };
 
+  const tags = [
+    {
+      title: 'Fashion',
+    },
+    {
+      title: 'Trevaling',
+    },
+    {
+      title: 'Education',
+    },
+    {
+      title: 'Science',
+    },
+    {
+      title: 'Lands',
+    },
+  ]
+
   return (
-    <div>
+    <div className='parent-of-all' >
+      <Navbar />
       <Hero />
       <div className={styles["my-container"]}>
-        <div className={styles["card"]}>
-          {displayPosts?.map((post, index) => (
-            <React.Fragment key={index}>
-              {CategoryCard({ post: post })}
-            </React.Fragment>
-          ))}
+        <div className={` ${styles['grid-main-container']} `}>
+          <div className={`${styles['grid-main']} ${'container'}`}>
+            <div className="row" >
+              {
+                displayPosts.length > 0 ?
+                  displayPosts.map((post, index) => (
+                    <React.Fragment key={index}>
+                      {CategoryCard({ post: post, index: index })}
+                    </React.Fragment>
+                  ))
+                  :
+                  <div className={` ${styles['skeleton-main-cate']} container `}>
+                    <div className="row" >
+                      <div className={` ${styles ['col-ske'] } col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4` }>
+                        <div className="skeleton">
+                          <div className="skeleton__Bigimg">
+                          </div>
+                        </div>
+                      </div>
+                      <div className={` ${styles ['col-ske'] }  col-sm-12 col-md-12 col-lg-4 col-xl-4` }>
+                        <div className="skeleton">
+                          <div className="skeleton__Bigimg">
+                          </div>
+                        </div>
+                      </div>
+                      <div className={`${styles ['col-ske'] }  col-sm-12 col-md-12 col-lg-4 col-xl-4`} >
+                        <div className="skeleton">
+                          <div className="skeleton__Bigimg">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              }
+            </div>
+          </div>
         </div>
-        <div className={styles["side-content"]}>Ammar</div>
+        {/* //// */}
+        <div className={styles["side-content"]}>
+          <div className={styles["side-search"]}>
+            <input placeholder="Search Related Tags ...." /><BsSearch style={{ marginLeft: '10px' }} />
+          </div>
+          <div className={`${styles['side-tag-main']}`} >
+            {tags.length > 0 ? (
+              tags.map((itemes) => {
+                const { title } = itemes;
+                return (
+                  <div key={title} className={` ${styles['side-tag']}`}>
+                    {title}
+                  </div>
+                );
+              })
+            ) : (
+              <div className={`${styles['side-tag-spin']}`} >
+                <Spin size="medium" /> 
+              </div>
+            )}
+          </div>
+        </div>
+        {/* //// */}
       </div>
       <Pagination
         current={currentPage}
@@ -129,6 +179,7 @@ const page = () => {
           backgroundColor: "antiquewhite",
         }}
       />
+      <Fotter />
     </div>
   );
 };

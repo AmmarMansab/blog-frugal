@@ -195,6 +195,12 @@
     margin-top: 50px;
 }
 
+.skeleton__Comments{
+    height: 90px;
+    width: 100%;
+    margin: auto;
+  }
+
 @media screen and (min-width:600px) and (max-width:850px) {
     .comments-inner{
         /* border: solid 4px grey; */

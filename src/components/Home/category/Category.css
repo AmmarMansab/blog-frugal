@@ -10,6 +10,12 @@
     transition: all ease-in-out 0.30s;
 }
 
+.home-cate-con{
+    border: solid 2px red;
+    margin-top: 30vh;
+    height: 70vh;
+}
+
 .carousel-container {
     position: relative;
 }
@@ -33,9 +39,9 @@
 
 
 .card{
-    height: 370px;
+    height: 370px !important ;
     width: 100%;
-    /* border: solid 1px red; */
+    /* border: solid 5px red; */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -46,7 +52,7 @@
 .trending-icon{
     height: 60px;
     width: 55px;
-    background-color: beige;
+    background-color: transparent;
     position: absolute;
     right: 0px;
     z-index: 25;
