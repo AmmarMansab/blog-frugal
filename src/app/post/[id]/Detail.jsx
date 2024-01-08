@@ -10,6 +10,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useGetPostsByCategory, useGetPostByID } from "../../../app/api/blog";
+import Navbar from "@/components/common/navbar/Navbar";
 
 const page = () => {
   const params = useParams();
@@ -21,12 +22,15 @@ const page = () => {
 
   return (
     <>
+    <div className='parent-of-all' >
+      <Navbar/>
       <Postheader post={post} />
       <Postcontent post={post} />
       <Postrelated posts={posts} />
       <Postcomments />
       <Writemessage />
       <Fotter />
+    </div>
     </>
   );
 };

@@ -5,6 +5,7 @@ import "./Tlp.css";
 import axios from "axios"; // Import axios for API requests
 import { formatDate } from "@/utils";
 import { useRouter } from "next/navigation";
+import { MdSignalWifiStatusbarConnectedNoInternet1 } from "react-icons/md";
 
 import {
   useGetTopViewedPosts,
@@ -19,6 +20,11 @@ const Tlp = () => {
   const { posts: topSharedData, postsLoading: c } = useGetTopSharedPosts();
   const { posts: topLikedData, postsLoading: d } = useGetTopLikedPosts();
 
+  console.log(recentPosts, 'recentposts....', 'recentloading....', b,);
+
+  const [loading, setLoading] = useState(false);
+  const [reloadComponent, setReloadComponent] = useState(false);
+
   const router = useRouter();
 
   const API = "https://server.blog.digiunction.com";
@@ -32,81 +38,176 @@ const Tlp = () => {
     router.push(route);
   };
 
+  useEffect(() => {
+
+    setLoading(false)
+
+    const loadingTimer = setTimeout(() => {
+      setLoading(true);
+    }, 20000); // 5000 milliseconds (5 seconds)
+
+    return () => clearTimeout(loadingTimer); // Clean up the timer on unmount
+
+  }, [reloadComponent]);
+
+  const handleReload = () => {
+    setReloadComponent(!reloadComponent);
+  };
+
+
   return (
     <>
       <div class=" container border max-w-80 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
         <div class=" pt-8 lg:pr-4 xl:pr-4 md:pr-4 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
-          <div
-            onClick={() => handleNavigation(`/post/${topLikedData?.[0]?._id}`)}
-            className="card-tlp"
-          >
-            <div className="overlay"></div>
-            <div
-              className="cate-background"
-              style={{
-                backgroundImage: `url(${API + topLikedData?.[0]?.image})`,
-              }}
-            ></div>
-            <div className="content-tlp">
-              <h1>{truncateText(topLikedData?.[0]?.title, 20)}</h1>
-              <div className="hero-content-type">
-                {`By Admin / ${formatDate(topLikedData?.[0]?.updatedAt)} / ${
-                  topLikedData?.[0]?.category?.name
-                }`}
+          {
+            d === false && topLikedData.length > 0 ?
+              <div
+                onClick={() => handleNavigation(`/post/${topLikedData?.[0]?._id}`)}
+                className="card-tlp"
+              >
+                <div className="overlay"></div>
+                <div
+                  className="cate-background"
+                  style={{
+                    backgroundImage: `url(${API + topLikedData?.[0]?.image})`,
+                  }}
+                ></div>
+                <div className="content-tlp">
+                  <h1>{truncateText(topLikedData?.[0]?.title, 20)}</h1>
+                  <div className="hero-content-type">
+                    {`By Admin / ${formatDate(topLikedData?.[0]?.updatedAt)} / ${topLikedData?.[0]?.category?.name
+                      }`}
+                  </div>
+                  <div className="line-ani"></div>
+                </div>
               </div>
-              <div className="line-ani"></div>
-            </div>
-          </div>
+              :
+              // loading !== true ?
+                <div className="skeletoncontaine" >
+                  <div className="skeletoneach1">
+                    <div className="skeletoneach1-innerB">
+                      <div className="skeleton">
+                        <div className="skeleton__Bigimg"></div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                // :
+                // <div className="d-flex justify-content-center align-item-center">
+                //   <div className="d-flex justify-content-center align-items-center flex-column">
+                //     <MdSignalWifiStatusbarConnectedNoInternet1 style={{ fontSize: '29px' }} />
+                //     <h6>Something Wrong</h6>
+                //     <button className="wrongbtn" onClick={handleReload}>
+                //       Reload
+                //     </button>
+                //   </div>
+                // </div>
+          }
         </div>
         <div class=" pt-8 xl:pr-4 lg:pr-4 xl:pl-4 lg:pl-4 md:pl-4 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
-          <div
-            onClick={() => handleNavigation(`/post/${topSharedData?.[0]?._id}`)}
-            className="card-tlp"
-          >
-            <div className="overlay"></div>
-            <div
-              className="cate-background"
-              style={{
-                backgroundImage: `url(${API + topSharedData?.[0]?.image})`,
-              }}
-            ></div>
-            <div className="content-tlp">
-              <h1>{truncateText(topSharedData?.[0]?.title, 20)}</h1>
-              <div className="hero-content-type">
-                {`By Admin / ${formatDate(topSharedData?.[0]?.updatedAt)} / ${
-                  topSharedData?.[0]?.category?.name
-                }`}
+          {
+            c === false && topSharedData.length > 0 ?
+              <div
+                onClick={() => handleNavigation(`/post/${topSharedData?.[0]?._id}`)}
+                className="card-tlp"
+              >
+                <div className="overlay"></div>
+                <div
+                  className="cate-background"
+                  style={{
+                    backgroundImage: `url(${API + topSharedData?.[0]?.image})`,
+                  }}
+                ></div>
+                <div className="content-tlp">
+                  <h1>{truncateText(topSharedData?.[0]?.title, 20)}</h1>
+                  <div className="hero-content-type">
+                    {`By Admin / ${formatDate(topSharedData?.[0]?.updatedAt)} / ${topSharedData?.[0]?.category?.name
+                      }`}
+                  </div>
+                  <div className="line-ani"></div>
+                </div>
               </div>
-              <div className="line-ani"></div>
-            </div>
-          </div>
+              :
+              // loading !== true ?
+                <div className="skeletoncontaine" >
+                  <div className="skeletoneach1">
+                    <div className="skeletoneach1-innerB">
+                      <div className="skeleton">
+                        <div className="skeleton__Bigimg"></div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                // :
+                // <div className="d-flex justify-content-center align-item-center">
+                //   <div className="d-flex justify-content-center align-items-center flex-column">
+                //     <MdSignalWifiStatusbarConnectedNoInternet1 style={{ fontSize: '29px' }} />
+                //     <h6>Something Wrong</h6>
+                //     <button className="wrongbtn" onClick={handleReload}>
+                //       Reload
+                //     </button>
+                //   </div>
+                // </div>
+          }
+
         </div>
         <div class=" pt-8 xl:pl-4 lg:pl-4 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
-          <div
-            onClick={() => handleNavigation(`/post/${recentPosts?.[0]?._id}`)}
-            className="card-tlp"
-          >
-            <div className="overlay"></div>
-            <div
-              className="cate-background"
-              style={{
-                backgroundImage: `url(${API + recentPosts?.[0]?.image})`,
-              }}
-            ></div>
-            <div className="content-tlp">
-              <h1>{truncateText(recentPosts?.[0]?.title, 20)}</h1>
-              <div className="hero-content-type">
-                {`By Admin / ${formatDate(recentPosts?.[0]?.updatedAt)} / ${
-                  recentPosts?.[0]?.category?.name
-                }`}
-              </div>
-              <div className="line-ani"></div>
-            </div>
-          </div>
+          {/* //// */}
+          {
+            b === false && recentPosts.length > 0 ?
+              <div
+                onClick={() => handleNavigation(`/post/${recentPosts?.[0]?._id}`)}
+                className="card-tlp"
+              >
+                <div className="overlay"></div>
+                <div
+                  className="cate-background"
+                  style={{
+                    backgroundImage: `url(${API + recentPosts?.[0]?.image})`,
+                  }}
+                ></div>
+                <div className="content-tlp">
+                  <h1>{truncateText(recentPosts?.[0]?.title, 20)}</h1>
+                  <div className="hero-content-type">
+                    {`By Admin / ${formatDate(recentPosts?.[0]?.updatedAt)} / ${recentPosts?.[0]?.category?.name
+                      }`}
+                  </div>
+                  <div className="line-ani"></div>
+                </div>
+              </div> :
+              // loading !== true ?
+                <div className="skeletoncontaine" >
+                  <div className="skeletoneach1">
+                    <div className="skeletoneach1-innerB">
+                      <div className="skeleton">
+                        <div className="skeleton__Bigimg"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                // :
+                // <div className="d-flex justify-content-center align-item-center">
+                //   <div className="d-flex justify-content-center align-items-center flex-column">
+                //     <MdSignalWifiStatusbarConnectedNoInternet1 style={{ fontSize: '29px' }} />
+                //     <h6>Something Wrong</h6>
+                //     <button className="wrongbtn" onClick={handleReload}>
+                //       Reload
+                //     </button>
+                //   </div>
+                // </div>
+          }
+          {/* ////////////////////////////////////// */}
+          {
+
+          }
+          {/* //////////////////////////////////// */}
+          {/* //// */}
         </div>
-      </div>
+      </div >
       {/* //// */}
-      <div class=" mt-4 container border max-w-100 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
+      < div class=" mt-4 container container-paralex border max-w-100 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1" >
         <div className="bg-blue-500 pl-0 pr-0 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
           <div className="paralex">
             <div className="overlay"></div>
@@ -124,7 +225,7 @@ const Tlp = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div >
       {/* //// */}
       {/* <div class=" mt-4 container border max-w-80 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
         <div className="pl-0 pr-0 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">

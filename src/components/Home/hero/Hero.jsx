@@ -47,34 +47,46 @@ const Hero = () => {
 
   return (
     <div className="carousel-container">
-      <Carousel
-        afterChange={(currentSlide) => onChange(currentSlide)}
-        ref={carouselRef}
-      >
-        {posts?.map((post) => (
-          <div  onClick={() => handleNavigation(`/post/${API+post._id?.[0]?._id}`)} key={post._id}>
-            <div style={contentStyle}>
-              <div
-                className="hero-main"
-                style={{ backgroundImage: `url(${API + post.image})` }}
-              >
-                <div className="hero-overlay"></div>
-                <div className="hero-content">
-                  <div  onClick={() => handleNavigation(`/post/${API+post._id?.[0]?._id}`)} className="hero-line"></div>
-                  <div  className="hero-content-heading">
-                    {truncateText(post?.title, 50)}
+      {
+        posts.length > 0 ?
+          <Carousel
+            afterChange={(currentSlide) => onChange(currentSlide)}
+            ref={carouselRef}
+          >
+            {posts?.map((post) => (
+              <div onClick={() => handleNavigation(`/post/${API + post._id?.[0]?._id}`)} key={post._id}>
+                <div style={contentStyle}>
+                  <div
+                    className="hero-main"
+                    style={{ backgroundImage: `url(${API + post.image})` }}
+                  >
+                    <div className="hero-overlay"></div>
+                    <div className="hero-content">
+                      <div onClick={() => handleNavigation(`/post/${API + post._id?.[0]?._id}`)} className="hero-line"></div>
+                      <div className="hero-content-heading">
+                        {truncateText(post?.title, 50)}
+                      </div>
+                      <div className="hero-content-type">
+                        {`By Admin / ${formatDate(post.updatedAt)} / ${post?.category?.name
+                          }`}
+                      </div>
+                    </div>
                   </div>
-                  <div className="hero-content-type">
-                    {`By Admin / ${formatDate(post.updatedAt)} / ${
-                      post?.category?.name
-                    }`}
-                  </div>
+                </div>
+              </div>
+            ))}
+          </Carousel>
+          :
+          <div className="skeletoncontaine" >
+            <div className="skeletoneach1">
+              <div className="skeletoneach1-innerB">
+                <div className="skeleton">
+                  <div className="skeleton__Bigimg_hero"></div>
                 </div>
               </div>
             </div>
           </div>
-        ))}
-      </Carousel>
+      }
       <div className="custom-arrows">
         <button className="arrow-btn" onClick={prevSlide}>
           <LeftOutlined />

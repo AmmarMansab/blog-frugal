@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useMemo, useRef } from "react";
 import "./Postrelated.css";
+import '../../../components/Home/tlp/Tlp.css'
 import { Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons"; // Import arrow icons
 import img1 from "../../../images//fotter-bg.png";
@@ -12,41 +13,19 @@ const contentStyle = {
   lineHeight: "160px",
   textAlign: "center",
   background: "transparent",
-  display: "flex", // Corrected property name
-  justifyContent: "center", // Corrected property name
-  alignItems: "center", // Corrected property name
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 };
-
 const truncateText = (text, maxLength) => {
   return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
 };
-
 const Postrelated = ({ posts }) => {
+
+  const relatedpost = []
+
   const carouselRef = useRef(null);
-
-  // console.log(posts)
-
-  const data = [
-    {
-      title: "noting",
-      category: "traveling",
-      by: "Admin",
-      date: "Dec 19 , 2001",
-      // img:'../../../images//fotter-bg.png',
-    },
-    {
-      title: "noting",
-      category: "traveling",
-      by: "Admin",
-      date: "Dec 19 , 2001",
-      // img:img1,
-    },
-  ];
-
-  const onChange = (currentSlide) => {
-    console.log(currentSlide);
-  };
-
+  const onChange = (currentSlide) => { };
   const responsiveSettings = [
     {
       breakpoint: 600, // screen size 768px and below
@@ -95,102 +74,144 @@ const Postrelated = ({ posts }) => {
     <>
       <div className="carousel-container">
         <h1>Related Products</h1>
-        <Carousel
-          afterChange={onChange}
-          responsive={responsiveSettings}
-          arrows
-          ref={carouselRef}
-        >
-          <div className="related-card-main">
-            <h3 style={contentStyle}>
-              <div className="related-card">
-                <div
-                  className="related-card-img"
-                  //  style={{backgroundImage:`url(${data[0].img})`}}
-                ></div>
-              </div>
-            </h3>
-          </div>
-          <div className="related-card-main">
-            <h3 style={contentStyle}>
-              <div className="related-card">
-                <div className="overlay-related"></div>
-                <div className="hero-content">
-                  <div className="hero-line"></div>
-                  <div className="hero-content-heading">
-                    {truncateText(
-                      "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-                      50
-                    )}
-                  </div>
-                  <div className="hero-content-type">
-                    By Admin / 19 Dec 2001 / Treveling
-                  </div>
-                </div>
-                <div
-                  className="related-card-img"
-                  //  style={{backgroundImage:`url(${data[0].img})`}}
-                ></div>
-              </div>
-            </h3>
-          </div>
-          <div className="related-card-main">
-            <h3 style={contentStyle}>
-              <div className="related-card">
-                <div className="overlay-related"></div>
-                <div className="hero-content">
-                  <div className="hero-line"></div>
-                  <div className="hero-content-heading">
-                    {truncateText(
-                      "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-                      50
-                    )}
-                  </div>
-                  <div className="hero-content-type">
-                    By Admin / 19 Dec 2001 / Treveling
-                  </div>
-                </div>
-                <div
-                  className="related-card-img"
-                  //  style={{backgroundImage:`url(${data[0].img})`}}
-                ></div>
-              </div>
-            </h3>
-          </div>
-          <div className="related-card-main">
-            <h3 style={contentStyle}>
-              <div className="related-card">
-                <div className="overlay-related"></div>
-                <div className="content-related">
-                  <div className="hero-content">
-                    <div className="hero-line"></div>
-                    <div className="hero-content-heading">
-                      {truncateText(
-                        "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-                        50
-                      )}
+        {
+          relatedpost.length > 0 ?
+            <Carousel
+              afterChange={onChange}
+              responsive={responsiveSettings}
+              arrows
+              ref={carouselRef}
+            >
+              {/* 1 */}
+              <div className="related-card-main">
+                <h3 style={contentStyle}>
+                  <div className="related-card">
+                    <div className="overlay-related"></div>
+                    <div className="hero-content">
+                      <div className="hero-line"></div>
+                      <div className="hero-content-heading">
+                        {truncateText(
+                          " 1 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                          35
+                        )}
+                      </div>
+                      <div className="hero-content-type">
+                        By Admin / 19 Dec 2001 / Treveling
+                      </div>
                     </div>
-                    <div className="hero-content-type">
-                      By Admin / 19 Dec 2001 / Treveling
+                    <div
+                      className="related-card-img"
+                    ></div>
+                  </div>
+                </h3>
+              </div>
+              {/* 2 */}
+              <div className="related-card-main">
+                <h3 style={contentStyle}>
+                  <div className="related-card">
+                    <div className="overlay-related"></div>
+                    <div className="hero-content">
+                      <div className="hero-line"></div>
+                      <div className="hero-content-heading">
+                        {truncateText(
+                          "2 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                          35
+                        )}
+                      </div>
+                      <div className="hero-content-type">
+                        By Admin / 19 Dec 2001 / Treveling
+                      </div>
+                    </div>
+                    <div
+                      className="related-card-img"
+                    ></div>
+                  </div>
+                </h3>
+              </div>
+              {/* 3 */}
+              <div className="related-card-main">
+                <h3 style={contentStyle}>
+                  <div className="related-card">
+                    <div className="overlay-related"></div>
+                    <div className="hero-content">
+                      <div className="hero-line"></div>
+                      <div className="hero-content-heading">
+                        {truncateText(
+                          "3 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                          35
+                        )}
+                      </div>
+                      <div className="hero-content-type">
+                        By Admin / 19 Dec 2001 / Treveling
+                      </div>
+                    </div>
+                    <div
+                      className="related-card-img"
+                    ></div>
+                  </div>
+                </h3>
+              </div>
+              {/* 4 */}
+              <div className="related-card-main">
+                <h3 style={contentStyle}>
+                  <div className="related-card">
+                    <div className="overlay-related"></div>
+                    <div className="hero-content">
+                      <div className="hero-line"></div>
+                      <div className="hero-content-heading">
+                        {truncateText(
+                          "4 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                          35
+                        )}
+                      </div>
+                      <div className="hero-content-type">
+                        By Admin / 19 Dec 2001 / Treveling
+                      </div>
+                    </div>
+                    <div
+                      className="related-card-img"
+                    ></div>
+                  </div>
+                </h3>
+              </div>
+            </Carousel> :
+            <div className='skeleton-main-cate-related  container'>
+              <div className="row" >
+                <div className='col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4'>
+                  <div className="skeleton">
+                    <div className="skeleton__Bigimg shadow-sm ">
+                      {/* DDFDFDF */}
                     </div>
                   </div>
                 </div>
-                <div
-                  className="related-card-img"
-                  //  style={{backgroundImage:`url(${data[0].img})`}}
-                ></div>
+                <div className='col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4'>
+                  <div className="skeleton">
+                    <div className="skeleton__Bigimg shadow-sm ">
+                      {/* DFDFDFDF */}
+                    </div>
+                  </div>
+                </div>
+                <div className='col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4'>
+                  <div className="skeleton">
+                    <div className="skeleton__Bigimg shadow-sm ">
+                      {/* DFDFDF */}
+                    </div>
+                  </div>
+                </div>
               </div>
-            </h3>
-          </div>
-        </Carousel>
-        <div className="custom-arrows">
-          <button className="arrow-btn-left" onClick={prevSlide}>
-            <LeftOutlined />
-          </button>
-          <button className="arrow-btn-right" onClick={nextSlide}>
-            <RightOutlined />
-          </button>
-        </div>
+            </div>
+        }
+        {
+          relatedpost.length > 0 ?
+            <div className="custom-arrows">
+              <button className="arrow-btn-left" onClick={prevSlide}>
+                <LeftOutlined />
+              </button>
+              <button className="arrow-btn-right" onClick={nextSlide}>
+                <RightOutlined />
+              </button>
+            </div> : ''
+        }
       </div>
     </>
   );

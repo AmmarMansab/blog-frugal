@@ -59,6 +59,7 @@
     background-attachment: fixed;
     background-image: url('../../../images//fotter-bg.png');
     background-size: cover;
+    min-width: 100%;
 }
 
 .content-white{
@@ -88,7 +89,20 @@
 .fotter-end{
     background-color: black;
     margin-top: 30px;
-    padding-top: 5px;
+    padding-top: 8px;
     padding-bottom: 5px;
+    min-width: 110%;
+    transform: translate(-20px);
     /* padding-top: 20px; */
+}
+
+.fotter-end h1{
+    font-size: 15px;
+    color: gray
+}
+
+@media screen and (min-width:0px) and (max-width:800px) {
+    .fotter-nav{
+        display: none;
+    }
 }
