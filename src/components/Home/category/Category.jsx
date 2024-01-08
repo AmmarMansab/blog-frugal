@@ -54,7 +54,7 @@ const Category = () => {
 
   return (
     <>
-      <div className={` container ${ categories.length >0 ? '':'home-cate-con' } max-w-80 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2`}>
+      <div className={` container ${categories.length > 0 ? '' : 'home-cate-con'} max-w-80 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2`}>
         <div className=" xl:pr-4 lg:pr-4 pt-16 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
           {/* //// */}
           <div className="carousel-container">
@@ -65,6 +65,7 @@ const Category = () => {
                   afterChange={(currentSlide) => onChange(currentSlide)}
                   ref={carouselRef}
                   dots={false}
+                  autoplay autoplaySpeed={3000}
                 >
                   {categories?.map((category) => (
                     <div onClick={() => handleNavigation(`/category/${category._id}`)} key={category._id}>
@@ -77,13 +78,24 @@ const Category = () => {
                               backgroundImage: `url(${API + category.image})`,
                             }}
                           ></div>
-                          <div className="content">
+                          {/* <div className="content">
                             <h1>{truncateText(category?.name, 20)}</h1>
                             <div className="hero-content-type">
                               {`By Admin / ${formatDate(category.createdAt)}`}
                             </div>
                             <div className="line-ani"></div>
+                          </div> */}
+                          {/* //// */}
+                          <div className="tlp-c">
+                            <div className="tlp-c-line"></div>
+                            <div className="tlp-c-heading-cate">
+                              {truncateText(category?.name, 20)}
+                            </div>
+                            <div className="hero-content-type-tlp">
+                            {`By Admin / ${formatDate(category.createdAt)}`}
+                            </div>
                           </div>
+                          {/* //// */}
                         </div>
                       </div>
                     </div>
@@ -123,12 +135,13 @@ const Category = () => {
                 <div className="trending-icon flex justify-center items-center text-1xl">
                   <AiFillThunderbolt style={{ color: 'var(--yellow-shadow)' }} />
                 </div>
-                <div className="content">
-                  <div className="line-anii"></div>
-                  <h1>{truncateText(posts?.[0]?.title, 20)}</h1>
-                  <div className="hero-content-type">
-                    {`By Admin / ${formatDate(posts?.[0]?.createdAt)} / ${posts?.[0]?.category?.name
-                      }`}
+                <div className="tlp-c">
+                  <div className="tlp-c-line"></div>
+                  <div className="tlp-c-heading">
+                    {truncateText(posts?.[0]?.title, 20)}
+                  </div>
+                  <div className="hero-content-type-tlp">
+                    {`By Admin / ${formatDate(posts?.[0]?.updatedAt)} / ${posts?.[0]?.category?.name}`}
                   </div>
                 </div>
                 <div
@@ -150,6 +163,33 @@ const Category = () => {
                 </div>
               </div>
           }
+
+          {/* ///////////////////////////////////// */}
+
+          {/* <div
+            onClick={() => handleNavigation(`/post/${topLikedData?.[0]?._id}`)}
+            className="card-tlp"
+          >
+            <div className="overlay"></div>
+            <div
+              className="tlp-c-card-img"
+              style={{
+                backgroundImage: `url(${API + topLikedData?.[0]?.image})`,
+              }}
+            ></div>
+            <div className="overlay-related"></div>
+            <div className="tlp-c">
+              <div className="tlp-c-line"></div>
+              <div className="tlp-c-heading">
+                {truncateText(topLikedData?.[0]?.title, 35)}
+              </div>
+              <div className="hero-content-type-tlp">
+                {`By Admin / ${formatDate(topLikedData?.[0]?.updatedAt)} / ${topLikedData?.[0]?.category?.name}`}
+              </div>
+            </div>
+          </div> */}
+
+          {/* //////////////////////////////// */}
 
           {/* //// */}
         </div>

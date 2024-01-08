@@ -10,8 +10,15 @@
     transition: all ease-in-out 0.30s;
 }
 
+.tlp-c-heading-cate{
+    /* border: solid 2px red; */
+    /* height: max-content !important ; */
+    height: 70px;
+    font-size: 27px;
+}
+
 .home-cate-con{
-    border: solid 2px red;
+    /* border: solid 2px red; */
     margin-top: 30vh;
     height: 70vh;
 }

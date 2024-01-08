@@ -30,7 +30,7 @@ const Subscription = () => {
                 className="custom-modal" // Apply the custom CSS class
                 footer={null} // This removes the default footer with buttons
             >
-                <div className='flex justify-start items-center' style={{ height: '80vh',marginTop:'-10vh'}}>
+                <div className='flex justify-start items-center' style={{ height: '80vh',marginTop:'-10vh '}}>
                   <div className="custom-modal-inner-container">
                     <div className="custom-modal-inner-A" ></div>
                     <div className="custom-modal-inner-B">

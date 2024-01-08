@@ -2,6 +2,32 @@
     position: relative;
 }
 
+.tlp-c-heading-hero{
+    /* border: solid 2px purple; */
+    min-height: 20px !important;
+    font-size: 30px !important;
+    font-weight: 700;
+}
+
+.tlp-hero-line{
+    width: 60%;
+    /* border: solid 1px white; */
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    height: 0px;
+    transition: ease-in-out 0.30s;
+}
+
+.tlp-c:hover .tlp-hero-line{
+    height: 290px;
+}
+
 .custom-arrows {
     position: absolute;
     top: 50%;
@@ -18,12 +44,37 @@
     cursor: pointer;
 }
 
+.hero-con{
+    position: relative;
+    /* border: solid 4px greenyellow; */
+    overflow: hidden;
+}
+
 .hero-main {
+  position: relative;
+  height: 75vh;
+  width: 100%;
+  cursor: pointer;
+}
+
+.hero-img{
     /* border: solid 2px red; */
-    height: 75vh;
+    height: 100%;
     background-size: cover;
     background-position: center;
-    position: relative;
+    position: absolute;
+    cursor: pointer;
+    transition: all ease-in-out 0.30s;
+    width: 100%;
+}
+
+.hero-main:hover .hero-img{
+    transform: scale(1.1);
+}
+
+.tlp-c{
+    /* border: solid 2px peru; */
+    height: 100% !important;
 }
 
 .hero-overlay {

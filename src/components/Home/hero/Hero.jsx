@@ -52,23 +52,24 @@ const Hero = () => {
           <Carousel
             afterChange={(currentSlide) => onChange(currentSlide)}
             ref={carouselRef}
+            autoplay autoplaySpeed={4000}
           >
             {posts?.map((post) => (
-              <div onClick={() => handleNavigation(`/post/${API + post._id?.[0]?._id}`)} key={post._id}>
+              <div className="hero-con" onClick={() => handleNavigation(`/post/${API + post._id?.[0]?._id}`)} style={{cursor:'pointer'}} key={post._id}>
                 <div style={contentStyle}>
                   <div
                     className="hero-main"
-                    style={{ backgroundImage: `url(${API + post.image})` }}
+                    onClick={() => handleNavigation(`/post/${API + post._id?.[0]?._id}`)}
                   >
+                    <div className="hero-img"  onClick={() => handleNavigation(`/post/${API + post._id?.[0]?._id}`)} style={{ backgroundImage: `url(${API + post.image})` }} ></div>
                     <div className="hero-overlay"></div>
-                    <div className="hero-content">
-                      <div onClick={() => handleNavigation(`/post/${API + post._id?.[0]?._id}`)} className="hero-line"></div>
-                      <div className="hero-content-heading">
+                    <div className="tlp-c">
+                      <div className="tlp-hero-line"></div>
+                      <div className="tlp-c-heading-hero">
                         {truncateText(post?.title, 50)}
                       </div>
-                      <div className="hero-content-type">
-                        {`By Admin / ${formatDate(post.updatedAt)} / ${post?.category?.name
-                          }`}
+                      <div className="hero-content-type-tlp">
+                        {`By Admin / ${formatDate(post?.updatedAt)} / ${post?.category?.name}`}
                       </div>
                     </div>
                   </div>
