@@ -24,6 +24,10 @@ export const fetcher = async args => {
   const res = await axiosInstance.get(url, { ...config })
   return res.data
 }
+export const put_fetcher = async (url, body) => {
+  const res = await axiosInstance.put(url, body);
+  return res.data;
+};
 // ----------------------------------------------------------------------
 
 export const baseUrl = 'https://server.blog.digiunction.com'
