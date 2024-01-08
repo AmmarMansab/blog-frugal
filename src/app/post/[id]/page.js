@@ -1,7 +1,7 @@
 import Detail from './Detail.jsx'
 
 export async function generateMetadata({ params }, parent) {
-  console.log('generateMetadata called:', params);
+  // console.log('generateMetadata called:', params);
 
   return {
     title: "New Title 011",

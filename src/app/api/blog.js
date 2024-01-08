@@ -1,7 +1,7 @@
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 import { useMemo } from "react";
 // utils
-import { fetcher, endpoints } from "../../utils/axios.js";
+import { fetcher, endpoints, put_fetcher } from "../../utils/axios.js";
 
 // ----------------------------------------------------------------------
 
@@ -179,19 +179,63 @@ export function useGetPostsByCategory(query,page) {
 // ----------------------------------------------------------------------
 
 export const useGetPostByID = (id) => {
-    const URL = `https://server.blog.digiunction.com/api/post/get/${id}`
-  
-    const { data, isLoading, error, isValidating } = useSWR(URL, fetcher);
-  
-    const memoizedValue = useMemo(
-      () => ({
-        post: data,
-        postLoading: isLoading,
-        postError: error,
-        postValidating: isValidating,
-      }),
-      [data, error, isLoading, isValidating]
-    );
-  
-    return memoizedValue;
-  }
+  const URL = `https://server.blog.digiunction.com/api/post/get/${id}`;
+
+  const { data, isLoading, error, isValidating } = useSWR(URL, fetcher);
+
+  const memoizedValue = useMemo(
+    () => ({
+      post: data,
+      postLoading: isLoading,
+      postError: error,
+      postValidating: isValidating,
+    }),
+    [data, error, isLoading, isValidating]
+  );
+
+  return memoizedValue;
+};
+
+export const useGetCommentsByPostID = (id) => {
+  const URL = `https://server.blog.digiunction.com/api/post/${id}/comments`;
+
+  const { data, isLoading, error, isValidating } = useSWR(URL, fetcher);
+
+  const memoizedValue = useMemo(
+    () => ({
+      comments: data?.comments,
+      commentsLoading: isLoading,
+      commentsError: error,
+      commentsValidating: isValidating,
+    }),
+    [data, error, isLoading, isValidating]
+  );
+
+  return memoizedValue;
+};
+
+export const useAddCommentOnPost = (id) => {
+  const URL = `https://server.blog.digiunction.com/api/post/comment/${id}`;
+
+  const addComment = async (content, author) => {
+    const body = {
+      content,
+      author,
+    };
+
+    const data = await put_fetcher(URL, body );
+   
+    mutate(URL);
+    return data;
+  };
+
+  const memoizedValue = useMemo(
+    () => ({
+      addComment,
+    }),
+    [addComment]
+  );
+
+
+  return memoizedValue;
+};
