@@ -22,8 +22,9 @@ const page = () => {
   const params = useParams();
   const { id } = params;
   const [theindex, setTheindex] = useState(true)
+  const [page,setPage]=useState(0)
 
-  const { posts: recentPosts, postsLoading } = useGetPostsByCategory(id);
+  const { posts: recentPosts, postsLoading } = useGetPostsByCategory(id,page);
 
   const API = "https://server.blog.digiunction.com";
 

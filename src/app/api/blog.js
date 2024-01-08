@@ -151,12 +151,12 @@ export function useGetTopLikedPosts(query) {
 
 // ----------------------------------------------------------------------
 
-export function useGetPostsByCategory(query) {
+export function useGetPostsByCategory(query,page) {
   //   const URL = query
   //     ? [endpoints.post.by_category, { params: { id: query, page: 0 } }]
   //     : null;
 
-  const URL = `https://server.blog.digiunction.com/api/post/category/${query}?page=0`;
+  const URL = `https://server.blog.digiunction.com/api/post/category/${query}?page=${page}`;
 
   const { data, isLoading, error, isValidating } = useSWR(URL, fetcher, {
     keepPreviousData: true,

@@ -5,6 +5,7 @@ import '../../../components/Home/tlp/Tlp.css'
 import { Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons"; // Import arrow icons
 import img1 from "../../../images//fotter-bg.png";
+import { formatDate } from "@/utils";
 
 const contentStyle = {
   margin: 0,
@@ -22,7 +23,9 @@ const truncateText = (text, maxLength) => {
 };
 const Postrelated = ({ posts }) => {
 
-  const relatedpost = []
+  const API = "https://server.blog.digiunction.com";
+
+  console.log(posts[0], 'all postssss');
 
   const carouselRef = useRef(null);
   const onChange = (currentSlide) => { };
@@ -75,7 +78,7 @@ const Postrelated = ({ posts }) => {
       <div className="carousel-container">
         <h1>Related Products</h1>
         {
-          relatedpost.length > 0 ?
+          posts.length > 0 ?
             <Carousel
               afterChange={onChange}
               responsive={responsiveSettings}
@@ -83,118 +86,133 @@ const Postrelated = ({ posts }) => {
               ref={carouselRef}
             >
               {/* 1 */}
-              <div className="related-card-main">
-                <h3 style={contentStyle}>
-                  <div className="related-card">
-                    <div className="overlay-related"></div>
-                    <div className="hero-content">
-                      <div className="hero-line"></div>
-                      <div className="hero-content-heading">
-                        {truncateText(
-                          " 1 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-                          35
-                        )}
+              {
+                posts[0] ?
+                  <div className="related-card-main">
+                    <h3 style={contentStyle}>
+                      <div className="related-card">
+                        <div className="overlay-related"></div>
+                        <div className="hero-content">
+                          <div className="hero-line"></div>
+                          <div className="hero-content-heading">
+                            {truncateText(posts[0]?.title, 30)}
+                          </div>
+                          <div className="hero-content-type">
+                            {'By Admin / ' + formatDate(posts?.[0]?.updatedAt) + ' / ' + (posts[0]?.category?.name || 'No Category')}
+                          </div>
+                        </div>
+                        <div
+                          className="related-card-img"
+                          style={{
+                            backgroundImage: `url(${API + posts[0]?.image})`,
+                          }}
+                        ></div>
                       </div>
-                      <div className="hero-content-type">
-                        By Admin / 19 Dec 2001 / Treveling
-                      </div>
-                    </div>
-                    <div
-                      className="related-card-img"
-                    ></div>
+                    </h3>
                   </div>
-                </h3>
-              </div>
+                  : ''
+              }
               {/* 2 */}
-              <div className="related-card-main">
-                <h3 style={contentStyle}>
-                  <div className="related-card">
-                    <div className="overlay-related"></div>
-                    <div className="hero-content">
-                      <div className="hero-line"></div>
-                      <div className="hero-content-heading">
-                        {truncateText(
-                          "2 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-                          35
-                        )}
+              {
+                posts[1] ?
+                  <div className="related-card-main">
+                    <h3 style={contentStyle}>
+                      <div className="related-card">
+                        <div className="overlay-related"></div>
+                        <div className="hero-content">
+                          <div className="hero-line"></div>
+                          <div className="hero-content-heading">
+                            {truncateText(posts[1]?.title, 30)}
+                          </div>
+                          <div className="hero-content-type">
+                            {'By Admin / ' + formatDate(posts?.[1]?.updatedAt) + ' / ' + (posts[1]?.category?.name || 'No Category')}
+                          </div>
+                        </div>
+                        <div
+                          className="related-card-img"
+                          style={{
+                            backgroundImage: `url(${API + posts[1]?.image})`,
+                          }}
+                        ></div>
                       </div>
-                      <div className="hero-content-type">
-                        By Admin / 19 Dec 2001 / Treveling
-                      </div>
-                    </div>
-                    <div
-                      className="related-card-img"
-                    ></div>
+                    </h3>
                   </div>
-                </h3>
-              </div>
+                  :
+                  ''
+              }
               {/* 3 */}
-              <div className="related-card-main">
-                <h3 style={contentStyle}>
-                  <div className="related-card">
-                    <div className="overlay-related"></div>
-                    <div className="hero-content">
-                      <div className="hero-line"></div>
-                      <div className="hero-content-heading">
-                        {truncateText(
-                          "3 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-                          35
-                        )}
+              {
+                posts[2] ?
+                  <div className="related-card-main">
+                    <h3 style={contentStyle}>
+                      <div className="related-card">
+                        <div className="overlay-related"></div>
+                        <div className="hero-content">
+                          <div className="hero-line"></div>
+                          <div className="hero-content-heading">
+                            {truncateText(posts[2]?.title, 30)}
+                          </div>
+                          <div className="hero-content-type">
+                            {'By Admin / ' + formatDate(posts?.[2]?.updatedAt) + ' / ' + (posts[2]?.category?.name || 'No Category')}
+                          </div>
+                        </div>
+                        <div
+                          className="related-card-img"
+                          style={{
+                            backgroundImage: `url(${API + posts[2]?.image})`,
+                          }}
+                        ></div>
                       </div>
-                      <div className="hero-content-type">
-                        By Admin / 19 Dec 2001 / Treveling
-                      </div>
-                    </div>
-                    <div
-                      className="related-card-img"
-                    ></div>
+                    </h3>
                   </div>
-                </h3>
-              </div>
+                  : ''
+              }
+
               {/* 4 */}
-              <div className="related-card-main">
-                <h3 style={contentStyle}>
-                  <div className="related-card">
-                    <div className="overlay-related"></div>
-                    <div className="hero-content">
-                      <div className="hero-line"></div>
-                      <div className="hero-content-heading">
-                        {truncateText(
-                          "4 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-                          35
-                        )}
+              {
+                posts[2] ?
+                  <div className="related-card-main">
+                    <h3 style={contentStyle}>
+                      <div className="related-card">
+                        <div className="overlay-related"></div>
+                        <div className="hero-content">
+                          <div className="hero-line"></div>
+                          <div className="hero-content-heading">
+                            {truncateText(posts[3]?.title, 30)}
+                          </div>
+                          <div className="hero-content-type">
+                            {'By Admin / ' + formatDate(posts?.[3]?.updatedAt) + ' / ' + (posts[3]?.category?.name || 'No Category')}
+                          </div>
+                        </div>
+                        <div
+                          className="related-card-img"
+                          style={{
+                            backgroundImage: `url(${API + posts[3]?.image})`,
+                          }}
+                        ></div>
                       </div>
-                      <div className="hero-content-type">
-                        By Admin / 19 Dec 2001 / Treveling
-                      </div>
-                    </div>
-                    <div
-                      className="related-card-img"
-                    ></div>
+                    </h3>
                   </div>
-                </h3>
-              </div>
+                  : ''
+              }
             </Carousel> :
             <div className='skeleton-main-cate-related  container'>
               <div className="row" >
                 <div className='col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4'>
                   <div className="skeleton">
                     <div className="skeleton__Bigimg shadow-sm ">
-                      {/* DDFDFDF */}
                     </div>
                   </div>
                 </div>
                 <div className='col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4'>
                   <div className="skeleton">
                     <div className="skeleton__Bigimg shadow-sm ">
-                      {/* DFDFDFDF */}
                     </div>
                   </div>
                 </div>
                 <div className='col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4'>
                   <div className="skeleton">
                     <div className="skeleton__Bigimg shadow-sm ">
-                      {/* DFDFDF */}
                     </div>
                   </div>
                 </div>
@@ -202,7 +220,7 @@ const Postrelated = ({ posts }) => {
             </div>
         }
         {
-          relatedpost.length > 0 ?
+          posts.length > 0 ?
             <div className="custom-arrows">
               <button className="arrow-btn-left" onClick={prevSlide}>
                 <LeftOutlined />
