@@ -35,7 +35,7 @@ const page = () => {
       <Postheader post={post} />
       <Postcontent post={post} />
       <Postrelated posts={posts} />
-      <Postcomments comments={comment}/>
+      <Postcomments comments={comment} id={id} setComments={setComments}/>
       <Writemessage id={id} comments={comment} setComments={setComments}/>
       <Fotter />
     </div>

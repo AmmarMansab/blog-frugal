@@ -239,3 +239,30 @@ export const useAddCommentOnPost = (id) => {
 
   return memoizedValue;
 };
+
+export const useAddReplyToComment = (id, commentId) => {
+  
+  const addReply = async (postId, commentId, content, author) => {
+    const URL = `https://server.blog.digiunction.com/api/post/reply/${postId}/${commentId}`;
+
+    const body = {
+      content,
+      author,
+    };
+
+    const data = await put_fetcher(URL, body );
+   
+    mutate(URL);
+    return data;
+  };
+
+  const memoizedValue = useMemo(
+    () => ({
+      addReply,
+    }),
+    [addReply]
+  );
+
+
+  return memoizedValue;
+};

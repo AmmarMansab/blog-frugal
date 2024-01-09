@@ -4,135 +4,23 @@ import "./Postcomments.css";
 import { IoArrowRedoSharp } from "react-icons/io5";
 import { formatDate, formatDateTime } from "@/utils";
 import Writemessage from "../writemessage/Writemessage";
+import { useAddReplyToComment } from "@/app/api/blog";
 
-const Postcomments = ({comments}) => {
-  // const comments = [
-  //   {
-  //       img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //       message: ' COMMENT NUMBER 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //       date: 'Dec ,19,2001',
-  //       replay: []
-  //   },
-  //   {
-  //       img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //       message: ' COMMENT NUMBER 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //       date: 'Dec ,19,2001',
-  //       replay: [
-  //           {
-  //               img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //               message: ' COMMENT NUMBER 2-1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //               date: 'Dec ,19,2001',
-  //               replay: [
-  //                   {
-  //                       img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //                       message: ' COMMENT NUMBER 2-1-1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //                       date: 'Dec ,19,2001',
-  //                       replay: [
-  //                           {
-  //                               img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //                               message: ' COMMENT NUMBER 2-1-1-1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //                               date: 'Dec ,19,2001',
-  //                               replay: [
-  //                                   {
-  //                                       img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //                                       message: ' COMMENT NUMBER 2-1-1-2 lorem1',
-  //                                       date: 'Dec ,19,2001',
-  //                                       replay: []
-  //                                   },
-  //                                   {
-  //                                       img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //                                       message: ' COMMENT NUMBER 2-1-1-3  lorem2',
-  //                                       date: 'Dec ,19,2001',
-  //                                       replay: [
-  //                                           {
-  //                                               img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //                                               message: ' COMMENT NUMBER 2-1-1-3-1 lorem2-inner and inner',
-  //                                               date: 'Dec ,19,2001',
-  //                                               replay: [
-  //                                                   {
-  //                                                       img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //                                                       message: ' COMMENT NUMBER 2-1-1-3-1-1  lorem2',
-  //                                                       date: 'Dec ,19,2001',
-  //                                                       replay: [
-  //                                                           {
-  //                                                               img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //                                                               message: 'COMMENT NUMBER 2-1-1-1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.COMMENT NUMBER 2-1-1-1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis. COMMENT NUMBER 2-1-1-3-1-1  lorem2',
-  //                                                               date: 'Dec ,19,2001',
-  //                                                               replay: [],
-  //                                                           },
-  //                                                       ]
-  //                                                   },
-  //                                               ],
-  //                                               ///
-  //                                           },
-  //                                       ]
-  //                                   },
-  //                               ],
-  //                           },
-  //                       ]
-  //                   },
-  //                   {
-  //                       img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //                       message: ' COMMENT NUMBER 2-2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //                       date: 'Dec ,19,2001',
-  //                       replay: [],
-  //                   },
-  //               ]
-  //           },
-  //           {
-  //               img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //               message: 'COMMENT NUMBER 2-3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //               date: 'Dec ,19,2001',
-  //               replay: [],
-  //           },
-  //           {
-  //               img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //               message: 'COMMENT NUMBER 2-4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //               date: 'Dec ,19,2001',
-  //               replay: [],
-  //           },
-  //           {
-  //               img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //               message: 'COMMENT NUMBER 2-5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //               date: 'Dec ,19,2001',
-  //               replay: [],
-  //           },
-  //       ]
-  //       //
-  //   },
-  //   {
-  //       img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //       message: ' COMMENT NUMBER 3 Second LAST COMMent Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //       date: 'Dec ,19,2001',
-  //       replay: [
-  //           {
-  //               img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //               message: 'COMMENT NUMBER 3-1 C1 COMMent Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //               date: 'Dec ,19,2001',
-  //               replay: []
-  //           },
-  //           {
-  //               img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //               message: ' COMMENT NUMBER 3-2 C2 COMMent Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //               date: 'Dec ,19,2001',
-  //               replay: []
-  //           },
-  //       ]
-  //   },
-  //   {
-  //       img: 'https://images.unsplash.com/photo-1701435136147-85d0d3f66358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8',
-  //       message: 'COMMENT NUMBER 4 LAST COMMent Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis delectus assumenda aliquam necessitatibus quasi quaerat asperiores repellendus sequi ipsam fuga, non ab aut? Facilis quidem ipsum obcaecati, labore eligendi officiis.',
-  //       date: 'Dec ,19,2001',
-  //       replay: []
-  //   },
-  // ];
-
-  const Comment = ({ content, createdAt, replies, img, index }) => {
+const Postcomments = ({ comments, id, setComments }) => {
+  const Comment = ({ content, createdAt, replies, img, _id, index, author }) => {
+    img='https://cdn.iconscout.com/icon/free/png-512/free-user-1648810-1401302.png?f=webp&w=256'
     const [showAllReplies, setShowAllReplies] = useState(false);
     const [showtextarea, setShowtextarea] = useState(false);
-    const handleSubmit = (e) => {
+    const [replyContent, setReplyContent] = useState("");
+
+    const { addReply } = useAddReplyToComment();
+
+    const handleSubmit = async (e) => {
       setShowtextarea(false);
       e.preventDefault();
+
+      const response = await addReply(id, _id, replyContent, "64908ff9eee6e5ab0a6c45c4");
+      setComments([...response?.comments]);
     };
 
     return (
@@ -148,9 +36,10 @@ const Postcomments = ({comments}) => {
             </div>
             <div className="comments-right">
               <div className="comments-right-A">
-                <h3>Jhon Doe {index} </h3>
+                <h3>{`${author?.firstname} ${author?.lastname}`} </h3>
                 <div className="rep-commoents">
-                  <h3>{formatDateTime(createdAt)}</h3> <p className="rep-slas">|</p>{" "}
+                  <h3>{formatDateTime(createdAt)}</h3>{" "}
+                  <p className="rep-slas">|</p>{" "}
                   <h6 onClick={() => setShowtextarea(!showtextarea)}>Replay</h6>
                 </div>
               </div>
@@ -168,6 +57,8 @@ const Postcomments = ({comments}) => {
                 id=""
                 cols="30"
                 rows="10"
+                value={replyContent}
+                onChange={(e) => setReplyContent(e.target.value)}
               ></textarea>
               <button>Submit</button>
             </form>
