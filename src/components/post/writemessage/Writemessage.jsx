@@ -18,8 +18,8 @@ const Writemessage = ({id, comments, setComments}) => {
 
     // Add the comment
     const response = await addComment(message, "64908ff9eee6e5ab0a6c45c4");
-    setComments([...comments, response?.comments]);
-    console.log("Comment added successfully:", response);
+    setComments([...response?.comments]);
+    // console.log("Comment added successfully:", response);
 
     // Clear the form fields
     setName("");

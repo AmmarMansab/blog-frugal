@@ -18,6 +18,10 @@ export const formatDateTime = (inputDate) => {
     // timeZoneName: "short",
   };
 
+  if(!inputDate){
+    inputDate = new Date();
+  }
+
   const formattedDate = new Date(inputDate).toLocaleDateString(
     "en-US",
     options
