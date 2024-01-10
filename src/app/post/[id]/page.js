@@ -4,10 +4,10 @@ export async function generateMetadata({ params }, parent) {
   // console.log('generateMetadata called:', params);
 
   return {
-    title: "New Title 011",
-    description: "New Description 100",
+    title: "Frugal Man Fashion | Blog",
+    description: "This a frugal man fashion blog",
     openGraph: {
-      images: ['/some-specific-page-image.jpg'],
+      images: ['https://cdn.iconscout.com/icon/free/png-512/free-user-1648810-1401302.png?f=webp&w=256'],
     },
   };
 }
