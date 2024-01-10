@@ -7,8 +7,13 @@ import Writemessage from "../writemessage/Writemessage";
 import { useAddReplyToComment } from "@/app/api/blog";
 
 const Postcomments = ({ comments, id, setComments }) => {
+
+  const [load, setLoad] = useState(true)
+
+  // console.log(data,'data...');
+
   const Comment = ({ content, createdAt, replies, img, _id, index, author }) => {
-    img='https://cdn.iconscout.com/icon/free/png-512/free-user-1648810-1401302.png?f=webp&w=256'
+    img = 'https://cdn.iconscout.com/icon/free/png-512/free-user-1648810-1401302.png?f=webp&w=256'
     const [showAllReplies, setShowAllReplies] = useState(false);
     const [showtextarea, setShowtextarea] = useState(false);
     const [replyContent, setReplyContent] = useState("");
@@ -71,21 +76,21 @@ const Postcomments = ({ comments, id, setComments }) => {
               <div className="comments-inner">
                 {showAllReplies
                   ? replies?.map((reply, index) => (
-                      <>
-                        {index === 0 ? (
-                          <IoArrowRedoSharp className="left-arrow-comments" />
-                        ) : (
-                          ""
-                        )}
-                        <Comment key={index} {...reply} />
-                      </>
-                    ))
+                    <>
+                      {index === 0 ? (
+                        <IoArrowRedoSharp className="left-arrow-comments" />
+                      ) : (
+                        ""
+                      )}
+                      <Comment key={index} {...reply} />
+                    </>
+                  ))
                   : replies?.slice(0, 0).map((reply, index) => (
-                      <>
-                        <h1>arrow</h1>
-                        <Comment key={index} {...reply} />
-                      </>
-                    ))}
+                    <>
+                      <h1>arrow</h1>
+                      <Comment key={index} {...reply} />
+                    </>
+                  ))}
               </div>
               {replies?.length >= 1 && (
                 <div className="showmore-main">
@@ -103,7 +108,6 @@ const Postcomments = ({ comments, id, setComments }) => {
       </>
     );
   };
-
   const CommentList = ({ comments }) => (
     <div className="commentList">
       {comments?.length > 0 ? (
@@ -111,25 +115,27 @@ const Postcomments = ({ comments, id, setComments }) => {
           <Comment key={index} {...comment} index={index} />
         ))
       ) : (
-        <div className="skeleton-main-cate-related  container">
-          <div className="row">
-            <div className="col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12">
-              <div className="skeleton">
-                <div className="skeleton__Comments shadow-sm "></div>
+        !load ?
+          <div className="skeleton-main-cate-related  container">
+            <div className="row">
+              <div className="col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div className="skeleton">
+                  <div className="skeleton__Comments shadow-sm "></div>
+                </div>
+              </div>
+              <div className="col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div className="skeleton">
+                  <div className="skeleton__Comments shadow-sm "></div>
+                </div>
+              </div>
+              <div className="col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div className="skeleton">
+                  <div className="skeleton__Comments shadow-sm "></div>
+                </div>
               </div>
             </div>
-            <div className="col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12">
-              <div className="skeleton">
-                <div className="skeleton__Comments shadow-sm "></div>
-              </div>
-            </div>
-            <div className="col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12">
-              <div className="skeleton">
-                <div className="skeleton__Comments shadow-sm "></div>
-              </div>
-            </div>
-          </div>
-        </div>
+          </div> 
+          :'No Comments Founds !'
       )}
     </div>
   );

@@ -8,6 +8,7 @@ import {
     useGetTopLikedPosts,
 } from "@/app/api/blog";
 import '../../../components/Home/tlp/Tlp.css'
+import { useRouter } from "next/navigation";
 
 
 const Starthere = () => {
@@ -16,6 +17,8 @@ const Starthere = () => {
     const { posts: recentPosts, postsLoading: b } = useGetPosts();
     const { posts: topSharedData, postsLoading: c } = useGetTopSharedPosts();
     const { posts: topLikedData, postsLoading: d } = useGetTopLikedPosts();
+
+    const router = useRouter();
 
     console.log(topViewedData, 'top...');
     const API = "https://server.blog.digiunction.com";
@@ -47,6 +50,11 @@ const Starthere = () => {
         },
     ]
 
+    const handleNavigation = (route) => {
+        // console.log(route, 'dddd');
+        router.push(route);
+      };
+
     return (
         <>
             <div className='here-main' >
@@ -75,19 +83,24 @@ const Starthere = () => {
                     <h1 className='here-heading' >Latest</h1>
                     <div class="flex flex-col justify-start items-start">
                         {
-                            recentPosts.lenght > 0 ?
+                            recentPosts.length > 0 ?
                                 // data.map((items) => {
-                                recentPosts.map((items) => {
-                                    const { id, image, title, description } = items
-                                    return (
-                                        <>
-                                            <div class="  mt-8  here-card h-max-content w-95 flex justify-center items-center flex-col ">
-                                                <img style={{ boxShadow: '0px 7px 23px -8px rgba(0,0,0,0.75);' }} src={API + image} alt="" />
-                                                <h2>{title}</h2>
-                                                <p>{description}</p>
-                                            </div>
-                                        </>
-                                    )
+                                recentPosts.map((items,index) => {
+                                    const { _id, image, title, description } = items
+                                    if(index===0){
+                                        return (
+                                            <>
+                                                <div onClick={() => handleNavigation(`/post/${_id}`)}  class="  mt-8  here-card h-max-content w-95 flex justify-center items-center flex-col ">
+                                                    <img style={{ boxShadow: '0px 7px 23px -8px rgba(0,0,0,0.75);' }} src={API + image} alt="" />
+                                                    <h2>{title}</h2>
+                                                    <p>{description}</p>
+                                                </div>
+                                            </>
+                                        )
+                                    }
+                                    else{
+                                        return
+                                    }
                                 }) :
                                 <div className='skeleton-main-cate-related  container mb-6 '>
                                     <div className="row" >
@@ -126,21 +139,26 @@ const Starthere = () => {
                         }
                     </div>
                 </div>
-                <div class=" pr-2 pb-0 rounded-md starthere-p w-1/2  ">
+                <div  class=" pr-2 pb-0 rounded-md starthere-p w-1/2  ">
                     <h1 className='here-heading'  >Trending</h1>
                     {
-                        topViewedData.lenght > 0 ?
+                        topViewedData.length > 0 ?
                             // data.map((items) => {
-                            topViewedData.map((items) => {
-                                const { id, image, title, description } = items
-                                return (
-                                    <>
-                                        <div class="  mt-8  here-card-2 h-max-content w-95 flex justify-start items-start  ">
-                                            <img style={{ boxShadow: '0px 7px 23px -8px rgba(0,0,0,0.75);' }} src={API + image} alt="" />
-                                            <h2 >{title}</h2>
-                                        </div>
-                                    </>
-                                )
+                            topViewedData.map((items,index) => {
+                                const { _id, image, title, description } = items
+                                if(index <= 3){
+                                    return (
+                                        <>
+                                            <div onClick={() => handleNavigation(`/post/${_id}`)} class="  mt-8  here-card-2 h-max-content w-95 flex justify-start items-start  ">
+                                                <div style={{backgroundImage:`url(${API + image})`, boxShadow: '0px 7px 23px -8px rgba(0,0,0,0.75);'}} className="viewimg"></div>
+                                                <h2 >{title}</h2>
+                                            </div>
+                                        </>
+                                    )
+                                }
+                                else{
+                                    return
+                                }
                             }) :
                             <>
                                 {/* // 1 */}

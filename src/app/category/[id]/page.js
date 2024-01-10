@@ -10,6 +10,7 @@ import { useParams } from "next/navigation";
 import axios from "axios";
 import { BsSearch } from "react-icons/bs";
 import '../../../components/Home/tlp/Tlp.css'
+import { useRouter } from "next/navigation";
 
 import {
   useGetPostsByCategory
@@ -19,26 +20,39 @@ import Navbar from "@/components/common/navbar/Navbar";
 import { Spin } from 'antd';
 
 const page = () => {
+
+  const router = useRouter()
+
+  const handleNavigation = (route) => {
+    // console.log(route, 'dddd');
+    router.push(route);
+  };
+
+
   const params = useParams();
   const { id } = params;
   const [theindex, setTheindex] = useState(true)
-  const [page,setPage]=useState(0)
+  const [page, setPage] = useState(0)
 
-  const { posts: recentPosts, postsLoading } = useGetPostsByCategory(id,page);
+  const { posts: recentPosts, postsLoading } = useGetPostsByCategory(id, page);
+  const [dummydata, setDummydata] = useState([]);
+
+  let newrecentPosts = [...recentPosts, ...recentPosts]
+  console.log(newrecentPosts, 'reccc');
 
   const API = "https://server.blog.digiunction.com";
 
-  const pageSize = 8; // Number of items to display per page
+  const pageSize = 2; // Number of items to display per page
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPosts = recentPosts?.length;
+  const totalPosts = newrecentPosts?.length;
   const totalPages = Math.ceil(totalPosts / pageSize);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
-  const displayPosts = recentPosts?.slice(
+  const displayPosts = newrecentPosts?.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
@@ -52,25 +66,28 @@ const page = () => {
   let isSpecialCard
 
   const CategoryCard = ({ post, index }) => {
-    isSpecialCard = index % 8 === 0;
-    const { title, description, updatedAt, author, image } = post;
+    isSpecialCard = index % 10 === 0;
+    const { title, description, updatedAt, author, image, _id } = post;
     return (
       <>
         {isSpecialCard ? (
           <>
-            <div className="col-12" >
-              <div className={` shadow-md ${styles['full-card']}`} >
+            <div className={`col-12 `} onClick={() => handleNavigation(`/post/${_id}`)} >
+              <div style={{ backgroundColor: 'var(--sky)' }} className={` shadow-md min-h-[350px] max-h-full mb-8 flex justify-around items-center rounded-10 xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col ${styles['special-card-cate']}`} >
                 <div style={{ backgroundImage: `url(${API + image})` }} className={`${styles['full-card-a']}`} ></div>
                 <div className={`${styles['full-card-b']}`} >
-                  <p className={`${styles['full-heading']}`} >{truncateText('Lorem h ipsum dolor, sit amet consectetur adipisicing elit. Nihil eos labore ex molestias sunt dignissimos placeat hic. Amet, unde! Quibusdam inventore, autem iste doloribus laborum repudiandae! Odio ex recusandae voluptatum?', 90)}</p>
+                  <p className={`${styles['full-heading']}`} >{truncateText(title, 90)}</p>
                   <p>{truncateText(description, 350)}</p>
                 </div>
               </div>
+              {/* <div className={` shadow-md ${styles['full-card special-card-cate']}`} >
+               
+              </div> */}
             </div>
           </>
         ) : (
           <>
-            <div className="col-4" >
+            <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4" onClick={() => handleNavigation(`/post/${_id}`)} >
               <div className={` shadow-md ${styles['cate-cart']}`} >
                 <div className={`${styles['cate-cart-img']}`} style={{ backgroundImage: `url(${API + image})` }} ></div>
                 <div className={`${styles['cate-cart-content']}`} >
@@ -110,7 +127,7 @@ const page = () => {
       <div className={styles["my-container"]}>
         <div className={` ${styles['grid-main-container']} `}>
           <div className={`${styles['grid-main']} ${'container'}`}>
-            <div className="row" >
+            <div className="row " >
               {
                 displayPosts.length > 0 ?
                   displayPosts.map((post, index) => (
@@ -121,19 +138,37 @@ const page = () => {
                   :
                   <div className={` ${styles['skeleton-main-cate']} container `}>
                     <div className="row" >
-                      <div className={` ${styles ['col-ske'] } col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4` }>
+                      <div className={` ${styles['col-ske']} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
                         <div className="skeleton">
                           <div className="skeleton__Bigimg">
                           </div>
                         </div>
                       </div>
-                      <div className={` ${styles ['col-ske'] }  col-sm-12 col-md-12 col-lg-4 col-xl-4` }>
+                      <div className={` ${styles['col-ske']}  col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
                         <div className="skeleton">
                           <div className="skeleton__Bigimg">
                           </div>
                         </div>
                       </div>
-                      <div className={`${styles ['col-ske'] }  col-sm-12 col-md-12 col-lg-4 col-xl-4`} >
+                      <div className={`${styles['col-ske']}  col-sm-12 col-md-12 col-lg-4 col-xl-4`} >
+                        <div className="skeleton">
+                          <div className="skeleton__Bigimg">
+                          </div>
+                        </div>
+                      </div>
+                      <div className={` ${styles['col-ske']} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
+                        <div className="skeleton">
+                          <div className="skeleton__Bigimg">
+                          </div>
+                        </div>
+                      </div>
+                      <div className={` ${styles['col-ske']} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
+                        <div className="skeleton">
+                          <div className="skeleton__Bigimg">
+                          </div>
+                        </div>
+                      </div>
+                      <div className={` ${styles['col-ske']} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
                         <div className="skeleton">
                           <div className="skeleton__Bigimg">
                           </div>
@@ -162,7 +197,7 @@ const page = () => {
               })
             ) : (
               <div className={`${styles['side-tag-spin']}`} >
-                <Spin size="medium" /> 
+                <Spin size="medium" />
               </div>
             )}
           </div>
@@ -177,7 +212,7 @@ const page = () => {
         style={{
           marginTop: "0px",
           textAlign: "center",
-          backgroundColor: "antiquewhite",
+          backgroundColor: "white",
         }}
       />
       <Fotter />

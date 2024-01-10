@@ -76,13 +76,13 @@
   justify-content: center;
   align-items: center;
   /* margin-top: 10%; */
-  border: solid 2px tan;
+  /* border: solid 2px tan; */
 }
 
 .custom-modal {
   height: max-content;
   min-width: 60%;
-  border: solid 1px red;
+  /* border: solid 1px red; */
   /* display: flex;
   justify-content: center;
   align-items: center;
@@ -187,6 +187,17 @@
   .sub-content{
     margin-top: 50px;
     width: 80%;
+  }
+  .custom-modal-inner-B h1{
+    font-size: 22px;
+    width: 95%;
+  }
+  .custom-modal-inner-B p{
+    width: 95%;
+    margin-top: 0px;
+  }
+  .custom-modal-inner-B input{
+      /* margin-top: 0px; */
   }
 }
 

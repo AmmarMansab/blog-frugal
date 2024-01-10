@@ -20,7 +20,7 @@ const Tlp = () => {
   const { posts: topSharedData, postsLoading: c } = useGetTopSharedPosts();
   const { posts: topLikedData, postsLoading: d } = useGetTopLikedPosts();
 
-  console.log(recentPosts, 'recentposts....', 'recentloading....', b,);
+  // console.log(recentPosts, 'recentposts....', 'recentloading....', b,);
 
   const [loading, setLoading] = useState(false);
   const [reloadComponent, setReloadComponent] = useState(false);
@@ -38,18 +38,6 @@ const Tlp = () => {
     router.push(route);
   };
 
-  useEffect(() => {
-
-    setLoading(false)
-
-    const loadingTimer = setTimeout(() => {
-      setLoading(true);
-    }, 20000); // 5000 milliseconds (5 seconds)
-
-    return () => clearTimeout(loadingTimer); // Clean up the timer on unmount
-
-  }, [reloadComponent]);
-
   const handleReload = () => {
     setReloadComponent(!reloadComponent);
   };
@@ -64,6 +52,7 @@ const Tlp = () => {
               <div
                 onClick={() => handleNavigation(`/post/${topLikedData?.[0]?._id}`)}
                 className="card-tlp"
+                style={{cursor:'pointer'}} 
               >
                 <div className="overlay"></div>
                 <div
@@ -113,6 +102,7 @@ const Tlp = () => {
               <div
                 onClick={() => handleNavigation(`/post/${topSharedData?.[0]?._id}`)}
                 className="card-tlp"
+                style={{cursor:'pointer'}} 
               >
                 <div className="overlay"></div>
                 <div
@@ -164,6 +154,7 @@ const Tlp = () => {
               <div
                 onClick={() => handleNavigation(`/post/${recentPosts?.[0]?._id}`)}
                 className="card-tlp"
+                style={{cursor:'pointer'}} 
               >
                 <div className="overlay"></div>
                 <div
