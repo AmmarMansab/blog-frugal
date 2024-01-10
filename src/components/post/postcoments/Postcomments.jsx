@@ -25,8 +25,7 @@ const Postcomments = ({ comments, id, setComments }) => {
       e.preventDefault();
 
       const response = await addReply(id, _id, replyContent, "64908ff9eee6e5ab0a6c45c4");
-      setComments([...response?.comments]);
-      setLoad(false)
+      setComments([...response]);
     };
 
     return (
