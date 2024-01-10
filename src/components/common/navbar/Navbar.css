@@ -19,6 +19,7 @@
     background-image: url(../../../images//nav_logo.png);
     background-size: cover;
     background-position: center;
+    cursor: pointer;
 }
 
 .nav-logo img {
@@ -53,7 +54,7 @@
 }
 
 .rightnav{
-    left: 73% !important ;
+    left: 75% !important ;
     transition: all linear 0.30s;
     position: fixed;
 }
@@ -137,13 +138,35 @@
     border: solid 1px white;
 }
 
-@media screen and (min-width:280px) and (max-width:800px) {
+.dropdown-btn{
+    color: white;
+    font-weight: 700 !important;
+    border: none;
+    outline: none;
+    font-size: 19px;
+}
+.dropdown-btn:hover{
+    color: var(--yellow-shadow) !important ;
+}
+
+@media screen and (min-width:400px) and (max-width:800px) {
     .rightnav{
      /* border: solid 1px red; */
      left:  30% !important;
     }
     .leftnav{
         width: 70%;
+    }
+}
+
+@media screen and (min-width:00px) and (max-width:400px) {
+    .rightnav{
+     /* border: solid 1px red; */
+     left:  10% !important;
+    }
+    .leftnav{
+        width: 90%;
+        /* border: solid 2px orange; */
     }
 }
 

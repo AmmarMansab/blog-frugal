@@ -68,7 +68,7 @@ const Category = () => {
                   autoplay autoplaySpeed={3000}
                 >
                   {categories?.map((category) => (
-                    <div onClick={() => handleNavigation(`/category/${category._id}`)} key={category._id}>
+                    <div onClick={() => handleNavigation(`/category/${category._id}`)} key={category._id} style={{cursor:'pointer'}}  >
                       <div style={contentStyle}>
                         <div className="main-scale">
                           <div className="overlay"></div>
@@ -131,7 +131,7 @@ const Category = () => {
           {/* //// */}
           {
             posts.length > 0 ?
-              <div className="main-scale">
+              <div className="main-scale" style={{cursor:'pointer'}} >
                 <div className="trending-icon flex justify-center items-center text-1xl">
                   <AiFillThunderbolt style={{ color: 'var(--yellow-shadow)' }} />
                 </div>

@@ -34,7 +34,7 @@
 }
 
 .fotter-cate{
-    width: 100%;
+    width: 95%;
     height: max-content;
     margin-top: 20px;
     /* border: solid 1px red; */
@@ -60,6 +60,9 @@
     background-image: url('../../../images//fotter-bg.png');
     background-size: cover;
     min-width: 100%;
+    min-height: 80vh !important;
+    max-height: max-content !important;
+    /* border: solid 4px greenyellow; */
 }
 
 .content-white{
@@ -80,10 +83,12 @@
 }
 
 .fotter-img{
-    background-image: url('https://images.unsplash.com/photo-1682695797221-8164ff1fafc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8');
+    /* background-image: url('https://images.unsplash.com/photo-1682695797221-8164ff1fafc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8'); */
     position: absolute;
     height: 100%;
     width: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
 .fotter-end{
@@ -96,9 +101,65 @@
     /* padding-top: 20px; */
 }
 
+.fot-content{
+    width: 80%;
+    height: 50px;
+    /* border: solid 2px white; */
+    z-index: 25;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fot-content h5 {
+    color: white;
+}
+
+.fot-recents:hover{
+    transition: all ease-in-out 0.30s;
+    transform: scale(1.04);
+}
+
+.fotter-end{
+    /* border: solid 2px red; */
+    margin-bottom: 0px !important;
+    background-color: transparent;
+    width: 90%;
+}
+
 .fotter-end h1{
-    font-size: 15px;
-    color: gray
+    font-size: 18px;
+    color: white;
+}
+
+.fotter-end h1 a{
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.fot-main{
+    /* border: solid 2px greenyellow; */
+    /* width: 120% !important; */
+}
+
+.sub-btn-fot{
+    background-color: transparent;
+    color: var(--sky);
+    transition: all ease-in-out 0.30s;
+    border: solid 1px var(--sky);
+    border-radius: 2px;
+    font-weight: 700;
+}
+
+.sub-btn-fot:hover{
+    background-color: var(--sky);
+    color: black;
 }
 
 @media screen and (min-width:0px) and (max-width:800px) {

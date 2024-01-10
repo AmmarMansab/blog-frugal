@@ -36,6 +36,10 @@ const Contact = () => {
         <>
            <div className="contact-hero">
             <div className="overlay-contact"></div>
+            <div className="contact-content">
+                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, </h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente saepe sit sequi. Adipisci illum hic eum vel, voluptatem similique debitis sunt.</p>
+            </div>
            </div>
             <div className="mapouter">
                 <div className="gmap_canvas">

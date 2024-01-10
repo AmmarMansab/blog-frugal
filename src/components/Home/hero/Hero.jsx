@@ -5,18 +5,22 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import axios from "axios"; // Import axios for API requests
 import "./Hero.css"; // Import your CSS file
 import { formatDate } from "@/utils";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import { useGetPosts } from '../../../app/api/blog';
 
 const contentStyle = {
   margin: 0,
   height: "max-content",
-  lineHeight: "160px",
+  lineHeight: "160px",  
   textAlign: "center",
   background: "transparent",
 };
 
+
 const Hero = () => {
+
+  const router = useRouter();
+
   const { posts, postsLoading } = useGetPosts();
 
   //-------------------------------------------------//
@@ -42,7 +46,7 @@ const Hero = () => {
   };
 
   const handleNavigation = (route) => {
-    // router.push(route);
+    router.push(route);
   }
 
   return (
@@ -55,17 +59,16 @@ const Hero = () => {
             autoplay autoplaySpeed={4000}
           >
             {posts?.map((post) => (
-              <div className="hero-con" onClick={() => handleNavigation(`/post/${API + post._id?.[0]?._id}`)} style={{cursor:'pointer'}} key={post._id}>
+              <div className="hero-con" onClick={() => handleNavigation(`/post/${post?._id}`)} style={{ cursor: 'pointer' }} key={post?._id}>
                 <div style={contentStyle}>
                   <div
                     className="hero-main"
-                    onClick={() => handleNavigation(`/post/${API + post._id?.[0]?._id}`)}
                   >
-                    <div className="hero-img"  onClick={() => handleNavigation(`/post/${API + post._id?.[0]?._id}`)} style={{ backgroundImage: `url(${API + post.image})` }} ></div>
-                    <div className="hero-overlay"></div>
-                    <div className="tlp-c">
+                    <div className="hero-img" style={{ backgroundImage: `url(${API + post.image})` }} ></div>
+                    <div  className="hero-overlay"></div>
+                    <div  className="tlp-c">
                       <div className="tlp-hero-line"></div>
-                      <div className="tlp-c-heading-hero">
+                      <div  className="tlp-c-heading-hero">
                         {truncateText(post?.title, 50)}
                       </div>
                       <div className="hero-content-type-tlp">

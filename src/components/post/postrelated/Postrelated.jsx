@@ -6,6 +6,7 @@ import { Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons"; // Import arrow icons
 import img1 from "../../../images//fotter-bg.png";
 import { formatDate } from "@/utils";
+import { useRouter } from "next/navigation";
 
 const contentStyle = {
   margin: 0,
@@ -23,9 +24,11 @@ const truncateText = (text, maxLength) => {
 };
 const Postrelated = ({ posts }) => {
 
+  const router = useRouter();
+
   const API = "https://server.blog.digiunction.com";
 
-  console.log(posts[0], 'all postssss');
+  // console.log(posts[0], 'all postssss');
 
   const carouselRef = useRef(null);
   const onChange = (currentSlide) => { };
@@ -73,6 +76,13 @@ const Postrelated = ({ posts }) => {
   const prevSlide = () => {
     carouselRef?.current?.prev();
   };
+
+
+  const handleNavigation = (route) => {
+    // console.log(route, 'dddd');
+    router.push(route);
+  };
+
   return (
     <>
       <div className="carousel-container">
@@ -88,7 +98,7 @@ const Postrelated = ({ posts }) => {
               {/* 1 */}
               {
                 posts[0] ?
-                  <div className="related-card-main">
+                  <div onClick={() => handleNavigation(`/post/${posts?.[0]?._id}`)} className="related-card-main">
                     <h3 style={contentStyle}>
                       <div className="related-card">
                         <div className="overlay-related"></div>
@@ -115,7 +125,7 @@ const Postrelated = ({ posts }) => {
               {/* 2 */}
               {
                 posts[1] ?
-                  <div className="related-card-main">
+                  <div onClick={() => handleNavigation(`/post/${posts?.[1]?._id}`)} className="related-card-main">
                     <h3 style={contentStyle}>
                       <div className="related-card">
                         <div className="overlay-related"></div>
@@ -143,7 +153,7 @@ const Postrelated = ({ posts }) => {
               {/* 3 */}
               {
                 posts[2] ?
-                  <div className="related-card-main">
+                  <div onClick={() => handleNavigation(`/post/${posts?.[2]?._id}`)} className="related-card-main">
                     <h3 style={contentStyle}>
                       <div className="related-card">
                         <div className="overlay-related"></div>
@@ -170,8 +180,8 @@ const Postrelated = ({ posts }) => {
 
               {/* 4 */}
               {
-                posts[2] ?
-                  <div className="related-card-main">
+                posts[3] ?
+                  <div onClick={() => handleNavigation(`/post/${posts?.[3]?._id}`)} className="related-card-main">
                     <h3 style={contentStyle}>
                       <div className="related-card">
                         <div className="overlay-related"></div>
