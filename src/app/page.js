@@ -5,6 +5,7 @@ import Tlp from '@/components/Home/tlp/Tlp'
 import React from 'react'
 import Navbar from '@/components/common/navbar/Navbar'
 import Subscription from '@/components/subscription/Subscription'
+import Videosection from '@/components/Home/video/Videosection'
 
 const page = () => {
   return (
@@ -15,6 +16,7 @@ const page = () => {
         <Category />
         <Tlp />
         <Subscription/>
+        <Videosection/>
         <Fotter />
       </div>
     </>

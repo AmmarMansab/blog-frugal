@@ -5,28 +5,51 @@ import { IoArrowRedoSharp } from "react-icons/io5";
 import { formatDate, formatDateTime } from "@/utils";
 import Writemessage from "../writemessage/Writemessage";
 import { useAddReplyToComment } from "@/app/api/blog";
+import { BiSolidSend } from "react-icons/bi";
 
 const Postcomments = ({ comments, id, setComments }) => {
 
+  const [localdata, setLocaldata] = useState(null)
+  useEffect(() => {
+    var storedJsonString = localStorage.getItem('userId');
+    var retrievedData = JSON.parse(storedJsonString);
+    setLocaldata(retrievedData)
+  }, [localdata])
+
   const [load, setLoad] = useState(true)
-
-  // console.log(data,'data...');
-
   const Comment = ({ content, createdAt, replies, img, _id, index, author }) => {
     img = 'https://cdn.iconscout.com/icon/free/png-512/free-user-1648810-1401302.png?f=webp&w=256'
     const [showAllReplies, setShowAllReplies] = useState(false);
     const [showtextarea, setShowtextarea] = useState(false);
     const [replyContent, setReplyContent] = useState("");
+    const [authorid, setAuthorid] = useState(null)
 
     const { addReply } = useAddReplyToComment();
 
     const handleSubmit = async (e) => {
-      setShowtextarea(false);
+      setShowtextarea(true);
       e.preventDefault();
-
-      const response = await addReply(id, _id, replyContent, "64908ff9eee6e5ab0a6c45c4");
-      setComments([...response]);
+      var storedJsonString = localStorage.getItem('userId');
+      var retrievedData = JSON.parse(storedJsonString);
+      if (retrievedData != null && retrievedData != undefined) {
+        const response = await addReply(id, _id, obj, retrievedData);
+        setLocaldata(retrievedData)
+        setComments([...response]);
+      }
+      else {
+        const response = await addReply(id, _id, obj, authorid);
+        // console.log(response,'res when id not found');
+        var jsonString = JSON.stringify(response?.[response?.length - 1]?.author._id);
+        localStorage.setItem('userId', jsonString);
+        setComments([...response]);
+      }
     };
+
+    const [obj, setObj] = useState({})
+
+    const handlechange = (e) => {
+      setObj({ ...obj, [e.target.name]: e.target.value })
+    }
 
     return (
       <>
@@ -55,21 +78,31 @@ const Postcomments = ({ comments, id, setComments }) => {
           </div>
           {/* // */}
           {showtextarea ? (
-            <form onSubmit={handleSubmit} className="comments-form" action="">
+            <form onSubmit={handleSubmit} className="comments-form  " action="">
+              {!localdata && (
+                <>
+                  <div className="fle">
+                    <input name="firstname" onChange={handlechange} placeholder="firstname" type="text" />
+                    <input name="lastname" onChange={handlechange} placeholder="lastname" type="text" />
+                    <input name="email" onChange={handlechange} placeholder="email" type="email" />
+                  </div>
+                </>
+              )}
               <textarea
+                // className="shadow"
                 placeholder="Write Here...."
-                name=""
                 id=""
                 cols="30"
                 rows="10"
-                value={replyContent}
-                onChange={(e) => setReplyContent(e.target.value)}
+                name="content"
+                onChange={handlechange}
               ></textarea>
-              <button>Submit</button>
+              <button type="submit"><BiSolidSend /></button>
             </form>
           ) : (
             ""
           )}
+
           {/* // */}
           {replies?.length > 0 && (
             <>
@@ -134,8 +167,8 @@ const Postcomments = ({ comments, id, setComments }) => {
                 </div>
               </div>
             </div>
-          </div> 
-          :'No Comments Founds !'
+          </div>
+          : 'No Comments Founds !'
       )}
     </div>
   );

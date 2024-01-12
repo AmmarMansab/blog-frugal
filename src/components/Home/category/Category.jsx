@@ -6,25 +6,17 @@ import axios from "axios"; // Import axios for API requests
 import { AiFillThunderbolt } from "react-icons/ai";
 import "./Category.css";
 import { formatDate } from "@/utils";
-import { useRouter } from 'next/navigation';
-
 import { useGetCategories } from '../../../app/api/category';
 import { useGetTopViewedPosts } from '../../../app/api/blog';
-
+import useNavi from "@/utils/hooks/useNavi";
+import Showtext from "@/utils/showtext";
 
 const Category = () => {
-
+  const {truncateText}=Showtext();
+  const {handleNavigation}=useNavi();
   const { categories, catsLoading } = useGetCategories();
   const { posts, postsLoading } = useGetTopViewedPosts();
-
-  const router = useRouter()
-
-  const handleNavigation = (route) => {
-    router.push(route);
-  }
-
   const API = "https://server.blog.digiunction.com";
-
   const contentStyle = {
     margin: 0,
     height: "max-content",
@@ -46,10 +38,6 @@ const Category = () => {
 
   const prevSlide = () => {
     carouselRef.current.prev();
-  };
-
-  const truncateText = (text, maxLength) => {
-    return text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
   };
 
   return (

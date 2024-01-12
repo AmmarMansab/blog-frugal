@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import './Fotter.css'
 import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebook } from "react-icons/fa";
@@ -10,20 +10,26 @@ import { BiSolidRegistered } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 import { SiPinterest } from "react-icons/si";
 import { FaReddit } from "react-icons/fa6";
+import axios from 'axios';
+import { message } from 'antd';
+import useSubscriptionForm from '../../../utils/hooks/useSubscripiton';
+import Showtext from '@/utils/showtext';
+import useNavi from '@/utils/hooks/useNavi';
 // import img from 'https://images.unsplash.com/photo-1682695797221-8164ff1fafc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8';
 
 const Fotter = () => {
 
     const router = useRouter()
+    const { subscriptionData, handleChange, handleSubmit, isSuccess } = useSubscriptionForm();
+    const {truncateText}=Showtext();
+    const {handleNavigation}=useNavi();
     const { posts: recentPosts, postsLoading: b } = useGetPosts();
-    // console.log(recentPosts, 'rrrr');
     const API = "https://server.blog.digiunction.com";
-    const truncateText = (text, maxLength) => {
-        return text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
-    };
-
-    const handleNavigation = (route) => {
-        router.push(route);
+    const emailref = useRef();
+    const nameref = useRef();
+    const handleSuccess = () => {
+        emailref.current.value = '';
+        nameref.current.value = '';
     };
 
     return (
@@ -51,12 +57,14 @@ const Fotter = () => {
                             <p className='text-center text-white ' >
                                 I’ve distilled the perfect casual wardrobe down to 11 essentials every Effortless Gent needs in his closet. They’re the basic ingredients of your wardrobe. Can I send you my list of essentials? 👇🏽
                             </p>
-                            <form action="">
-                                <input placeholder='Name' className='h-[35px] w-full mt-4 pl-4' type="text" />
-                                <input placeholder='Email' className='h-[35px] w-full mt-4 pl-4' type="text" />
-                                <button className='h-[35px] w-full mt-4 sub-btn-fot ' >Subscribe</button>
-                                {/* <button className='h-[35px] w-full mt-4 sub-btn-fot ' >Subscribe</button> */}
+                            <form onSubmit={(e) => { e.preventDefault(); handleSubmit('https://server.blog.digiunction.com/api/news/create'); }}>
+                                <input ref={nameref} onChange={handleChange} placeholder='Name' name='name' className='h-[35px] w-full mt-4 pl-4' type="text" />
+                                <input ref={emailref} onChange={handleChange} placeholder='Email' name='email' className='h-[35px] w-full mt-4 pl-4' type="text" />
+                                <button type='submit' className='h-[35px] w-full mt-4 sub-btn-fot'>Subscribe</button>
                             </form>
+                            {isSuccess !== null && (
+                                isSuccess ? handleSuccess() : handleError()
+                            )}
                         </div>
                     </div>
                     {/* //// */}

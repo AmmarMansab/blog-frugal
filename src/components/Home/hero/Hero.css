@@ -1,5 +1,7 @@
 .carousel-container {
     position: relative;
+    border: solid 2px green;
+    /* height: 100vh; */
 }
 
 .tlp-c-heading-hero{
@@ -52,7 +54,7 @@
 
 .hero-main {
   position: relative;
-  height: 75vh;
+  height: 90vh;
   width: 100%;
   cursor: pointer;
 }

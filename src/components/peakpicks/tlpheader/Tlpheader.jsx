@@ -3,21 +3,13 @@ import { React, useEffect, useRef, useState } from 'react'
 import { Carousel } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { AiFillThunderbolt } from "react-icons/ai";
+import { formatDate } from "@/utils";
+import Scrolldown from '@/utils/scrolldown';
 import './Tlpheader.css'
+import useNavi from '@/utils/hooks/useNavi';
 
-const Tlpheader = () => {
-
-    const carouselData = [
-        { id: 1, content: '1', img: 'https://images.unsplash.com/photo-1683009680116-b5c04463551d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8', },
-        { id: 2, content: '2', img: 'https://images.unsplash.com/photo-1683009680116-b5c04463551d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8', },
-        { id: 3, content: '3', img: 'https://images.unsplash.com/photo-1683009680116-b5c04463551d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8', },
-        { id: 4, content: '4', img: 'https://images.unsplash.com/photo-1683009680116-b5c04463551d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8', },
-        { id: 1, content: '5', img: 'https://images.unsplash.com/photo-1683009680116-b5c04463551d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8', },
-        { id: 2, content: '6', img: 'https://images.unsplash.com/photo-1683009680116-b5c04463551d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8', },
-        { id: 3, content: '7', img: 'https://images.unsplash.com/photo-1683009680116-b5c04463551d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8', },
-        { id: 4, content: '8', img: 'https://images.unsplash.com/photo-1683009680116-b5c04463551d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8', },
-    ];
-
+const Tlpheader = ({ data }) => {
+    const {handleNavigation}=useNavi()
     const contentStyle = {
         margin: 0,
         height: 'max-content',
@@ -26,21 +18,16 @@ const Tlpheader = () => {
         textAlign: 'center',
         background: 'transparent',
     };
-
     const carouselRef = useRef(null);
-
     const onChange = (currentSlide) => {
-        console.log(currentSlide);
+        // console.log(currentSlide);
     };
-
     const nextSlide = () => {
         carouselRef.current.next();
     };
-
     const prevSlide = () => {
         carouselRef.current.prev();
     };
-
     const responsiveSettings = [
         {
             breakpoint: 600,  // screen size 768px and below
@@ -79,18 +66,35 @@ const Tlpheader = () => {
         },
     ];
 
+    const API = "https://server.blog.digiunction.com";
+
+    const truncateText = (text, maxLength) => {
+        return text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+    };
+
     return (
         <>
-            <div class=" container border max-w-100 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
-                <div class="bg-blue-500 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
-                    {/* //// */}
+            <div class="peakpics-con  mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
+                <div class="bg-blue-500 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 spin-main ">
+                   <Scrolldown/>
                     <div className="carousel-container">
                         <Carousel afterChange={onChange} ref={carouselRef} dots={false} responsive={responsiveSettings}>
-                            {carouselData.map((item) => (
-                                <div key={item.id}>
+                            {data.map((item) => (
+                                <div  onClick={() => handleNavigation(`/post/${item?._id}`)} key={item?.id}>
                                     <div style={contentStyle}>
-                                        <div className='cate-background-peakpicks' style={{ backgroundImage: `url(${item.img})` }} >
-                                            <div className="overlay"></div>
+                                        <div className="cate-carousel-main">
+                                            <div className='cate-background-peakpicks' style={{ backgroundImage: `url(${API + item.image})` }} >
+                                                <div className="overlay"></div>
+                                                <div className="tlp-c" style={{ height: '100%' }} >
+                                                    <div className="tlp-c-line-p"></div>
+                                                    <div className="tlp-c-heading-pp">
+                                                        {truncateText(item?.title, 50)}
+                                                    </div>
+                                                    <div className="hero-content-type-tlp">
+                                                        {`By Admin / ${formatDate(item?.updatedAt)} / ${item?.category?.name}`}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +109,6 @@ const Tlpheader = () => {
                             </button>
                         </div>
                     </div>
-                    {/* //// */}
                 </div>
             </div>
         </>

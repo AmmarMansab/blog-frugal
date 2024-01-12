@@ -7,6 +7,8 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons"; // Import arrow
 import img1 from "../../../images//fotter-bg.png";
 import { formatDate } from "@/utils";
 import { useRouter } from "next/navigation";
+import useNavi from "@/utils/hooks/useNavi";
+import Showtext from "@/utils/showtext";
 
 const contentStyle = {
   margin: 0,
@@ -19,17 +21,12 @@ const contentStyle = {
   justifyContent: "center",
   alignItems: "center",
 };
-const truncateText = (text, maxLength) => {
-  return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
-};
+
 const Postrelated = ({ posts }) => {
 
-  const router = useRouter();
-
   const API = "https://server.blog.digiunction.com";
-
-  // console.log(posts[0], 'all postssss');
-
+  const {truncateText}=Showtext()
+  const {handleNavigation}=useNavi()
   const carouselRef = useRef(null);
   const onChange = (currentSlide) => { };
   const responsiveSettings = [
@@ -75,12 +72,6 @@ const Postrelated = ({ posts }) => {
 
   const prevSlide = () => {
     carouselRef?.current?.prev();
-  };
-
-
-  const handleNavigation = (route) => {
-    // console.log(route, 'dddd');
-    router.push(route);
   };
 
   return (

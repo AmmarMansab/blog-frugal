@@ -1,5 +1,6 @@
 // components/Hero.js
 import styled from 'styled-components';
+import Tlpheader from '../peakpicks/tlpheader/Tlpheader';
 
 const HeroContainer = styled.div`
   height: 100vh;
@@ -22,14 +23,9 @@ const Description = styled.p`
   text-align: center;
 `;
 
-const Hero = () => {
+const Hero = ({data}) => {
   return (
-    <HeroContainer>
-      <Title>Your Hero Title</Title>
-      <Description>
-        Your hero description goes here. This is where you can provide more details about your page.
-      </Description>
-    </HeroContainer>
+      <Tlpheader data={data} />
   );
 };
 

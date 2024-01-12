@@ -1,65 +1,23 @@
 'use client'
-import { React, useRef } from 'react'
-import emailjs from '@emailjs/browser';
+import { React } from 'react'
 import './Contact.css'
-import { message } from 'antd';
+import Scrolldown from '../../utils/Scrolldown'
+import useSendEmail from '@/utils/hooks/useSendEmail';
+import Googlemap from '@/utils/googlemap/Googlemap';
 
 const Contact = () => {
-
-    const form = useRef();
-    const inpRef1 = useRef();
-    const inpRef2 = useRef();
-    const inpRef3 = useRef();
-
-    const sendEmail = (e) => {
-        e.preventDefault();
-
-        console.log(inpRef1.current.value.length, 'dddd');
-
-        if (inpRef1.current.value.length > 0 && inpRef2.current.value.length > 0 && inpRef3.current.value.length > 0) {
-            emailjs.sendForm('service_htg21em', 'template_pvs7qjo', form.current, '3wD6wJr6Eh18hDdvi')
-                .then((result) => {
-                    message.success('Email Send')
-                    inpRef1.current.value = ''
-                    inpRef2.current.value = ''
-                    inpRef3.current.value = ''
-                }, (error) => {
-                    message.error('Email Not Send')
-                });
-        }
-        else {
-            message.warning('Fill All Filds')
-        }
-    };
-
+    const { sendEmail, form, inpRef1, inpRef2, inpRef3 } = useSendEmail();
     return (
         <>
-           <div className="contact-hero">
-            <div className="overlay-contact"></div>
-            <div className="contact-content">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, </h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente saepe sit sequi. Adipisci illum hic eum vel, voluptatem similique debitis sunt.</p>
-            </div>
-           </div>
-            <div className="mapouter">
-                <div className="gmap_canvas">
-                    <iframe
-                        title="Google Map"
-                        className="gmap_iframe"
-                        frameBorder="0"
-                        scrolling="no"
-                        marginHeight="0"
-                        marginWidth="0"
-                        src="https://maps.google.com/maps?width=100%&amp;height=80vh&amp;hl=en&amp;q=2880 Broadway, New York&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                    ></iframe>
-                    <a href="https://embed-googlemap.com">google maps code generator</a>
+            <div className="contact-hero">
+                <Scrolldown />
+                <div className="overlay-contact"></div>
+                <div className="contact-content">
+                    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, </h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente saepe sit sequi. Adipisci illum hic eum vel, voluptatem similique debitis sunt.</p>
                 </div>
-                <style>
-                    {`.mapouter{position:relative;text-align:right;width:100%;height:80vh;}
-        .gmap_canvas {overflow:hidden;background:none!important;width:100%;height:80vh;}
-        .gmap_iframe {width:100%!important;height:80vh!important;}`}
-                </style>
             </div>
+            <Googlemap />
             <section id="contact">
                 <div class="contact-box">
                     <div class="contact-links">

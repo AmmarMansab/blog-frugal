@@ -30,5 +30,4 @@
 body {
   color: rgb(var(--foreground-rgb));
   background-color: white;
-  /* line-height: 10px; */
 }
