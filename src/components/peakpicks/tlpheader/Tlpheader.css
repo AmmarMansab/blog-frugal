@@ -1,16 +1,91 @@
-.cate-background-peakpicks{
+.cate-background-peakpicks {
     height: 100vh;
     width: 100%;
     background-size: cover;
     background-position: center;
-    border: solid 1px red;
+    /* border: solid 1px red; */
     margin-bottom: 20px;
     padding: 0px;
+    position: absolute;
+    transition: all ease-in-out 0.30s;
+}
+
+.cate-carousel-main {
+    height: 100vh;
+    width: 100%;
+    /* border: solid 2px purple; */
+    overflow: hidden;
+    transition: all ease-in-out 0.30s;
     position: relative;
+    cursor: pointer;
+    background-attachment: fixed;
+}
+
+/* ///// */
+
+
+.tlp-c-line-p {
+    position: absolute;
+    margin: auto;
+    top: 25px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 60%;
+    /* background-color: white; */
+    border: solid 1px white;
+    border-left: none;
+    border-right: none;
+    height: 1px;
+    transition: all ease-in-out 0.30s;
+}
+
+.tlp-c:hover .tlp-c-line-p {
+    height: 200px;
+    top: 0px;
+}
+
+@media screen and (min-width:0px) and (max-width:1226px) {
+    .tlp-c:hover .tlp-c-line-p {
+        height: 200px;
+    }
+}
+
+.tlp-c-heading-pp {
+    color: white;
+    font-size: 25px;
+    line-height: 30px !important;
+    transition: all ease-in-out 0.30s;
+    height: 90px;
+    /* border: solid 2px purple; */
+    display: flex;
+    align-items: end;
+    padding-bottom: 45px;
+    width: 80%;
+    text-align: center;
+    /* border: solid 1px red; */
+    display: flex;
+    justify-content: center;
+    top: 20px;
+    padding-bottom: 0px !important;
+    transform: translate(0px, 14px);
+    /* margin-bottom: 10px; */
+}
+
+/* //// */
+
+.cate-carousel-main:hover .cate-background-peakpicks {
+    transform: scale(1.1);
+}
+
+.peakpics-con {
+    width: 100% !important;
+    /* border: solid 2px purple; */
 }
 
 .carousel-container {
     position: relative;
+    /* border: solid 2px purple; */
 }
 
 .custom-arrows {
@@ -29,7 +104,7 @@
     cursor: pointer;
 }
 
-.card{
+.card {
     height: 370px;
     width: 100%;
     border: solid 1px red;
@@ -38,7 +113,7 @@
     position: relative;
 }
 
-.trending-icon{
+.trending-icon {
     height: 60px;
     width: 55px;
     background-color: beige;
@@ -47,7 +122,7 @@
     z-index: 25;
 }
 
-.overlay{
+.overlay {
     background-color: black;
     opacity: 0.5;
     height: 100%;
@@ -55,3 +130,4 @@
     z-index: 20;
     position: absolute;
 }
+

@@ -217,10 +217,13 @@ export const useGetCommentsByPostID = (id) => {
 export const useAddCommentOnPost = (id) => {
   const URL = `https://server.blog.digiunction.com/api/post/comment/${id}`;
 
-  const addComment = async (content, author) => {
+  const addComment = async (message,firstname,lastname,email) => {
     const body = {
-      content,
-      author,
+      content:message,
+      // author,
+      firstname,
+      lastname,
+      email,
     };
 
     const data = await put_fetcher(URL, body );
@@ -242,11 +245,14 @@ export const useAddCommentOnPost = (id) => {
 
 export const useAddReplyToComment = (id, commentId) => {
   
-  const addReply = async (postId, commentId, content, author) => {
+  const addReply = async (postId, commentId, obj, author) => {
     const URL = `https://server.blog.digiunction.com/api/post/reply/${postId}/${commentId}`;
 
     const body = {
-      content,
+      content:obj.content,
+      email:obj.email,
+      firstname:obj.firstname,
+      lastname:obj.lastname,
       author,
     };
 

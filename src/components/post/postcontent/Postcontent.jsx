@@ -8,8 +8,6 @@ const Postcontent = ({ post }) => {
 
   const API = "https://server.blog.digiunction.com";
 
-  console.log(post,'post....');
-
   return (
     <>
       <div className="conent-main-contaier">

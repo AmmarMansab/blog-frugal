@@ -7,6 +7,9 @@ import "./Hero.css"; // Import your CSS file
 import { formatDate } from "@/utils";
 import { useRouter } from "next/navigation";
 import { useGetPosts } from '../../../app/api/blog';
+import Scrolldown from '../../../utils/Scrolldown';
+import useNavi from "@/utils/hooks/useNavi";
+import Showtext from "@/utils/showtext";
 
 const contentStyle = {
   margin: 0,
@@ -18,21 +21,11 @@ const contentStyle = {
 
 
 const Hero = () => {
-
-  const router = useRouter();
-
+  const {truncateText}=Showtext();
+  const {handleNavigation}=useNavi();
   const { posts, postsLoading } = useGetPosts();
-
-  //-------------------------------------------------//
-
   const carouselRef = useRef(null);
-
   const API = "https://server.blog.digiunction.com";
-
-  const truncateText = (text, maxLength) => {
-    return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
-  };
-
   const onChange = (currentSlide) => {
     // console.log(currentSlide);
   };
@@ -45,12 +38,9 @@ const Hero = () => {
     carouselRef.current.prev();
   };
 
-  const handleNavigation = (route) => {
-    router.push(route);
-  }
-
   return (
     <div className="carousel-container">
+      <Scrolldown/>
       {
         posts.length > 0 ?
           <Carousel

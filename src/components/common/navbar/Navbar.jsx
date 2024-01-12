@@ -8,10 +8,11 @@ import { Button, Dropdown } from 'antd';
 import { useRouter } from 'next/navigation';
 import logo from '../../../images/nav_logo.png'
 import { useGetCategories } from '@/app/api/category';
+import useNavi from '@/utils/hooks/useNavi';
 // import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
-
+  const {handleNavigation}=useNavi();
   const { categories, catsLoading } = useGetCategories();
   const [show, setShow] = useState(false)
   const router = useRouter();
@@ -24,9 +25,6 @@ const Navbar = () => {
       setShow(true)
     }
   }
-  const handleNavigation = (route) => {
-    router.push(route);
-  };
   return (
     <>
       <div className="container-nav">

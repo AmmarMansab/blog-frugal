@@ -1,49 +1,46 @@
 'use client'
-import { React, useState, useEffect } from 'react'
+import { React, useState, useEffect,useRef } from 'react'
 import './Subscription.css'
 import { Modal } from 'antd';
+import useModal from '../../utils/hooks/useModel';
+import useSubscriptionForm from '@/utils/hooks/useSubscripiton';
 
 const Subscription = () => {
-
-    const [loading, setLoading] = useState(false);
-    const [open, setOpen] = useState(false);
-    const showModal = () => {
-        setOpen(true);
+    const nameref = useRef()
+    const emailref = useRef()
+    const { showModal, handleOk, handleCancel, loading, visible } = useModal();
+    const { subscriptionData, handleChange, handleSubmit, isSuccess } = useSubscriptionForm();
+    const handleSuccess = () => {
+        emailref.current.value = '';
+        nameref.current.value = '';
     };
-    const handleOk = () => {
-        setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-            setOpen(false);
-        }, 3000);
-    };
-    const handleCancel = () => {
-        setOpen(false);
-    };
-
     return (
         <>
             <Modal
-                open={open}
+                visible={visible}
                 onOk={handleOk}
                 onCancel={handleCancel}
-                className="custom-modal" // Apply the custom CSS class
-                footer={null} // This removes the default footer with buttons
+                className="custom-modal"
+                footer={null}
             >
-                <div className='flex justify-start items-center' style={{ height: '80vh',marginTop:'-10vh '}}>
-                  <div className="custom-modal-inner-container">
-                    <div className="custom-modal-inner-A" ></div>
-                    <div className="custom-modal-inner-B">
-                        <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores natus impedit perspiciatis ab magnam adipisci atque corrupti doloremque eum rem magni, officia beatae dicta veritatis deleniti fuga nemo in eligendi.</p>
-                        <input placeholder='anything' type="text" />
-                        <input placeholder='anyting' type="text" />
-                        <button>Submit</button>
+                <div className='flex justify-start items-center' style={{ height: '80vh', marginTop: '-10vh ' }}>
+                    <div className="custom-modal-inner-container">
+                        <div className="custom-modal-inner-A" ></div>
+                        <div className="custom-modal-inner-B">
+                            <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores natus impedit perspiciatis ab magnam adipisci atque corrupti doloremque eum rem magni, officia beatae dicta veritatis deleniti fuga nemo in eligendi.</p>
+                            <form onSubmit={(e) => { e.preventDefault(); handleSubmit('https://server.blog.digiunction.com/api/news/create'); }} >
+                                <input ref={nameref} onChange={handleChange} placeholder='name' type="text" />
+                                <input ref={emailref} onChange={handleChange} placeholder='email' type="text" />
+                                <button>Submit</button>
+                            </form>
+                            {isSuccess !== null && (
+                                isSuccess ? handleSuccess() : handleError()
+                            )}
+                        </div>
                     </div>
-                  </div>
                 </div>
             </Modal>
-
             <div className=" sub-container container max-w-80 mx-auto flex justify-start items-center sm:flex-col md:flex-row lg:flex-row xl:flex-row ">
                 <div class=" sub-img"></div>
                 <div className="sub-content flex justify-center items-start flex-col ">

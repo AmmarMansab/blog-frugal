@@ -9,51 +9,18 @@ import {
 } from "@/app/api/blog";
 import '../../../components/Home/tlp/Tlp.css'
 import { useRouter } from "next/navigation";
+import useNavi from '@/utils/hooks/useNavi';
 
 
 const Starthere = () => {
 
+    const {handleNavigation} = useNavi()
     const { posts: topViewedData, postsLoading: a } = useGetTopViewedPosts();
     const { posts: recentPosts, postsLoading: b } = useGetPosts();
     const { posts: topSharedData, postsLoading: c } = useGetTopSharedPosts();
     const { posts: topLikedData, postsLoading: d } = useGetTopLikedPosts();
 
-    const router = useRouter();
-
-    console.log(topViewedData, 'top...');
     const API = "https://server.blog.digiunction.com";
-
-    const data = [
-        {
-            id: '1234567'
-            , image: 'https://images.unsplash.com/photo-1701666469271-fd6c65a1e7d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8',
-            title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur enim deleniti iste a cupiditate illum rem. Eos a ratione quia velit architecto, fugit obcaecati laboriosam necessitatibu',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cumque nesciunt nihil facere minus ab eveniet suscipit dignissimos ullam, molestias sapiente saepe soluta reprehenderit repellat placeat ipsum, error provident earum?',
-        },
-        {
-            id: '1234567'
-            , image: 'https://images.unsplash.com/photo-1701666469271-fd6c65a1e7d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8',
-            title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur enim deleniti iste a cupiditate illum rem. Eos a ratione quia velit architecto, fugit obcaecati laboriosam necessitatibu',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cumque nesciunt nihil facere minus ab eveniet suscipit dignissimos ullam, molestias sapiente saepe soluta reprehenderit repellat placeat ipsum, error provident earum?',
-        },
-        {
-            id: '1234567'
-            , image: 'https://images.unsplash.com/photo-1701666469271-fd6c65a1e7d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8',
-            title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur enim deleniti iste a cupiditate illum rem. Eos a ratione quia velit architecto, fugit obcaecati laboriosam necessitatibu',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cumque nesciunt nihil facere minus ab eveniet suscipit dignissimos ullam, molestias sapiente saepe soluta reprehenderit repellat placeat ipsum, error provident earum?',
-        },
-        {
-            id: '1234567'
-            , image: 'https://images.unsplash.com/photo-1701666469271-fd6c65a1e7d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8',
-            title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur enim deleniti iste a cupiditate illum rem. Eos a ratione quia velit architecto, fugit obcaecati laboriosam necessitatibu',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae cumque nesciunt nihil facere minus ab eveniet suscipit dignissimos ullam, molestias sapiente saepe soluta reprehenderit repellat placeat ipsum, error provident earum?',
-        },
-    ]
-
-    const handleNavigation = (route) => {
-        // console.log(route, 'dddd');
-        router.push(route);
-      };
 
     return (
         <>
@@ -84,7 +51,6 @@ const Starthere = () => {
                     <div class="flex flex-col justify-start items-start">
                         {
                             recentPosts.length > 0 ?
-                                // data.map((items) => {
                                 recentPosts.map((items,index) => {
                                     const { _id, image, title, description } = items
                                     if(index===0){

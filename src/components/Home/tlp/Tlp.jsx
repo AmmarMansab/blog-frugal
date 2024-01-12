@@ -6,38 +6,29 @@ import axios from "axios"; // Import axios for API requests
 import { formatDate } from "@/utils";
 import { useRouter } from "next/navigation";
 import { MdSignalWifiStatusbarConnectedNoInternet1 } from "react-icons/md";
-
+import useNavi from "@/utils/hooks/useNavi";
 import {
   useGetTopViewedPosts,
   useGetPosts,
   useGetTopSharedPosts,
   useGetTopLikedPosts,
 } from "../../../app/api/blog";
+import Showtext from "@/utils/showtext";
 
 const Tlp = () => {
+  const {truncateText}=Showtext()
   const { posts: topViewedData, postsLoading: a } = useGetTopViewedPosts();
   const { posts: recentPosts, postsLoading: b } = useGetPosts();
   const { posts: topSharedData, postsLoading: c } = useGetTopSharedPosts();
   const { posts: topLikedData, postsLoading: d } = useGetTopLikedPosts();
+  const {handleNavigation}=useNavi()
 
   // console.log(recentPosts, 'recentposts....', 'recentloading....', b,);
 
   const [loading, setLoading] = useState(false);
   const [reloadComponent, setReloadComponent] = useState(false);
-
   const router = useRouter();
-
   const API = "https://server.blog.digiunction.com";
-
-  const truncateText = (text, maxLength) => {
-    return text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
-  };
-
-  const handleNavigation = (route) => {
-    // console.log(route, 'dddd');
-    router.push(route);
-  };
-
   const handleReload = () => {
     setReloadComponent(!reloadComponent);
   };

@@ -18,31 +18,25 @@ import {
 import Fotter from "@/components/common/fotter/Fotter";
 import Navbar from "@/components/common/navbar/Navbar";
 import { Spin } from 'antd';
+import useNavi from "@/utils/hooks/useNavi";
 
 const page = () => {
 
-  const router = useRouter()
-
-  const handleNavigation = (route) => {
-    // console.log(route, 'dddd');
-    router.push(route);
-  };
-
-
+  const {handleNavigation}=useNavi();
+  const {turncateText=}
   const params = useParams();
   const { id } = params;
   const [theindex, setTheindex] = useState(true)
   const [page, setPage] = useState(0)
-
   const { posts: recentPosts, postsLoading } = useGetPostsByCategory(id, page);
   const [dummydata, setDummydata] = useState([]);
 
   let newrecentPosts = [...recentPosts, ...recentPosts]
-  console.log(newrecentPosts, 'reccc');
+  // console.log(newrecentPosts, 'reccc');
 
   const API = "https://server.blog.digiunction.com";
 
-  const pageSize = 2; // Number of items to display per page
+  const pageSize = 7; // Number of items to display per page
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPosts = newrecentPosts?.length;
@@ -123,7 +117,7 @@ const page = () => {
   return (
     <div className='parent-of-all' >
       <Navbar />
-      <Hero />
+      <Hero data={recentPosts} />
       <div className={styles["my-container"]}>
         <div className={` ${styles['grid-main-container']} `}>
           <div className={`${styles['grid-main']} ${'container'}`}>

@@ -1,28 +1,42 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Writemessage.css";
 import { useAddCommentOnPost } from "@/app/api/blog";
 
-const Writemessage = ({id, comments, setComments}) => {
+const Writemessage = ({ id, comments, setComments }) => {
   const { addComment, commentsLoading } = useAddCommentOnPost(id);
 
-  const [name, setName] = useState("");
+  const [localdata, setLocaldata] = useState(null)
+  useEffect(() => {
+    var storedJsonString = localStorage.getItem('userId');
+    var retrievedData = JSON.parse(storedJsonString);
+    setLocaldata(retrievedData)
+  }, [localdata])
+
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
   const sendMessage = async (e) => {
     e.preventDefault();
-
-    // Validation logic if needed
-    // console.log(name)
-
-    // Add the comment
-    const response = await addComment(message, "64908ff9eee6e5ab0a6c45c4");
-    setComments([...response?.comments]);
-    // console.log("Comment added successfully:", response);
-
-    // Clear the form fields
-    setName("");
+    var storedJsonString = localStorage.getItem('userId');
+    var retrievedData = JSON.parse(storedJsonString);
+    if (retrievedData != null && retrievedData != undefined) {
+      const response = await addComment(message, firstname, lastname, email);
+      setComments([...response?.comments]);
+      setLocaldata(response?.comments[response?.comments?.length - 1]?.author._id)
+    }
+    else {
+      const response = await addComment(message, firstname, lastname, email);
+      var jsonString = JSON.stringify(response?.comments[response?.comments?.length - 1]?.author._id);
+      localStorage.setItem('userId', jsonString);
+      setComments([...response?.comments]);
+      setLocaldata(response?.comments[response?.comments?.length - 1]?.author._id)
+    }
+    // console.log(,'tttt');
+    setFirstname("");
+    setLastname("");
     setEmail("");
     setMessage("");
   };
@@ -31,20 +45,32 @@ const Writemessage = ({id, comments, setComments}) => {
     <>
       <form onSubmit={sendMessage} action="">
         <div className="writemessage-container">
-          <div className="write-A">
-            <input
-              placeholder="Enter Name*"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <input
-              placeholder="Enter Email*"
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
+          {!localdata ? (
+            <div className="write-A">
+              <>
+                <input
+                  placeholder="Enter First Name*"
+                  type="text"
+                  value={firstname}
+                  onChange={(e) => setFirstname(e.target.value)}
+                />
+                <input
+                  placeholder="Enter Last Name*"
+                  type="text"
+                  value={lastname}
+                  onChange={(e) => setLastname(e.target.value)}
+                />
+                <input
+                  placeholder="Enter Email*"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </>
+            </div>
+          ) : (
+            'Send Comments'
+          )}
           <div className="write-B">
             <textarea
               placeholder="Message"
