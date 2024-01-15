@@ -7,6 +7,8 @@ import Hero from "@/components/categoryPage/Hero";
 import { useParams } from "next/navigation";
 import { BsSearch } from "react-icons/bs";
 import '../../../components/Home/tlp/Tlp.css'
+import { useRouter } from "next/navigation";
+import Showtext from "../../../utils/Showtext";
 
 import {
   useGetPostsByCategory
@@ -46,6 +48,8 @@ const page = () => {
     return text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
   };
 
+  const [Index, setIndex] = useState()
+  var BigIndex = 0;
   let isSpecialCard
 
   const CategoryCard = ({ post, index }) => {
