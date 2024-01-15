@@ -11,12 +11,13 @@ const Videosection = () => {
         width: '100vw',
         height: '100vh',
         overflow: 'hidden',
+        margin:'auto'
         // backgroundAttachment: 'fixed',
       }}
     >
       <iframe
         title="YouTube Video"
-        style={{ width: '80%', height: '80%' }}
+        style={{ width: '86%', height: '80%',marginLeft:'8%' }}
         src={videoId}
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -14,7 +14,7 @@ const useSubscriptionForm = () => {
     const handleSubmit = async (apiEndpoint) => {
         axios.post(`https://server.blog.digiunction.com/api/news/create`, subscriptionData)
             .then(response => {
-                console.log(response, 'endpoint....');
+                // console.log(response, 'endpoint....');
                 setIsSuccess(true);
                 setSubscriptionData({});
                 message.success('Subscribe Successfully');

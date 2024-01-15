@@ -179,7 +179,6 @@ const Postcomments = ({ comments, id, setComments }) => {
       <div class="comments-block">
         <div class="form-area">
           <form action="#" class="comment-form validate-form">
-            {/* Your form inputs go here */}
           </form>
         </div>
 
