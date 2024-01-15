@@ -1,13 +1,10 @@
 "use client";
-import CategoryCard from "@/components/categoryPage/categoryCard";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./category.module.scss";
 import { Pagination } from "antd";
 import Hero from "@/components/categoryPage/Hero";
-import styles1 from "../../../components/categoryPage/category.module.scss";
-import Image from "next/image";
+
 import { useParams } from "next/navigation";
-import axios from "axios";
 import { BsSearch } from "react-icons/bs";
 import '../../../components/Home/tlp/Tlp.css'
 import { useRouter } from "next/navigation";
@@ -23,18 +20,13 @@ import useNavi from "@/utils/hooks/useNavi";
 
 const page = () => {
 
-  const {truncateText}=Showtext();
   const {handleNavigation}=useNavi();
-  // const {turncateText=}
   const params = useParams();
   const { id } = params;
-  const [theindex, setTheindex] = useState(true)
   const [page, setPage] = useState(0)
   const { posts: recentPosts, postsLoading } = useGetPostsByCategory(id, page);
-  const [dummydata, setDummydata] = useState([]);
 
   let newrecentPosts = [...recentPosts, ...recentPosts]
-  // console.log(newrecentPosts, 'reccc');
 
   const API = "https://server.blog.digiunction.com";
 
@@ -42,7 +34,6 @@ const page = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPosts = newrecentPosts?.length;
-  const totalPages = Math.ceil(totalPosts / pageSize);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -52,6 +43,10 @@ const page = () => {
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
+
+  const truncateText = (text, maxLength) => {
+    return text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+  };
 
   const [Index, setIndex] = useState()
   var BigIndex = 0;
@@ -72,9 +67,6 @@ const page = () => {
                   <p>{truncateText(description, 350)}</p>
                 </div>
               </div>
-              {/* <div className={` shadow-md ${styles['full-card special-card-cate']}`} >
-               
-              </div> */}
             </div>
           </>
         ) : (
