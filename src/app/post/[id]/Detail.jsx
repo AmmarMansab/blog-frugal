@@ -33,7 +33,7 @@ const page = () => {
     <div className='parent-of-all' >
       <Navbar/>
       <Postheader post={post} />
-      <Postcontent post={post} />
+      <Postcontent post={post} id={id} />
       <Postrelated posts={posts} />
       <Postcomments comments={comment} id={id} setComments={setComments}/>
       <Writemessage id={id} comments={comment} setComments={setComments}/>

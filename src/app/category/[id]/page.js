@@ -11,6 +11,7 @@ import axios from "axios";
 import { BsSearch } from "react-icons/bs";
 import '../../../components/Home/tlp/Tlp.css'
 import { useRouter } from "next/navigation";
+import Showtext from "../../../utils/Showtext";
 
 import {
   useGetPostsByCategory
@@ -22,8 +23,9 @@ import useNavi from "@/utils/hooks/useNavi";
 
 const page = () => {
 
+  const {truncateText}=Showtext();
   const {handleNavigation}=useNavi();
-  const {turncateText=}
+  // const {turncateText=}
   const params = useParams();
   const { id } = params;
   const [theindex, setTheindex] = useState(true)
@@ -50,10 +52,6 @@ const page = () => {
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
-
-  const truncateText = (text, maxLength) => {
-    return text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
-  };
 
   const [Index, setIndex] = useState()
   var BigIndex = 0;
