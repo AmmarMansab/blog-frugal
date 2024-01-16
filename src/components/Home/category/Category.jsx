@@ -9,10 +9,9 @@ import { formatDate } from "@/utils";
 import { useGetCategories } from '../../../app/api/category';
 import { useGetTopViewedPosts } from '../../../app/api/blog';
 import useNavi from "@/utils/hooks/useNavi";
-import Showtext from "@/utils/showtext";
+// import Showtext from "@/utils/showtext";
 
 const Category = () => {
-  const {truncateText}=Showtext();
   const {handleNavigation}=useNavi();
   const { categories, catsLoading } = useGetCategories();
   const { posts, postsLoading } = useGetTopViewedPosts();
@@ -77,7 +76,7 @@ const Category = () => {
                           <div className="tlp-c">
                             <div className="tlp-c-line"></div>
                             <div className="tlp-c-heading-cate">
-                              {truncateText(category?.name, 20)}
+                              {category?.name}
                             </div>
                             <div className="hero-content-type-tlp">
                             {`By Admin / ${formatDate(category.createdAt)}`}
@@ -126,7 +125,7 @@ const Category = () => {
                 <div className="tlp-c">
                   <div className="tlp-c-line"></div>
                   <div className="tlp-c-heading">
-                    {truncateText(posts?.[0]?.title, 20)}
+                    {posts?.[0]?.title}
                   </div>
                   <div className="hero-content-type-tlp">
                     {`By Admin / ${formatDate(posts?.[0]?.updatedAt)} / ${posts?.[0]?.category?.name}`}

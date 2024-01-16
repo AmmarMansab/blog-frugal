@@ -13,7 +13,7 @@ import { FaReddit } from "react-icons/fa6";
 import axios from 'axios';
 import { message } from 'antd';
 import useSubscriptionForm from '../../../utils/hooks/useSubscripiton';
-import Showtext from '@/utils/showtext';
+// import Showtext from '@/utils/showtext';
 import useNavi from '@/utils/hooks/useNavi';
 // import img from 'https://images.unsplash.com/photo-1682695797221-8164ff1fafc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8';
 
@@ -21,7 +21,6 @@ const Fotter = () => {
 
     const router = useRouter()
     const { subscriptionData, handleChange, handleSubmit, isSuccess } = useSubscriptionForm();
-    const {truncateText}=Showtext();
     const {handleNavigation}=useNavi();
     const { posts: recentPosts, postsLoading: b } = useGetPosts();
     const API = "https://server.blog.digiunction.com";
@@ -88,7 +87,7 @@ const Fotter = () => {
                                     <div className='w-1/2 h-full relative cursor-pointer fot-recents ' onClick={() => handleNavigation(`/post/${recentPosts[0]?._id}`)} >
                                         <div style={{ backgroundImage: `url(${API + recentPosts[0]?.image})` }} className="fotter-img"></div>
                                         <div className="fot-content">
-                                            <h5>{truncateText(recentPosts[0]?.title, 10)}</h5>
+                                            <h5>{recentPosts[0]?.title}</h5>
                                         </div>
                                         <div className="overlay"></div>
                                     </div>
@@ -99,7 +98,7 @@ const Fotter = () => {
                                     <div className='w-1/2 h-full relative cursor-pointer fot-recents ' onClick={() => handleNavigation(`/post/${recentPosts?.[1]?._id}`)} >
                                         <div style={{ backgroundImage: `url(${API + recentPosts[1]?.image})` }} className="fotter-img"></div>
                                         <div className="fot-content">
-                                            <h5>{truncateText(recentPosts[1]?.title, 10)}</h5>
+                                            <h5>{recentPosts[1]?.title}</h5>
                                         </div>
                                         <div className="overlay"></div>
                                     </div>
@@ -112,7 +111,7 @@ const Fotter = () => {
                                     <div className='w-1/2 h-full relative cursor-pointer fot-recents ' onClick={() => handleNavigation(`/post/${recentPosts[2]?._id}`)} >
                                         <div style={{ backgroundImage: `url(${API + recentPosts[2]?.image})` }} className="fotter-img"></div>
                                         <div className="fot-content">
-                                            <h5>{truncateText(recentPosts[2]?.title, 10)}</h5>
+                                            <h5>{recentPosts[2]?.title}</h5>
                                         </div>
                                         <div className="overlay"></div>
                                     </div>
@@ -123,7 +122,7 @@ const Fotter = () => {
                                     <div className='w-1/2 h-full relative cursor-pointer fot-recents ' onClick={() => handleNavigation(`/post/${recentPosts[3]?._id}`)} >
                                         <div style={{ backgroundImage: `url(${API + recentPosts[3]?.image})` }} className="fotter-img"></div>
                                         <div className="fot-content">
-                                            <h5>{truncateText(recentPosts[3]?.title, 10)}</h5>
+                                            <h5>{recentPosts[3]?.title}</h5>
                                         </div>
                                         <div className="overlay"></div>
                                     </div>
