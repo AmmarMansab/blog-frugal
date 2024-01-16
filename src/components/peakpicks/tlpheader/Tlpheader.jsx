@@ -4,7 +4,7 @@ import { Carousel } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { AiFillThunderbolt } from "react-icons/ai";
 import { formatDate } from "@/utils";
-import Scrolldown from '@/utils/scrolldown';
+// import Scrolldown from '@/utils/scrolldown';
 import './Tlpheader.css'
 import useNavi from '@/utils/hooks/useNavi';
 
@@ -76,7 +76,7 @@ const Tlpheader = ({ data }) => {
         <>
             <div class="peakpics-con  mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
                 <div class="bg-blue-500 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 spin-main ">
-                   <Scrolldown/>
+                   {/* <Scrolldown/> */}
                     <div className="carousel-container">
                         <Carousel afterChange={onChange} ref={carouselRef} dots={false} responsive={responsiveSettings}>
                             {data.map((item) => (
@@ -88,7 +88,7 @@ const Tlpheader = ({ data }) => {
                                                 <div className="tlp-c" style={{ height: '100%' }} >
                                                     <div className="tlp-c-line-p"></div>
                                                     <div className="tlp-c-heading-pp">
-                                                        {truncateText(item?.title, 50)}
+                                                        {item?.title}
                                                     </div>
                                                     <div className="hero-content-type-tlp">
                                                         {`By Admin / ${formatDate(item?.updatedAt)} / ${item?.category?.name}`}
