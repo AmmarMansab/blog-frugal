@@ -13,7 +13,7 @@ import { useGetPostsByCategory, useGetPostByID, useGetCommentsByPostID } from ".
 import Navbar from "@/components/common/navbar/Navbar";
 import { useEffect, useState } from "react";
 
-const page = () => {
+const Detail = () => {
   const params = useParams();
   const { id } = params;
 
@@ -43,4 +43,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Detail;
