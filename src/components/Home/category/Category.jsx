@@ -9,10 +9,10 @@ import { formatDate } from "@/utils";
 import { useGetCategories } from '../../../app/api/category';
 import { useGetTopViewedPosts } from '../../../app/api/blog';
 import useNavi from "@/utils/hooks/useNavi";
-import Showtext from "@/utils/showtext";
+import useShowtext from "../../../utils/hooks/Showtext";
 
 const Category = () => {
-  const {truncateText}=Showtext();
+  const {truncateText}=useShowtext();
   const {handleNavigation}=useNavi();
   const { categories, catsLoading } = useGetCategories();
   const { posts, postsLoading } = useGetTopViewedPosts();
@@ -90,7 +90,7 @@ const Category = () => {
                   ))}
                 </Carousel>
                 :
-                <div className="skeletoncontaine" >
+                <div style={{marginTop:'50px'}} className="skeletoncontaine" >
                   <div className="skeletoneach1">
                     <div className="skeletoneach1-innerB">
                       <div className="skeleton">
@@ -141,7 +141,7 @@ const Category = () => {
                   <div className="overlay"></div>
                 </div>
               </div> :
-              <div className="skeletoncontaine" >
+              <div  style={{marginTop:'50px'}}  className="skeletoncontaine" >
                 <div className="skeletoneach1">
                   <div className="skeletoneach1-innerB">
                     <div className="skeleton">

@@ -13,7 +13,7 @@ import { FaReddit } from "react-icons/fa6";
 import axios from 'axios';
 import { message } from 'antd';
 import useSubscriptionForm from '../../../utils/hooks/useSubscripiton';
-import Showtext from '@/utils/showtext';
+import useShowtext from '../../../utils/hooks/Showtext';
 import useNavi from '@/utils/hooks/useNavi';
 // import img from 'https://images.unsplash.com/photo-1682695797221-8164ff1fafc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8';
 
@@ -21,7 +21,7 @@ const Fotter = () => {
 
     const router = useRouter()
     const { subscriptionData, handleChange, handleSubmit, isSuccess } = useSubscriptionForm();
-    const {truncateText}=Showtext();
+    const {truncateText}=useShowtext();
     const {handleNavigation}=useNavi();
     const { posts: recentPosts, postsLoading: b } = useGetPosts();
     const API = "https://server.blog.digiunction.com";
@@ -39,7 +39,7 @@ const Fotter = () => {
                     {/* //// */}
                     <div class="pt-3 pr-2 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-start items-center">
                         <div className="fotter-logo flex justify-center items-center ">Digiunction</div>
-                        <p className='fotter-logo-p' >Digiunction is Premium Gossip Magazine/Blog Template, aliquam neque nunc, vestibulum et aliquet.</p>
+                        <p className='fotter-logo-p text-sx ' >Digiunction is Premium Gossip Magazine/Blog Template, aliquam neque nunc, vestibulum et aliquet.</p>
                         <div className="fotter-social flex flex-col justify-center items-center">
                             <h3 className='content-white' >Social Icons</h3>
                             <div className="fotter-icons flex justify-between items-center ">
@@ -54,7 +54,7 @@ const Fotter = () => {
                     <div class="pt-0 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-start items-center">
                         <div className="fotter-cate flex flex-col justify-start items-center">
                             <h3 className=' text-center content-white' >Dressing Sharp, Made Simple</h3>
-                            <p className='text-center text-white ' >
+                            <p className='text-center text-white text-sx ' >
                                 I’ve distilled the perfect casual wardrobe down to 11 essentials every Effortless Gent needs in his closet. They’re the basic ingredients of your wardrobe. Can I send you my list of essentials? 👇🏽
                             </p>
                             <form onSubmit={(e) => { e.preventDefault(); handleSubmit('https://server.blog.digiunction.com/api/news/create'); }}>
@@ -72,7 +72,7 @@ const Fotter = () => {
                     <div class=" pr-2 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-start items-center">
                         <div className="fotter-cate flex flex-col justify-start items-center">
                             <h3 className='content-white' >Affiliate / Legal Info</h3>
-                            <div className='text-white text-center' >
+                            <div className='text-white text-center text-sx ' >
                                 Effortless Gent (EG) is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to
                             </div>
                             <div className='text-white text-center' >
@@ -134,7 +134,7 @@ const Fotter = () => {
                     {/* //// */}
                 </div>
                 <div className='container fotter-end  mx-auto flex justify-start items-center ' >
-                    <h1 className='pt-10 pl-16 flex  ' >Developed By <a href='https://www.digiunction.com/' >Digiunction</a><BiSolidRegistered className='ml-1' /> </h1>
+                    <h1 className='pt-10 pl-16 flex  ' >Copyright © 2024 FrugalFashion™. All Rights Reserved<a href='https://www.digiunction.com/' >Digiunction</a><BiSolidRegistered className='ml-1' /> </h1>
                 </div>
             </div>
         </>

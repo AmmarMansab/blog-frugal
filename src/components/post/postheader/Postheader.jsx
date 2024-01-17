@@ -1,11 +1,11 @@
 import React from 'react'
 import './Postheader.css'
 import { formatDate } from '@/utils'
-import Showtext from '@/utils/showtext'
+import useShowtext from '../../../utils/hooks/Showtext'
 import Scrolldown from '@/utils/Scrolldown'
 
 const Postheader = ({ post }) => {
-  const {truncateText}=Showtext()
+  const {truncateText}=useShowtext()
   return (
     <>
       {
@@ -16,7 +16,7 @@ const Postheader = ({ post }) => {
             <div className="line-1"></div>
             <div className="line-2"></div>
             <div className="post-header-inner">
-              <h1> {truncateText(post?.title, 50)}</h1>
+              <h1 style={{textAlign:'center'}} > {truncateText(post?.title, 50)}</h1>
               <div className="post-category">
                 <p>{post?.author?.firstname + " " + post?.author?.lastname}</p>
                 <span>/</span>
@@ -27,7 +27,7 @@ const Postheader = ({ post }) => {
             </div>
           </div>
           :
-          <div className="post-one-header-ske shadow-sm ">
+          <div  className=" mt-6 post-one-header-ske shadow-sm ">
             <div className="skeleton">
               <div className="skeleton__Big-post-header"></div>
             </div>

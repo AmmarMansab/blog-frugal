@@ -12,7 +12,7 @@ import useNavi from '@/utils/hooks/useNavi';
 // import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
-  const {handleNavigation}=useNavi();
+  const { handleNavigation } = useNavi();
   const { categories, catsLoading } = useGetCategories();
   const [show, setShow] = useState(false)
   const router = useRouter();
@@ -48,7 +48,10 @@ const Navbar = () => {
                   items: categories.map(category => ({
                     key: category._id,
                     label: (
-                      <a style={{textDecoration:'none'}} href={`/category/${category._id}`}>
+                      <a style={{textDecoration:'none',cursor:'pointer'}}
+                      //  href={`/category/${category._id}`}
+                       onClick={() => handleNavigation(`/category/${category._id}`)} key={category._id}
+                       >
                         {category.name}
                       </a>
                     ),

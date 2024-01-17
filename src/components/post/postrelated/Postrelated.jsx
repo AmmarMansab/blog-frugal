@@ -8,7 +8,7 @@ import img1 from "../../../images//fotter-bg.png";
 import { formatDate } from "@/utils";
 import { useRouter } from "next/navigation";
 import useNavi from "@/utils/hooks/useNavi";
-import Showtext from "@/utils/showtext";
+import useShowtext from "../../../utils/hooks/Showtext";
 
 const contentStyle = {
   margin: 0,
@@ -25,7 +25,7 @@ const contentStyle = {
 const Postrelated = ({ posts }) => {
 
   const API = "https://server.blog.digiunction.com";
-  const {truncateText}=Showtext()
+  const {truncateText}=useShowtext()
   const {handleNavigation}=useNavi()
   const carouselRef = useRef(null);
   const onChange = (currentSlide) => { };

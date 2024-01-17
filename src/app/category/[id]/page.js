@@ -11,7 +11,7 @@ import axios from "axios";
 import { BsSearch } from "react-icons/bs";
 import '../../../components/Home/tlp/Tlp.css'
 import { useRouter } from "next/navigation";
-import Showtext from "../../../utils/Showtext";
+import useShowtext from "../../../utils/hooks/Showtext";
 
 import {
   useGetPostsByCategory
@@ -23,8 +23,8 @@ import useNavi from "@/utils/hooks/useNavi";
 
 const page = () => {
 
-  const {truncateText}=Showtext();
-  const {handleNavigation}=useNavi();
+  const { truncateText } = useShowtext();
+  const { handleNavigation } = useNavi();
   // const {turncateText=}
   const params = useParams();
   const { id } = params;
@@ -128,46 +128,48 @@ const page = () => {
                     </React.Fragment>
                   ))
                   :
-                  <div className={` ${styles['skeleton-main-cate']} container `}>
-                    <div className="row" >
-                      <div className={` ${styles['col-ske']} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
-                        <div className="skeleton">
-                          <div className="skeleton__Bigimg">
+                  <>
+                    <div className={` ${styles['skeleton-main-cate']} container `}>
+                      <div className="row" >
+                        <div className={` ${styles['col-ske']} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
+                          <div className="skeleton">
+                            <div className="skeleton__Bigimg">
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className={` ${styles['col-ske']}  col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
-                        <div className="skeleton">
-                          <div className="skeleton__Bigimg">
+                        <div className={` ${styles['col-ske']}  col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
+                          <div className="skeleton">
+                            <div className="skeleton__Bigimg">
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className={`${styles['col-ske']}  col-sm-12 col-md-12 col-lg-4 col-xl-4`} >
-                        <div className="skeleton">
-                          <div className="skeleton__Bigimg">
+                        <div className={`${styles['col-ske']}  col-sm-12 col-md-12 col-lg-4 col-xl-4`} >
+                          <div className="skeleton">
+                            <div className="skeleton__Bigimg">
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className={` ${styles['col-ske']} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
-                        <div className="skeleton">
-                          <div className="skeleton__Bigimg">
+                        <div className={` ${styles['col-ske']} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
+                          <div className="skeleton">
+                            <div className="skeleton__Bigimg">
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className={` ${styles['col-ske']} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
-                        <div className="skeleton">
-                          <div className="skeleton__Bigimg">
+                        <div className={` ${styles['col-ske']} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
+                          <div className="skeleton">
+                            <div className="skeleton__Bigimg">
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className={` ${styles['col-ske']} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
-                        <div className="skeleton">
-                          <div className="skeleton__Bigimg">
+                        <div className={` ${styles['col-ske']} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}>
+                          <div className="skeleton">
+                            <div className="skeleton__Bigimg">
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </>
               }
             </div>
           </div>

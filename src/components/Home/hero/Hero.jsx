@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { useGetPosts } from '../../../app/api/blog';
 import Scrolldown from '../../../utils/Scrolldown';
 import useNavi from "@/utils/hooks/useNavi";
-import Showtext from "@/utils/showtext";
+import useShowtext from "../../../utils/hooks/Showtext";
 
 const contentStyle = {
   margin: 0,
@@ -21,7 +21,7 @@ const contentStyle = {
 
 
 const Hero = () => {
-  const {truncateText}=Showtext();
+  const {truncateText}=useShowtext();
   const {handleNavigation}=useNavi();
   const { posts, postsLoading } = useGetPosts();
   const carouselRef = useRef(null);

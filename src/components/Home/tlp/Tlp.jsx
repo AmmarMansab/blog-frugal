@@ -13,10 +13,10 @@ import {
   useGetTopSharedPosts,
   useGetTopLikedPosts,
 } from "../../../app/api/blog";
-import Showtext from "@/utils/showtext";
+import useShowtext from "../../../utils/hooks/Showtext";
 
 const Tlp = () => {
-  const {truncateText}=Showtext()
+  const {truncateText}=useShowtext()
   const { posts: topViewedData, postsLoading: a } = useGetTopViewedPosts();
   const { posts: recentPosts, postsLoading: b } = useGetPosts();
   const { posts: topSharedData, postsLoading: c } = useGetTopSharedPosts();

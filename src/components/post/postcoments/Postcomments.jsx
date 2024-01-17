@@ -6,8 +6,8 @@ import { formatDate, formatDateTime } from "@/utils";
 import Writemessage from "../writemessage/Writemessage";
 import { useAddReplyToComment } from "@/app/api/blog";
 import { BiSolidSend } from "react-icons/bi";
-
 const Postcomments = ({ comments, id, setComments }) => {
+
 
   const [localdata, setLocaldata] = useState(null)
   useEffect(() => {
@@ -20,14 +20,14 @@ const Postcomments = ({ comments, id, setComments }) => {
   const Comment = ({ content, createdAt, replies, img, _id, index, author }) => {
     img = 'https://cdn.iconscout.com/icon/free/png-512/free-user-1648810-1401302.png?f=webp&w=256'
     const [showAllReplies, setShowAllReplies] = useState(false);
-    const [showtextarea, setShowtextarea] = useState(false);
+    const [useShowtextarea, setuseShowtextarea] = useState(false);
     const [replyContent, setReplyContent] = useState("");
     const [authorid, setAuthorid] = useState(null)
 
     const { addReply } = useAddReplyToComment();
 
     const handleSubmit = async (e) => {
-      setShowtextarea(true);
+      setuseShowtextarea(true);
       e.preventDefault();
       var storedJsonString = localStorage.getItem('userId');
       var retrievedData = JSON.parse(storedJsonString);
@@ -68,7 +68,7 @@ const Postcomments = ({ comments, id, setComments }) => {
                 <div className="rep-commoents">
                   <h3>{formatDateTime(createdAt)}</h3>{" "}
                   <p className="rep-slas">|</p>{" "}
-                  <h6 onClick={() => setShowtextarea(!showtextarea)}>Replay</h6>
+                  <h6 onClick={() => setuseShowtextarea(!useShowtextarea)}>Replay</h6>
                 </div>
               </div>
               <div className="comments-right-B">
@@ -77,7 +77,7 @@ const Postcomments = ({ comments, id, setComments }) => {
             </div>
           </div>
           {/* // */}
-          {showtextarea ? (
+          {useShowtextarea ? (
             <form onSubmit={handleSubmit} className="comments-form  " action="">
               {!localdata && (
                 <>
