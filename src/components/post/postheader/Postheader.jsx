@@ -27,7 +27,7 @@ const Postheader = ({ post }) => {
             </div>
           </div>
           :
-          <div className="post-one-header-ske shadow-sm ">
+          <div  className=" mt-6 post-one-header-ske shadow-sm ">
             <div className="skeleton">
               <div className="skeleton__Big-post-header"></div>
             </div>

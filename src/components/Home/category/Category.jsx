@@ -89,7 +89,7 @@ const Category = () => {
                   ))}
                 </Carousel>
                 :
-                <div className="skeletoncontaine" >
+                <div style={{marginTop:'50px'}} className="skeletoncontaine" >
                   <div className="skeletoneach1">
                     <div className="skeletoneach1-innerB">
                       <div className="skeleton">
@@ -140,7 +140,7 @@ const Category = () => {
                   <div className="overlay"></div>
                 </div>
               </div> :
-              <div className="skeletoncontaine" >
+              <div  style={{marginTop:'50px'}}  className="skeletoncontaine" >
                 <div className="skeletoneach1">
                   <div className="skeletoneach1-innerB">
                     <div className="skeleton">

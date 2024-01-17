@@ -41,7 +41,7 @@ const Subscription = () => {
                     </div>
                 </div>
             </Modal>
-            <div className=" sub-container container max-w-80 mx-auto flex justify-start items-center sm:flex-col md:flex-row lg:flex-row xl:flex-row ">
+            <div className=" sub-container container max-w-80 mx-auto flex justify-start items-center sm:flex-col flex-col md:flex-row lg:flex-row xl:flex-row ">
                 <div class=" sub-img"></div>
                 <div className="sub-content flex justify-center items-start flex-col ">
                     <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis et excepturi a vel ab nesciunt.</h1>

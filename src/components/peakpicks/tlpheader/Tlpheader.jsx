@@ -6,10 +6,11 @@ import { AiFillThunderbolt } from "react-icons/ai";
 import { formatDate } from "@/utils";
 // import Scrolldown from '@/utils/scrolldown';
 import './Tlpheader.css'
+import { Spin } from 'antd'
 import useNavi from '@/utils/hooks/useNavi';
 
 const Tlpheader = ({ data }) => {
-    const {handleNavigation}=useNavi()
+    const { handleNavigation } = useNavi()
     const contentStyle = {
         margin: 0,
         height: 'max-content',
@@ -74,13 +75,12 @@ const Tlpheader = ({ data }) => {
 
     return (
         <>
-            <div class="peakpics-con  mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
-                <div class="bg-blue-500 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 spin-main ">
-                   {/* <Scrolldown/> */}
-                    <div className="carousel-container">
-                        <Carousel afterChange={onChange} ref={carouselRef} dots={false} responsive={responsiveSettings}>
-                            {data.map((item) => (
-                                <div  onClick={() => handleNavigation(`/post/${item?._id}`)} key={item?.id}>
+            {data ? (
+                <div class="peakpics-con  mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
+                    <div class="bg-blue-500 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 spin-main ">
+                        <div className="carousel-container">
+                            <Carousel afterChange={onChange} ref={carouselRef} dots={false} responsive={responsiveSettings}>
+                                {data.map((item) => (<div onClick={() => handleNavigation(`/post/${item?._id}`)} key={item?.id}>
                                     <div style={contentStyle}>
                                         <div className="cate-carousel-main">
                                             <div className='cate-background-peakpicks' style={{ backgroundImage: `url(${API + item.image})` }} >
@@ -97,22 +97,26 @@ const Tlpheader = ({ data }) => {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </Carousel>
-                        <div className="custom-arrows">
-                            <button className="arrow-btn" onClick={prevSlide}>
-                                <LeftOutlined />
-                            </button>
-                            <button className="arrow-btn" onClick={nextSlide}>
-                                <RightOutlined />
-                            </button>
+                                </div>))}
+                            </Carousel>
+                            <div className="custom-arrows">
+                                <button className="arrow-btn" onClick={prevSlide}>
+                                    <LeftOutlined />
+                                </button>
+                                <button className="arrow-btn" onClick={nextSlide}>
+                                    <RightOutlined />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </>
-    )
+            ) : (
+                <div style={{ height: '100vh', width: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="spin_container">
+                    <Spin />
+                </div>
+            )}
+        </>)
+
 }
 
 export default Tlpheader
