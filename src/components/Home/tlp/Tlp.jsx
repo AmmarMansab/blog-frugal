@@ -13,10 +13,9 @@ import {
   useGetTopSharedPosts,
   useGetTopLikedPosts,
 } from "../../../app/api/blog";
-import useShowtext from "../../../utils/hooks/Showtext";
+// import Showtext from "@/utils/showtext";
 
 const Tlp = () => {
-  const {truncateText}=useShowtext()
   const { posts: topViewedData, postsLoading: a } = useGetTopViewedPosts();
   const { posts: recentPosts, postsLoading: b } = useGetPosts();
   const { posts: topSharedData, postsLoading: c } = useGetTopSharedPosts();
@@ -56,7 +55,7 @@ const Tlp = () => {
                 <div className="tlp-c">
                   <div className="tlp-c-line"></div>
                   <div className="tlp-c-heading">
-                    {truncateText(topLikedData?.[0]?.title, 35)}
+                    {topLikedData?.[0]?.title}
                   </div>
                   <div className="hero-content-type-tlp">
                     {`By Admin / ${formatDate(topLikedData?.[0]?.updatedAt)} / ${topLikedData?.[0]?.category?.name}`}
@@ -106,7 +105,7 @@ const Tlp = () => {
                 <div className="tlp-c">
                   <div className="tlp-c-line"></div>
                   <div className="tlp-c-heading">
-                    {truncateText(topSharedData?.[0]?.title, 35)}
+                    {topSharedData?.[0]?.title}
                   </div>
                   <div className="hero-content-type-tlp">
                     {`By Admin / ${formatDate(topSharedData?.[0]?.updatedAt)} / ${topSharedData?.[0]?.category?.name}`}
@@ -158,7 +157,7 @@ const Tlp = () => {
                 <div className="tlp-c">
                   <div className="tlp-c-line"></div>
                   <div className="tlp-c-heading">
-                    {truncateText(recentPosts?.[0]?.title, 35)}
+                    {recentPosts?.[0]?.title}
                   </div>
                   <div className="hero-content-type-tlp">
                     {`By Admin / ${formatDate(recentPosts?.[0]?.updatedAt)} / ${recentPosts?.[0]?.category?.name}`}
@@ -205,10 +204,8 @@ const Tlp = () => {
               <div className="hero-content">
                 <div className="hero-line"></div>
                 <div className="hero-content-heading">
-                  {truncateText(
-                    "lorem ipsom is gap sady masgy dady fams trag falam danam",
-                    50
-                  )}
+                  {
+                    "lorem ipsom is gap sady masgy dady fams trag falam danam"}
                 </div>
                 <div className="hero-content-type">
                   {`By Admin / 12 Dec, 2023 / Something`}

@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { useGetPosts } from '../../../app/api/blog';
 import Scrolldown from '../../../utils/Scrolldown';
 import useNavi from "@/utils/hooks/useNavi";
-import useShowtext from "../../../utils/hooks/Showtext";
+// import Showtext from "@/utils/showtext";
 
 const contentStyle = {
   margin: 0,
@@ -21,7 +21,6 @@ const contentStyle = {
 
 
 const Hero = () => {
-  const {truncateText}=useShowtext();
   const {handleNavigation}=useNavi();
   const { posts, postsLoading } = useGetPosts();
   const carouselRef = useRef(null);
@@ -59,7 +58,7 @@ const Hero = () => {
                     <div  className="tlp-c">
                       <div className="tlp-hero-line"></div>
                       <div  className="tlp-c-heading-hero">
-                        {truncateText(post?.title, 50)}
+                        {post?.title}
                       </div>
                       <div className="hero-content-type-tlp">
                         {`By Admin / ${formatDate(post?.updatedAt)} / ${post?.category?.name}`}
