@@ -152,7 +152,7 @@ export function useGetTopLikedPosts(query) {
 
 // ----------------------------------------------------------------------
 
-export function useGetPostsByCategory(query,page) {
+export function useGetPostsByCategory(query, page) {
   //   const URL = query
   //     ? [endpoints.post.by_category, { params: { id: query, page: 0 } }]
   //     : null;
@@ -166,6 +166,7 @@ export function useGetPostsByCategory(query,page) {
   const memoizedValue = useMemo(
     () => ({
       posts: data?.posts || [],
+      uniqueTags: data?.uniqueTags || [],
       postsLoading: isLoading,
       postsError: error,
       postsValidating: isValidating,
