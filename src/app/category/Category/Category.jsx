@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "./category.module.scss";
 import { Pagination } from "antd";
 import Hero from "@/components/categoryPage/Hero";
@@ -18,9 +18,14 @@ const Category = () => {
   const params = useParams();
   const { id } = params;
   const [page, setPage] = useState(0);
-  const { posts: recentPosts, postsLoading } = useGetPostsByCategory(id, page);
+  const { posts: recentPosts, postsLoading, uniqueTags } = useGetPostsByCategory(id, page);
 
-  let newrecentPosts = [...recentPosts, ...recentPosts];
+  const [p, setP] = useState(recentPosts)
+  useEffect(()=> {
+    setP(recentPosts)
+  }, [recentPosts])
+
+  let newrecentPosts = [...p, ...p];
 
   const API = "https://server.blog.digiunction.com";
 
@@ -112,6 +117,30 @@ const Category = () => {
       title: "Lands",
     },
   ];
+  const [tagPosts, setTagPosts] = useState([]);
+  const handleTagClick = useCallback(
+    async (title) => {
+      try {
+        // Make API call
+        const response = await fetch(
+          `https://server.blog.digiunction.com/api/post/by-tag/${title}?page=${0}`
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        // Parse JSON response
+        const data = await response.json();
+
+        // Update state with fetched data
+        setP(data?.posts);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    },
+    [0]
+  );
+
   return (
     <div className="parent-of-all">
       <Navbar />
@@ -183,11 +212,10 @@ const Category = () => {
             <BsSearch style={{ marginLeft: "10px" }} />
           </div>
           <div className={`${styles["side-tag-main"]}`}>
-            {tags.length > 0 ? (
-              tags.map((itemes) => {
-                const { title } = itemes;
+            {uniqueTags?.length > 0 ? (
+              uniqueTags?.map((title) => {
                 return (
-                  <div key={title} className={` ${styles["side-tag"]}`}>
+                  <div key={title} className={` ${styles["side-tag"]}`} onClick={() => handleTagClick(title)}>
                     {title}
                   </div>
                 );
