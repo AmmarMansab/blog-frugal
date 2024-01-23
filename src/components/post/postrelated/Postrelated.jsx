@@ -26,7 +26,7 @@ const Postrelated = ({ posts }) => {
 
   const API = "https://server.blog.digiunction.com";
   // const {truncateText}=Showtext()
-  const {handleNavigation}=useNavi()
+  const { handleNavigation } = useNavi()
   const carouselRef = useRef(null);
   const onChange = (currentSlide) => { };
   const responsiveSettings = [
@@ -77,7 +77,7 @@ const Postrelated = ({ posts }) => {
   return (
     <>
       <div className="carousel-container">
-        <h1>Related Products</h1>
+        <h1>Related Posts</h1>
         {
           posts.length > 0 ?
             <Carousel
@@ -85,6 +85,8 @@ const Postrelated = ({ posts }) => {
               responsive={responsiveSettings}
               arrows
               ref={carouselRef}
+              autoplay
+              autoplaySpeed={3000}
             >
               {/* 1 */}
               {

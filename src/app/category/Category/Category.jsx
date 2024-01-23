@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import styles from "./category.module.scss";
 import { Pagination } from "antd";
 import Hero from "@/components/categoryPage/Hero";
-
-import { useParams } from "next/navigation";
 import { BsSearch } from "react-icons/bs";
 import "../../../components/Home/tlp/Tlp.css"
 
@@ -13,9 +11,11 @@ import Fotter from "@/components/common/fotter/Fotter";
 import Navbar from "@/components/common/navbar/Navbar";
 import { Spin } from "antd";
 import useNavi from "@/utils/hooks/useNavi";
+import { useParams,usePathname } from "next/navigation";
 const Category = () => {
   const { handleNavigation } = useNavi();
   const params = useParams();
+  const pathname=usePathname();
   const { id } = params;
   const [page, setPage] = useState(0);
   const { posts: recentPosts, postsLoading } = useGetPostsByCategory(id, page);
@@ -114,7 +114,7 @@ const Category = () => {
   ];
   return (
     <div className="parent-of-all">
-      <Navbar />
+      <Navbar path={pathname}  />
       <Hero data={recentPosts} />
       <div className={styles["my-container"]}>
         <div className={` ${styles["grid-main-container"]} `}>
@@ -130,44 +130,72 @@ const Category = () => {
                 <div className={` ${styles["skeleton-main-cate"]} container `}>
                   <div className="row">
                     <div
-                      className={` ${styles["col-ske"]} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}
+                      className={` ${styles["col-ske"]} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4  `}
                     >
                       <div className="skeleton">
                         <div className="skeleton__Bigimg"></div>
                       </div>
                     </div>
                     <div
-                      className={` ${styles["col-ske"]}  col-sm-12 col-md-12 col-lg-4 col-xl-4`}
+                      className={` ${styles["col-ske"]}  col-sm-12 col-md-12 col-lg-4 col-xl-4 shadow-lg `}
                     >
                       <div className="skeleton">
                         <div className="skeleton__Bigimg"></div>
                       </div>
                     </div>
                     <div
-                      className={`${styles["col-ske"]}  col-sm-12 col-md-12 col-lg-4 col-xl-4`}
+                      className={`${styles["col-ske"]}  col-sm-12 col-md-12 col-lg-4 col-xl-4 shadow-lg `}
                     >
                       <div className="skeleton">
                         <div className="skeleton__Bigimg"></div>
                       </div>
                     </div>
                     <div
-                      className={` ${styles["col-ske"]} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}
+                      className={` ${styles["col-ske"]} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4 shadow-lg `}
                     >
                       <div className="skeleton">
                         <div className="skeleton__Bigimg"></div>
                       </div>
                     </div>
                     <div
-                      className={` ${styles["col-ske"]} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}
+                      className={` ${styles["col-ske"]} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4 shadow-lg `}
                     >
                       <div className="skeleton">
                         <div className="skeleton__Bigimg"></div>
                       </div>
                     </div>
                     <div
-                      className={` ${styles["col-ske"]} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4`}
+                      className={` ${styles["col-ske"]} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4 shadow-lg `}
                     >
                       <div className="skeleton">
+                        <div className="skeleton__Bigimg"></div>
+                      </div>
+                    </div>
+                    <div
+                      className={` ${styles["col-ske"]} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4 shadow-lg `}
+                    >
+                      <div className="skeleton shadow-lg ">
+                        <div className="skeleton__Bigimg"></div>
+                      </div>
+                    </div>
+                    <div
+                      className={` ${styles["col-ske"]} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4 shadow-lg `}
+                    >
+                      <div className="skeleton shadow-lg ">
+                        <div className="skeleton__Bigimg"></div>
+                      </div>
+                    </div>
+                    <div
+                      className={` ${styles["col-ske"]} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4 shadow-lg `}
+                    >
+                      <div className="skeleton shadow-lg ">
+                        <div className="skeleton__Bigimg"></div>
+                      </div>
+                    </div>
+                    <div
+                      className={` ${styles["col-ske"]} col-ske col-sm-12 col-md-12 col-lg-4 col-xl-4 shadow-lg `}
+                    >
+                      <div className="skeleton shadow-lg ">
                         <div className="skeleton__Bigimg"></div>
                       </div>
                     </div>

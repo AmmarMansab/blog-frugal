@@ -1,13 +1,13 @@
 'use client'
 import React, { useRef, useState } from 'react'
 import './Fotter.css'
-import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebook } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaDribbbleSquare } from "react-icons/fa";
 import { useGetPosts } from '@/app/api/blog';
-import { BiSolidRegistered } from "react-icons/bi";
 import { useRouter } from "next/navigation";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { RiInstagramFill } from "react-icons/ri";
+import { BiSolidRegistered } from "react-icons/bi";
 import { SiPinterest } from "react-icons/si";
 import { FaReddit } from "react-icons/fa6";
 import axios from 'axios';

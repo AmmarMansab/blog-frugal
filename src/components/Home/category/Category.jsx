@@ -44,7 +44,7 @@ const Category = () => {
       <div className={` container ${categories.length > 0 ? '' : 'home-cate-con'} max-w-80 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2`}>
         <div className=" xl:pr-4 lg:pr-4 pt-16 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
           {/* //// */}
-          <div className="carousel-container">
+          <div className="carousel-container ">
             {/* //// */}
             {
               categories.length > 0 ?
@@ -65,14 +65,6 @@ const Category = () => {
                               backgroundImage: `url(${API + category.image})`,
                             }}
                           ></div>
-                          {/* <div className="content">
-                            <h1>{truncateText(category?.name, 20)}</h1>
-                            <div className="hero-content-type">
-                              {`By Admin / ${formatDate(category.createdAt)}`}
-                            </div>
-                            <div className="line-ani"></div>
-                          </div> */}
-                          {/* //// */}
                           <div className="tlp-c">
                             <div className="tlp-c-line"></div>
                             <div className="tlp-c-heading-cate">
@@ -89,7 +81,7 @@ const Category = () => {
                   ))}
                 </Carousel>
                 :
-                <div style={{marginTop:'50px'}} className="skeletoncontaine" >
+                <div style={{marginTop:'50px'}} className="skeletoncontaine shadow-lg " >
                   <div className="skeletoneach1">
                     <div className="skeletoneach1-innerB">
                       <div className="skeleton">
@@ -140,7 +132,7 @@ const Category = () => {
                   <div className="overlay"></div>
                 </div>
               </div> :
-              <div  style={{marginTop:'50px'}}  className="skeletoncontaine" >
+              <div  style={{marginTop:'50px'}}  className="skeletoncontaine  shadow-lg" >
                 <div className="skeletoneach1">
                   <div className="skeletoneach1-innerB">
                     <div className="skeleton">

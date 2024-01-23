@@ -35,13 +35,13 @@ const Tlp = () => {
 
   return (
     <>
-      <div class=" container max-w-80 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+      <div class="  container max-w-80 mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
         <div class=" pt-8 lg:pr-4 xl:pr-4 md:pr-4 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1">
           {
             d === false && topLikedData.length > 0 ?
               <div
                 onClick={() => handleNavigation(`/post/${topLikedData?.[0]?._id}`)}
-                className="card-tlp"
+                className="card-tlp "
                 style={{cursor:'pointer'}} 
               >
                 <div className="overlay"></div>
@@ -64,7 +64,7 @@ const Tlp = () => {
               </div>
               :
               // loading !== true ?
-              <div className="skeletoncontaine" >
+              <div className="skeletoncontaine shadow-lg " >
                 <div className="skeletoneach1">
                   <div className="skeletoneach1-innerB">
                     <div className="skeleton">
@@ -114,7 +114,7 @@ const Tlp = () => {
               </div>
               :
               // loading !== true ?
-              <div className="skeletoncontaine" >
+              <div className="skeletoncontaine shadow-lg " >
                 <div className="skeletoneach1">
                   <div className="skeletoneach1-innerB">
                     <div className="skeleton">
@@ -166,7 +166,7 @@ const Tlp = () => {
               </div>
               :
               // loading !== true ?
-              <div className="skeletoncontaine" >
+              <div className="skeletoncontaine shadow-lg " >
                 <div className="skeletoneach1">
                   <div className="skeletoneach1-innerB">
                     <div className="skeleton">
