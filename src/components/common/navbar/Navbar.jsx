@@ -13,9 +13,11 @@ import { useRouter } from 'next/router';
 import { Collapse } from 'antd';
 import { usePathname } from 'next/navigation';
 
-const Navbar = ({ path }) => {
+const Navbar = () => {
 
-  const firstFiveLetters = path.substring(0, 5);
+  const currentPath = usePathname();
+
+  const firstFiveLetters = currentPath?.substring(0, 5);
 
   const router = useRouter
   const { handleNavigation } = useNavi();
@@ -105,7 +107,7 @@ const Navbar = ({ path }) => {
                 onMouseEnter={handleHover}
                 onMouseLeave={handleLeave}
               >
-                <Collapse.Panel key="1" header="Categorie">
+                <Collapse.Panel key="1" header="Categories">
                   {categories?.map((item, index) => (
                     <div key={index} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }} >
                       <p onClick={() => handleNavigation(`/category/${item._id}`)} className='category-list' >{item.name}</p>
