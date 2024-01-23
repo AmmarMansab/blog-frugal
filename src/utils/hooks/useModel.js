@@ -5,7 +5,6 @@ const useModel = () => {
     const [loading, setLoading] = useState(false);
     const [visible, setVisible] = useState(false);
     const showModal = () => {
-        console.log('yes ....');
         setVisible(true);
     };
     const handleOk = () => {
@@ -18,7 +17,7 @@ const useModel = () => {
     const handleCancel = () => {
         setVisible(false);
     };
-    return { showModal, handleOk, handleCancel, loading, visible };
+    return { showModal, handleOk, handleCancel, loading, visible,setVisible };
 };
 
 export default useModel;

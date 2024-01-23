@@ -68,35 +68,35 @@ const Starthere = () => {
                                         return
                                     }
                                 }) :
-                                <div className='skeleton-main-cate-related  container mb-6 '>
+                                <div className='skeleton-main-cate-related  container mb-6  '>
                                     <div className="row" >
                                         <div className='col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12 '>
                                             <div className="skeleton">
-                                                <div className="skeleton__Bigimg-sh-l-t shadow-sm ">
+                                                <div className="skeleton__Bigimg-sh-l-t shadow-lg ">
                                                 </div>
                                             </div>
                                         </div>
                                         <div className='col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-6 '>
                                             <div className="skeleton">
-                                                <div className="skeleton__Bigimg-sh-l-b shadow-sm ">
+                                                <div className="skeleton__Bigimg-sh-l-b shadow-lg ">
                                                 </div>
                                             </div>
                                         </div>
                                         <div className='col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-6'>
                                             <div className="skeleton">
-                                                <div className="skeleton__Bigimg-sh-l-mb shadow-sm ">
+                                                <div className="skeleton__Bigimg-sh-l-mb shadow-lg ">
                                                 </div>
                                             </div>
                                         </div>
                                         <div className='col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12'>
                                             <div className="skeleton">
-                                                <div className="skeleton__Bigimg-sh-l-mb shadow-sm ">
+                                                <div className="skeleton__Bigimg-sh-l-mb shadow-lg ">
                                                 </div>
                                             </div>
                                         </div>
                                         <div className='col-ske col-sm-12 col-md-12 col-lg-12 col-xl-12'>
                                             <div className="skeleton">
-                                                <div className="skeleton__Bigimg-sh-l-mb shadow-sm ">
+                                                <div className="skeleton__Bigimg-sh-l-mb shadow-lg ">
                                                 </div>
                                             </div>
                                         </div>
@@ -132,13 +132,13 @@ const Starthere = () => {
                                     <div className="row" >
                                         <div className='col-ske col-sm-4 col-md-4 col-lg-4 col-xl-4'>
                                             <div className="skeleton">
-                                                <div className="skeleton__Bigimg-sh-r-t shadow-sm ">
+                                                <div className="skeleton__Bigimg-sh-r-t shadow-lg ">
                                                 </div>
                                             </div>
                                         </div>
                                         <div className='col-ske col-sm-8 col-md-8 col-lg-8 col-xl-8'>
                                             <div className="skeleton">
-                                                <div className="skeleton__Bigimg-sh-r-b shadow-sm ">
+                                                <div className="skeleton__Bigimg-sh-r-b shadow-lg ">
                                                 </div>
                                             </div>
                                         </div>
@@ -149,13 +149,13 @@ const Starthere = () => {
                                     <div className="row" >
                                         <div className='col-ske col-sm-4 col-md-4 col-lg-4 col-xl-4'>
                                             <div className="skeleton">
-                                                <div className="skeleton__Bigimg-sh-r-t shadow-sm ">
+                                                <div className="skeleton__Bigimg-sh-r-t shadow-lg ">
                                                 </div>
                                             </div>
                                         </div>
                                         <div className='col-ske col-sm-8 col-md-8 col-lg-8 col-xl-8'>
                                             <div className="skeleton">
-                                                <div className="skeleton__Bigimg-sh-r-b shadow-sm ">
+                                                <div className="skeleton__Bigimg-sh-r-b shadow-lg ">
                                                 </div>
                                             </div>
                                         </div>

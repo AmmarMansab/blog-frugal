@@ -4,6 +4,11 @@ import './Contact.css'
 import Scrolldown from '../../utils/Scrolldown'
 import useSendEmail from '@/utils/hooks/useSendEmail';
 import Googlemap from '@/utils/googlemap/Googlemap';
+import { RiInstagramFill } from "react-icons/ri";
+import { BiSolidRegistered } from "react-icons/bi";
+import { SiPinterest } from "react-icons/si";
+import { FaReddit } from "react-icons/fa6";
+import { BsTwitterX } from "react-icons/bs";
 
 const Contact = () => {
     const { sendEmail, form, inpRef1, inpRef2, inpRef3 } = useSendEmail();
@@ -17,23 +22,31 @@ const Contact = () => {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente saepe sit sequi. Adipisci illum hic eum vel, voluptatem similique debitis sunt.</p>
                 </div>
             </div>
-            <Googlemap />
+            {/* <Googlemap /> */}
             <section id="contact">
                 <div class="contact-box">
                     <div class="contact-links">
                         <h2>CONTACT US</h2>
                         <div class="links">
                             <div class="link">
-                                <a><img src="https://i.postimg.cc/m2mg2Hjm/linkedin.png" alt="linkedin" /></a>
+                                <a className='blue-back' >
+                                <RiInstagramFill style={{color:'rgb(31, 46, 67)',fontSize:'60px'}} />
+                                </a>
                             </div>
                             <div class="link">
-                                <a><img src="https://i.postimg.cc/YCV2QBJg/github.png" alt="github" /></a>
+                                <a className='blue-back'>
+                                    <BsTwitterX style={{color:'rgb(31, 46, 67)',fontSize:'60px'}}/>
+                                </a>
                             </div>
                             <div class="link">
-                                <a><img src="https://i.postimg.cc/W4Znvrry/codepen.png" alt="codepen" /></a>
+                                <a className='blue-back'>
+                                    <SiPinterest style={{color:'rgb(31, 46, 67)',fontSize:'60px'}}/>
+                                </a>
                             </div>
                             <div class="link">
-                                <a><img src="https://i.postimg.cc/NjLfyjPB/email.png" alt="email" /></a>
+                                <a className='blue-back'>
+                                    <FaReddit style={{color:'rgb(31, 46, 67)',fontSize:'60px'}}/>
+                                </a>
                             </div>
                         </div>
                     </div>
