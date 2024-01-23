@@ -143,7 +143,7 @@ const Category = () => {
 
   return (
     <div className="parent-of-all">
-      <Navbar path={pathname}  />
+      <Navbar  />
       <Hero data={recentPosts} />
       <div className={styles["my-container"]}>
         <div className={` ${styles["grid-main-container"]} `}>
