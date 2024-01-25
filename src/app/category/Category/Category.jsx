@@ -19,14 +19,11 @@ const Category = () => {
   const { id } = params;
   const [page, setPage] = useState(0);
   const { posts: recentPosts, postsLoading, uniqueTags } = useGetPostsByCategory(id, page);
-
   const [p, setP] = useState(recentPosts)
   useEffect(()=> {
     setP(recentPosts)
   }, [recentPosts])
-
   let newrecentPosts = [...p, ...p];
-
   const API = "https://server.blog.digiunction.com";
 
   const pageSize = 7; // Number of items to display per page
