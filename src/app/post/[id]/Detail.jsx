@@ -11,6 +11,7 @@ import Image from "next/image";
 import { useGetPostsByCategory, useGetPostByID, useGetCommentsByPostID } from "../../../app/api/blog";
 import Navbar from "@/components/common/navbar/Navbar";
 import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 
 const Detail = () => {
   const params = useParams();
@@ -30,7 +31,7 @@ const Detail = () => {
   return (
     <>
     <div className='parent-of-all' >
-      <Navbar path={currentPath} />
+      <Navbar />
       <Postcontent post={post} id={id} />
       <Postrelated posts={posts} />
       <Postheader post={post} />

@@ -23,6 +23,7 @@
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { generateSitemap } from '../../generate-sitemap';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -35,6 +36,9 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  generateSitemap().catch(error =>
+    console.error('Error generating sitemap:', error)
+  )
   return (
     <html lang="en">
       <Head>
