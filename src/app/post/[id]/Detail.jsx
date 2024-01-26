@@ -16,13 +16,9 @@ import { useParams } from "next/navigation";
 const Detail = () => {
   const params = useParams();
   const { id } = params;
-
   const {post, postLoading} = useGetPostByID(id);
-  
   const { posts, postsLoading } = useGetPostsByCategory(post?.category?._id);
-
   const {comments, commentsLoading} = useGetCommentsByPostID(id);
-
   const [comment, setComments] = useState(comments || [])
   useEffect(()=>{
     setComments(comments)
