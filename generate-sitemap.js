@@ -7,7 +7,7 @@ import axios from 'axios';
 const currentModuleUrl = new URL(import.meta.url);
 const currentModuleDir = path.dirname(decodeURIComponent(currentModuleUrl.pathname));
 const pagesDir = path.join(currentModuleDir, 'src/app') // Change this to your actual pages directory
-const baseUrls = ['http://localhost:3000'] // Change this to your website's base URL
+const baseUrls = ['https://frugalmalefashionblog.com'] // Change this to your website's base URL
 
 const fetchPosts = async () => {
   try {
@@ -19,7 +19,7 @@ const fetchPosts = async () => {
   }
 };
 
-const generateSitemap = async () => {
+export const generateSitemap = async () => {
   const sitemap = create('urlset').att(
     'xmlns',
     'http://www.sitemaps.org/schemas/sitemap/0.9'
