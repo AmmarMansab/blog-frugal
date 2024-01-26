@@ -11,10 +11,10 @@ import Fotter from "@/components/common/fotter/Fotter";
 import Navbar from "@/components/common/navbar/Navbar";
 import { Spin } from "antd";
 import useNavi from "@/utils/hooks/useNavi";
-import { useParams,usePathname } from "next/navigation";
+import {usePathname } from "next/navigation";
 const Category = () => {
   const { handleNavigation } = useNavi();
-  const params = useParams();
+
   const pathname=usePathname();
   const { id } = params;
   const [page, setPage] = useState(0);
