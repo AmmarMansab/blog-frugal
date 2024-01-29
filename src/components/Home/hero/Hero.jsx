@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useGetPosts } from '../../../app/api/blog';
 import Scrolldown from '../../../utils/Scrolldown';
 import useNavi from "@/utils/hooks/useNavi";
+import { sliceText } from "@/utils/Textslice";
 // import Showtext from "@/utils/showtext";
 
 const contentStyle = {
@@ -57,8 +58,8 @@ const Hero = () => {
                     <div  className="hero-overlay"></div>
                     <div  className="tlp-c">
                       <div className="tlp-hero-line"></div>
-                      <div  className="tlp-c-heading-hero">
-                        {post?.title}
+                      <div  className="tlp-c-heading-hero" style={{width:'80%',lineHeight:'40px'}} >
+                      {sliceText(post?.title, 150)}
                       </div>
                       <div className="hero-content-type-tlp">
                         {`By Admin / ${formatDate(post?.updatedAt)} / ${post?.category?.name}`}

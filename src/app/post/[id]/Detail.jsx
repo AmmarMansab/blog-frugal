@@ -8,12 +8,14 @@ import Postrelated from "@/components/post/postrelated/Postrelated";
 import Writemessage from "@/components/post/writemessage/Writemessage";
 import axios from "axios";
 import Image from "next/image";
+import { usePathname,useParams } from "next/navigation";
 import { useGetPostsByCategory, useGetPostByID, useGetCommentsByPostID } from "../../../app/api/blog";
 import Navbar from "@/components/common/navbar/Navbar";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
 const Detail = () => {
+  const currentPath = usePathname();
   const params = useParams();
   const { id } = params;
   const {post, postLoading} = useGetPostByID(id);

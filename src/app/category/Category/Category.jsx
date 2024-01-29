@@ -11,11 +11,12 @@ import Fotter from "@/components/common/fotter/Fotter";
 import Navbar from "@/components/common/navbar/Navbar";
 import { Spin } from "antd";
 import useNavi from "@/utils/hooks/useNavi";
-import { useParams,usePathname } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
+import { sliceText } from "@/utils/Textslice";
 const Category = () => {
   const { handleNavigation } = useNavi();
+
   const params = useParams();
-  const pathname=usePathname();
   const { id } = params;
   const [page, setPage] = useState(0);
   const { posts: recentPosts, postsLoading, uniqueTags } = useGetPostsByCategory(id, page);
@@ -67,27 +68,21 @@ const Category = () => {
                 ></div>
                 <div className={`${styles["full-card-b"]}`}>
                   <p className={`${styles["full-heading"]}`}>
-                    {truncateText(title, 90)}
+                    {sliceText(title, 90)}
                   </p>
-                  <p>{truncateText(description, 350)}</p>
+                  <p>{sliceText(description, 350)}</p>
                 </div>
               </div>
             </div>
           </>
         ) : (
           <>
-            <div
-              className="col-sm-12 col-md-6 col-lg-4 col-xl-4"
-              onClick={() => handleNavigation(`/post/${_id}`)}
-            >
-              <div className={` shadow-md ${styles["cate-cart"]}`}>
-                <div
-                  className={`${styles["cate-cart-img"]}`}
-                  style={{ backgroundImage: `url(${API + image})` }}
-                ></div>
-                <div className={`${styles["cate-cart-content"]}`}>
-                  <h1>{truncateText(title, 20)}</h1>
-                  <p>{truncateText(description, 20)}</p>
+            <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4" onClick={() => handleNavigation(`/post/${_id}`)}>
+              <div className={`shadow-md p-4 bg-white rounded-lg cursor-pointer ${styles["cate-cart"]}`} style={{ backgroundColor: '#ebf9fa' }}>
+                <div className={` h-40 ${styles["cate-cart-img"]}`} style={{ backgroundImage: `url(${API + image})` }}></div>
+                <div className={`mt-4 ${styles["cate-cart-content"]} `}>
+                  <h1 className="text-xl font-semibold mb-2">{sliceText(title, 20)}</h1>
+                  <p className="text-sm text-gray-600">{sliceText(description, 20)}</p>
                 </div>
               </div>
             </div>
@@ -140,7 +135,7 @@ const Category = () => {
 
   return (
     <div className="parent-of-all">
-      <Navbar  />
+      <Navbar />
       <Hero data={recentPosts} />
       <div className={styles["my-container"]}>
         <div className={` ${styles["grid-main-container"]} `}>
