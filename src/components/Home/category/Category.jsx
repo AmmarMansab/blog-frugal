@@ -9,6 +9,7 @@ import { formatDate } from "@/utils";
 import { useGetCategories } from '../../../app/api/category';
 import { useGetTopViewedPosts } from '../../../app/api/blog';
 import useNavi from "@/utils/hooks/useNavi";
+import { sliceText } from "@/utils/Textslice";
 // import Showtext from "@/utils/showtext";
 
 const Category = () => {
@@ -68,7 +69,7 @@ const Category = () => {
                           <div className="tlp-c">
                             <div className="tlp-c-line"></div>
                             <div className="tlp-c-heading-cate">
-                              {category?.name}
+                            {sliceText(category?.name, 25)}
                             </div>
                             <div className="hero-content-type-tlp">
                             {`By Admin / ${formatDate(category.createdAt)}`}
@@ -117,7 +118,7 @@ const Category = () => {
                 <div className="tlp-c">
                   <div className="tlp-c-line"></div>
                   <div className="tlp-c-heading">
-                    {posts?.[0]?.title}
+                  {sliceText(posts?.[0]?.title, 50)}
                   </div>
                   <div className="hero-content-type-tlp">
                     {`By Admin / ${formatDate(posts?.[0]?.updatedAt)} / ${posts?.[0]?.category?.name}`}
