@@ -13,15 +13,14 @@ import {
   useGetTopSharedPosts,
   useGetTopLikedPosts,
 } from "../../../app/api/blog";
-
-import {sliceText} from '../../../utils/Textslice';
+// import Showtext from "@/utils/showtext";
 
 const Tlp = () => {
   const { posts: topViewedData, postsLoading: a } = useGetTopViewedPosts();
   const { posts: recentPosts, postsLoading: b } = useGetPosts();
   const { posts: topSharedData, postsLoading: c } = useGetTopSharedPosts();
   const { posts: topLikedData, postsLoading: d } = useGetTopLikedPosts();
-  const { handleNavigation } = useNavi()
+  const {handleNavigation}=useNavi()
 
   // console.log(recentPosts, 'recentposts....', 'recentloading....', b,);
 
@@ -43,7 +42,7 @@ const Tlp = () => {
               <div
                 onClick={() => handleNavigation(`/post/${topLikedData?.[0]?._id}`)}
                 className="card-tlp "
-                style={{ cursor: 'pointer' }}
+                style={{cursor:'pointer'}} 
               >
                 <div className="overlay"></div>
                 <div
@@ -56,10 +55,10 @@ const Tlp = () => {
                 <div className="tlp-c">
                   <div className="tlp-c-line"></div>
                   <div className="tlp-c-heading">
-                  {sliceText(topLikedData?.[0]?.title, 35)}
+                    {topLikedData?.[0]?.title}
                   </div>
                   <div className="hero-content-type-tlp">
-                    {`By Admin / ${formatDate(topLikedData?.[0]?.updatedAt)} / ${ topLikedData?.[0]?.category?.name}` }
+                    {`By Admin / ${formatDate(topLikedData?.[0]?.updatedAt)} / ${topLikedData?.[0]?.category?.name}`}
                   </div>
                 </div>
               </div>
@@ -93,7 +92,7 @@ const Tlp = () => {
               <div
                 onClick={() => handleNavigation(`/post/${topSharedData?.[0]?._id}`)}
                 className="card-tlp"
-                style={{ cursor: 'pointer' }}
+                style={{cursor:'pointer'}} 
               >
                 <div className="overlay"></div>
                 <div
@@ -106,7 +105,7 @@ const Tlp = () => {
                 <div className="tlp-c">
                   <div className="tlp-c-line"></div>
                   <div className="tlp-c-heading">
-                    {sliceText(topSharedData?.[0]?.title, 35)}
+                    {topSharedData?.[0]?.title}
                   </div>
                   <div className="hero-content-type-tlp">
                     {`By Admin / ${formatDate(topSharedData?.[0]?.updatedAt)} / ${topSharedData?.[0]?.category?.name}`}
@@ -145,7 +144,7 @@ const Tlp = () => {
               <div
                 onClick={() => handleNavigation(`/post/${recentPosts?.[0]?._id}`)}
                 className="card-tlp"
-                style={{ cursor: 'pointer' }}
+                style={{cursor:'pointer'}} 
               >
                 <div className="overlay"></div>
                 <div
@@ -158,7 +157,7 @@ const Tlp = () => {
                 <div className="tlp-c">
                   <div className="tlp-c-line"></div>
                   <div className="tlp-c-heading">
-                  {sliceText(recentPosts?.[0]?.title, 35)}
+                    {recentPosts?.[0]?.title}
                   </div>
                   <div className="hero-content-type-tlp">
                     {`By Admin / ${formatDate(recentPosts?.[0]?.updatedAt)} / ${recentPosts?.[0]?.category?.name}`}

@@ -8,7 +8,6 @@ import img1 from "../../../images//fotter-bg.png";
 import { formatDate } from "@/utils";
 import { useRouter } from "next/navigation";
 import useNavi from "@/utils/hooks/useNavi";
-import { sliceText } from "@/utils/Textslice";
 // import Showtext from "@/utils/showtext";
 
 const contentStyle = {
@@ -99,9 +98,7 @@ const Postrelated = ({ posts }) => {
                         <div className="hero-content">
                           <div className="hero-line"></div>
                           <div className="hero-content-heading">
-                            {
-                              sliceText(posts[0]?.title, 40)
-                            }
+                            {posts[0]?.title}
                           </div>
                           <div className="hero-content-type">
                             {'By Admin / ' + formatDate(posts?.[0]?.updatedAt) + ' / ' + (posts[0]?.category?.name || 'No Category')}
@@ -128,9 +125,7 @@ const Postrelated = ({ posts }) => {
                         <div className="hero-content">
                           <div className="hero-line"></div>
                           <div className="hero-content-heading">
-                            {
-                              sliceText(posts[0]?.title, 40)
-                            }
+                            {posts[1]?.title}
                           </div>
                           <div className="hero-content-type">
                             {'By Admin / ' + formatDate(posts?.[1]?.updatedAt) + ' / ' + (posts[1]?.category?.name || 'No Category')}
@@ -158,9 +153,7 @@ const Postrelated = ({ posts }) => {
                         <div className="hero-content">
                           <div className="hero-line"></div>
                           <div className="hero-content-heading">
-                            {
-                              sliceText(posts[0]?.title, 40)
-                            }
+                            {posts[2]?.title}
                           </div>
                           <div className="hero-content-type">
                             {'By Admin / ' + formatDate(posts?.[2]?.updatedAt) + ' / ' + (posts[2]?.category?.name || 'No Category')}
@@ -188,9 +181,7 @@ const Postrelated = ({ posts }) => {
                         <div className="hero-content">
                           <div className="hero-line"></div>
                           <div className="hero-content-heading">
-                            {
-                              sliceText(posts[0]?.title, 40)
-                            }
+                            {posts[3]?.title}
                           </div>
                           <div className="hero-content-type">
                             {'By Admin / ' + formatDate(posts?.[3]?.updatedAt) + ' / ' + (posts[3]?.category?.name || 'No Category')}

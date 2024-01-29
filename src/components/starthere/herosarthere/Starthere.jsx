@@ -10,7 +10,6 @@ import {
 import '../../../components/Home/tlp/Tlp.css'
 import { useRouter } from "next/navigation";
 import useNavi from '@/utils/hooks/useNavi';
-import { sliceText } from '@/utils/Textslice';
 
 
 const Starthere = () => {
@@ -118,7 +117,7 @@ const Starthere = () => {
                                         <>
                                             <div onClick={() => handleNavigation(`/post/${_id}`)} class="  mt-8  here-card-2 h-max-content w-95 flex justify-start items-start  ">
                                                 <div style={{backgroundImage:`url(${API + image})`, boxShadow: '0px 7px 23px -8px rgba(0,0,0,0.75);'}} className="viewimg"></div>
-                                                <h2 >{sliceText(title, 100)}</h2>
+                                                <h2 >{title}</h2>
                                             </div>
                                         </>
                                     )

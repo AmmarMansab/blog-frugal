@@ -8,7 +8,6 @@ import { formatDate } from "@/utils";
 import './Tlpheader.css'
 import { Spin } from 'antd'
 import useNavi from '@/utils/hooks/useNavi';
-import { sliceText } from '@/utils/Textslice';
 
 const Tlpheader = ({ data }) => {
     const { handleNavigation } = useNavi()
@@ -89,9 +88,7 @@ const Tlpheader = ({ data }) => {
                                                 <div className="tlp-c" style={{ height: '100%' }} >
                                                     <div className="tlp-c-line-p"></div>
                                                     <div className="tlp-c-heading-pp">
-                                                        {
-                                                        sliceText(item?.title,25)
-                                                        }
+                                                        {item?.title}
                                                     </div>
                                                     <div className="hero-content-type-tlp">
                                                         {`By Admin / ${formatDate(item?.updatedAt)} / ${item?.category?.name}`}
