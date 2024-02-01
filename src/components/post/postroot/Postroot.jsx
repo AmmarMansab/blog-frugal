@@ -9,6 +9,8 @@ import Navbar from '@/components/common/navbar/Navbar';
 import { useParams , usePathname } from 'next/navigation';
 import { useGetCommentsByPostID, useGetPostByID, useGetPostsByCategory } from '@/app/api/blog';
 import Fotter from '@/components/common/fotter/Fotter';
+import { NextSeo } from "next-seo";
+
 
 const Postroot = () => {
 
@@ -23,8 +25,33 @@ const Postroot = () => {
         setComments(comments)
     }, [comments])
 
+    const [seo, setSeo] = useState({
+        title: 'Blog View Page',
+        description: 'Description of your page for search engines.',
+        openGraph: {
+          title: 'Your Open Graph Title',
+          description: 'blog view page of frugal male fashion blog.',
+          url: 'https://frugalmalefashionblog.com/',
+          type: 'website',
+        },
+      })
+
+    useEffect(()=>{
+        setSeo({
+            title: post?.title,
+            description: post?.description,
+            openGraph: {
+              title: 'Your Open Graph Title',
+              description: 'blog view page of frugal male fashion blog.',
+              url: 'https://frugalmalefashionblog.com/',
+              type: 'website',
+            },
+        })
+    }, [post])
+
     return (
         <>
+        <NextSeo {...seo} />
             <Navbar />
             <Postcontent post={post} id={id} />
             <Postrelated posts={posts} />
