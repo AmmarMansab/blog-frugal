@@ -1,4 +1,3 @@
-
 import Postroot from "@/components/post/postroot/Postroot";
 const Detail = () => {
   return (
