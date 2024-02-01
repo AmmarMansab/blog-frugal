@@ -151,7 +151,7 @@
     padding-bottom: 0px;
 }
 .hero-content:hover .hero-content-type{
-    padding-bottom: 5px !important ;
+    padding-bottom: 55px !important ;
 }
 /* 
 .related-card:hover .hero-content {
@@ -198,12 +198,12 @@
     /* border: solid 2px red; */
 }
 .hero-content:hover .hero-line{
-    height: 150px;
+    height: 190px;
 } 
 
 @media screen and (min-width:0px) and (max-width:1226px) {
     .hero-content:hover .hero-line{
-        height: 200px;
+        height: 245px;
     }
 }
 

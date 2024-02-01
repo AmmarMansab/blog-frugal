@@ -8,6 +8,7 @@ import { Button, Modal, message, Spin } from 'antd';
 
 
 const Postcontent = ({ post, id }) => {
+  // console.log(post[0].title ,'this is post ...');
   const createMarkup = (html) => {
     return { __html: html };
   };
@@ -82,9 +83,9 @@ const Postcontent = ({ post, id }) => {
       {
         post ?
           <div className="conent-main-contaier">
-            {/* <h1 className="mt-8 w-60%] " >{post?.title}</h1> */}
-            <h1 style={{textAlign:'center'}} className="mt-32 w-[60%]" >this is post 1 and , this is post 2 and this is post 3 , and this is post 4</h1>
-            <img className="h-auto w-[60vw] mt-8" src={API + post?.image} alt="" />
+            <h1 style={{textAlign:'center'}} className="mt-32 w-[60%] font-bold" >{post.title}</h1>
+            {/* <img className="w-auto h-[80vh] mt-8" src={API + post?.image} alt="" /> */}
+            <div className="w-[60vw] h-[80vh] mt-8" style={{ backgroundImage: `url(${API}${post?.image})`,backgroundSize:'cover', }} alt=""></div>
             <div className="container content-container" >
               {/* <div className="ads-card ">
                 ads....

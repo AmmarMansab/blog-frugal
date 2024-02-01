@@ -11,9 +11,9 @@ const Postheader = ({ post }) => {
       {
         post ?
           <div className="container post-header-hero " style={{ backgroundImage: `url(${"https://server.blog.digiunction.com" + post?.image})` }}>
-            <Scrolldown/>
+            {/* <Scrolldown/> */}
             <div className="overlay-post"></div>
-            <div className="line-1"></div>
+            {/* <div className="line-1"></div>
             <div className="line-2"></div>
             <div className="post-header-inner">
               <h1> {post?.title}</h1>
@@ -24,7 +24,7 @@ const Postheader = ({ post }) => {
                 <span>/</span>
                 <p>{post?.category?.name}</p>
               </div>
-            </div>
+            </div> */}
           </div>
           :
           <div  className=" mt-6 post-one-header-ske shadow-sm ">

@@ -78,7 +78,7 @@ const Tlpheader = ({ data }) => {
         <>
             {data ? (
                 <div class="peakpics-con  mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
-                    <div class="bg-blue-500 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 spin-main ">
+                    <div class=" pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 spin-main ">
                         <div className="carousel-container">
                             <Carousel afterChange={onChange} ref={carouselRef} dots={false} responsive={responsiveSettings}>
                                 {data.map((item) => (<div onClick={() => handleNavigation(`/post/${item?._id}`)} key={item?.id}>
