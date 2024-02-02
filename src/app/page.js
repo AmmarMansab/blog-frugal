@@ -20,6 +20,8 @@ const page = () => {
       type: 'website',
     },
   };
+
+  
   return (
     <>
     <NextSeo {...SEO} />

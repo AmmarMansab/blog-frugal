@@ -34,6 +34,9 @@ export const generateSitemap = async () => {
     });
   });
 
+
+  console.log("Sitemap generated!!!")
+
   // const walk = async dir => {
   //   const files = await fsPromises.readdir(dir)
 
