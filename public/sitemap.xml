@@ -1,7 +1,13 @@
 <?xml version="1.0"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://frugalmalefashionblog.com/post/65b80df77f9d3772943efb50</loc>
+    <loc>https://frugalmalefashionblog.com</loc>
+  </url>
+  <url>
+    <loc>https://frugalmalefashionblog.com/contact</loc>
+  </url>
+  <url>
+    <loc>https://frugalmalefashionblog.com/starthere</loc>
   </url>
   <url>
     <loc>https://frugalmalefashionblog.com/post/65b416e3a60be911f18803c1</loc>
@@ -14,20 +20,5 @@
   </url>
   <url>
     <loc>https://frugalmalefashionblog.com/post/65b4153c0441a48e29f37eea</loc>
-  </url>
-  <url>
-    <loc>https://frugalmalefashionblog.com/post/650357d12afe532344bbc9a4</loc>
-  </url>
-  <url>
-    <loc>https://frugalmalefashionblog.com/post/6503579b2afe532344bbc98f</loc>
-  </url>
-  <url>
-    <loc>https://frugalmalefashionblog.com/post/650357842afe532344bbc98d</loc>
-  </url>
-  <url>
-    <loc>https://frugalmalefashionblog.com/post/650356502afe532344bbc969</loc>
-  </url>
-  <url>
-    <loc>https://frugalmalefashionblog.com/post/6503561c2afe532344bbc967</loc>
   </url>
 </urlset>

@@ -24,7 +24,7 @@ const Category = () => {
   useEffect(()=> {
     setP(recentPosts)
   }, [recentPosts])
-  let newrecentPosts = [...p, ...p];
+  let newrecentPosts = [...p];
   const API = "https://server.blog.digiunction.com";
 
   const pageSize = 7; // Number of items to display per page
