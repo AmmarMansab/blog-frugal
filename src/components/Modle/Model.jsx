@@ -40,9 +40,9 @@ const Model = () => {
           <div className="custom-modal-inner-container">
             <div className="custom-modal-inner-A"></div>
             <div className="custom-modal-inner-B">
-              <h1>Frugality is not cheap, it's a choice, a lifestyle</h1>
+              <h1>Frugality is not cheap, its a choice, a lifestyle</h1>
               <p>
-              All my frugal folks, I talk about how frugal ≠ cheap. You can be frugal and a G at the same time. We men are capable of that. Your aura, your haki (for anime fans) must be a magnet. You can attract positivity and you will, once you subscribe below
+              All my frugal folks, I talk about how frugal ≠ cheap. You can be frugal and a G at the same time. We men are capable of that. Your aura, your haki (for anime fans) must be a magnet. You can attract positivity and you will, once you subscribe below
               </p>
               <form
                 onSubmit={(e) => {
