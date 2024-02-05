@@ -59,10 +59,13 @@ const Fotter = () => {
           <div class="pt-0 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-start items-center">
             <div className="fotter-cate flex flex-col justify-start items-center">
               <h3 className=" text-center content-white">
-              Dressing Frugal ≠ Being Cheap
+                Dressing Frugal ≠ Being Cheap
               </h3>
               <p className="text-center text-white text-sx ">
-              I talk about how dressing frugally doesn't mean being cheap. It's all about how you carry yourself. Your aura, your haki (for anime lovers) should be a magnet. You are capable of that. Subscribe below 👇🏽 and I'll tell you how!
+                I talk about how dressing frugally doesnt mean being cheap.
+                Its all about how you carry yourself. Your aura, your haki (for
+                anime lovers) should be a magnet. You are capable of that.
+                Subscribe below 👇🏽 and Ill tell you how!
               </p>
               <form
                 onSubmit={(e) => {
@@ -105,14 +108,14 @@ const Fotter = () => {
             <div className="fotter-cate flex flex-col justify-start items-center">
               <h3 className="content-white">Affiliate / Legal Info</h3>
               <div className="text-white text-center text-sx ">
-              Frugal Male Fashion Blog (FMF blog) is a participant in the Amazon Services LLC
-                Associates Program, an affiliate advertising program designed to
-                provide a means for sites to earn advertising fees by
-                advertising and linking to
+                Frugal Male Fashion Blog (FMF blog) is a participant in the
+                Amazon Services LLC Associates Program, an affiliate advertising
+                program designed to provide a means for sites to earn
+                advertising fees by advertising and linking to
               </div>
               <div className="text-white text-center">
-              FMF also participates in affiliate programs with other sites. FMF
-                is compensated for referring traffic and business to these
+                FMF also participates in affiliate programs with other sites.
+                FMF is compensated for referring traffic and business to these
                 companies. This comes at no extra cost to you, the reader.
               </div>
             </div>
@@ -212,7 +215,7 @@ const Fotter = () => {
         </div>
         <div className="container fotter-end  mx-auto flex justify-start items-center ">
           <h1 className="pt-10 pl-16 flex  ">
-          Made with 🩶 by Digiunction
+            Made with 🩶 by Digiunction
             {/* <a href="https://www.digiunction.com/">Digiunction</a> */}
             {/* <BiSolidRegistered className="ml-1" />{" "} */}
           </h1>
