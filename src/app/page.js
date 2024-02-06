@@ -28,7 +28,7 @@ const page = () => {
     <Model/>
       <div className='parent-of-all' >
         <Navbar  />
-        {/* <Hero /> */}
+        <Hero />
         <Category />
         <Tlp />
         <Subscription />
