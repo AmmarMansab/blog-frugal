@@ -132,7 +132,8 @@ const Fotter = () => {
                 >
                   <div
                     style={{
-                      backgroundImage: `url(${API + recentPosts[0]?.image})`,
+                      // backgroundImage: `url(${API + recentPosts[0]?.image})`,
+                      backgroundImage: `url(${API + recentPosts[0]?.image.replace(/\.(jpeg|jpg|png)/, '.webp')})`,
                     }}
                     className="fotter-img"
                   ></div>
@@ -153,7 +154,8 @@ const Fotter = () => {
                 >
                   <div
                     style={{
-                      backgroundImage: `url(${API + recentPosts[1]?.image})`,
+                      // backgroundImage: `url(${API + recentPosts[1]?.image})`,
+                      backgroundImage: `url(${API + recentPosts[1]?.image.replace(/\.(jpeg|jpg|png)/, '.webp')})`,
                     }}
                     className="fotter-img"
                   ></div>
@@ -176,7 +178,8 @@ const Fotter = () => {
                 >
                   <div
                     style={{
-                      backgroundImage: `url(${API + recentPosts[2]?.image})`,
+                      // backgroundImage: `url(${API + recentPosts[2]?.image})`,
+                      backgroundImage: `url(${API + recentPosts[2]?.image.replace(/\.(jpeg|jpg|png)/, '.webp')})`,
                     }}
                     className="fotter-img"
                   ></div>
@@ -197,7 +200,8 @@ const Fotter = () => {
                 >
                   <div
                     style={{
-                      backgroundImage: `url(${API + recentPosts[3]?.image})`,
+                      // backgroundImage: `url(${API + recentPosts[3]?.image})`,
+                      backgroundImage: `url(${API + recentPosts[3]?.image.replace(/\.(jpeg|jpg|png)/, '.webp')})`,
                     }}
                     className="fotter-img"
                   ></div>
@@ -215,7 +219,7 @@ const Fotter = () => {
         </div>
         <div className="container fotter-end  mx-auto flex justify-start items-center ">
           <h1 className="pt-10 pl-16 flex  ">
-            Made with 🩶 by Digiunction
+            Made with &#10084; by Digiunction
             {/* <a href="https://www.digiunction.com/">Digiunction</a> */}
             {/* <BiSolidRegistered className="ml-1" />{" "} */}
           </h1>
