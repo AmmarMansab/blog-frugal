@@ -27,18 +27,18 @@ const Subscribe = () => {
           <p style={{ fontSize: "1rem" }}>Dear Fashion-Conscious Frugals,</p>
           <p style={{fontSize:"1rem"}}>
             Welcome to the Frugal Male Fashion Blog, where we believe that
-            frugality is not about being cheap—it's about making thoughtful and
+            frugality is not about being cheap—it&apos;s about making thoughtful and
             intentional choices that allow you to look and feel your best
             without breaking the bank.
           </p>
           <p style={{fontSize:"1rem"}}>
             In a world where consumerism often equates value with price tags,
-            we're here to challenge that notion. We believe that true style and
+            we&apos;re here to challenge that notion. We believe that true style and
             sophistication stem not from the price of your wardrobe, but from
             the confidence and creativity you exude in how you dress.
           </p>
           <p style={{fontSize:"1rem"}}>
-            At Frugal Male Fashion Blog, we're passionate about showcasing that
+            At Frugal Male Fashion Blog, we&apos;re passionate about showcasing that
             style and substance can coexist harmoniously, regardless of your
             budget. If you believe that frugality is a mindset, not a compromise
             then subscribe below to get ideas you resonate with
