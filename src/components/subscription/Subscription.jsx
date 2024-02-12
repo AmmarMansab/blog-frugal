@@ -44,11 +44,11 @@ const Subscription = () => {
             <div className=" sub-container container max-w-80 mx-auto flex justify-start items-center sm:flex-col flex-col md:flex-row lg:flex-row xl:flex-row ">
                 <div class=" sub-img"></div>
                 <div className="sub-content flex justify-center items-start flex-col ">
-                    <h1 style={{fontSize:"2.5rem"}}>Embrace Frugality, Elevate Your Style</h1>
-                    <p style={{fontSize:"1.2rem"}}>Dear Fashion-Conscious Frugals,</p>
-                    <p style={{fontSize:"1.2rem"}}>Welcome to the Frugal Male Fashion Blog, where we believe that frugality is not about being cheap—it&apos;s about making thoughtful and intentional choices that allow you to look and feel your best without breaking the bank.</p>
-                    <p style={{fontSize:"1.2rem"}}>In a world where consumerism often equates value with price tags, we&apos;re here to challenge that notion. We believe that true style and sophistication stem not from the price of your wardrobe, but from the confidence and creativity you exude in how you dress.</p>
-                    <p style={{fontSize:"1.2rem"}}>At Frugal Male Fashion Blog, we&apos;re passionate about showcasing that style and substance can coexist harmoniously, regardless of your budget. If you believe that frugality is a mindset, not a compromise then subscribe below to get ideas you resonate with directly to your inbox.</p>
+                    <h1>Embrace Frugality, Elevate Your Style</h1>
+                    <p >Dear Fashion-Conscious Frugals,</p>
+                    <p >Welcome to the Frugal Male Fashion Blog, where we believe that frugality is not about being cheap—it&apos;s about making thoughtful and intentional choices that allow you to look and feel your best without breaking the bank.</p>
+                    <p >In a world where consumerism often equates value with price tags, we&apos;re here to challenge that notion. We believe that true style and sophistication stem not from the price of your wardrobe, but from the confidence and creativity you exude in how you dress.</p>
+                    <p >At Frugal Male Fashion Blog, we&apos;re passionate about showcasing that style and substance can coexist harmoniously, regardless of your budget. If you believe that frugality is a mindset, not a compromise then subscribe below to get ideas you resonate with directly to your inbox.</p>
                     <button onClick={showModal} >Subscribe</button>
                 </div>
             </div>
