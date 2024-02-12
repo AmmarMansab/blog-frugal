@@ -16,6 +16,8 @@ import useSubscriptionForm from "../../../utils/hooks/useSubscripiton";
 // import Showtext from '@/utils/showtext';
 import useNavi from "@/utils/hooks/useNavi";
 import { sliceText } from "@/utils/Textslice";
+import Image from "next/image";
+import wLogo from "../../../images/wLogo.svg";
 // import img from 'https://images.unsplash.com/photo-1682695797221-8164ff1fafc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8';
 
 const Fotter = () => {
@@ -37,13 +39,19 @@ const Fotter = () => {
       <div class=" pt-8 container container-fotter max-w-100 mx-auto ">
         <div class=" container fot-main mx-auto grid grid-cols-1 xsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
           {/* //// */}
-          <div class="pt-3 pr-2 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-start items-center">
+          <div class="pt-12 pr-2 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-start items-center">
             <div className="fotter-logo flex justify-center items-center ">
-              Digiunction
+            <Image
+                    src={wLogo}
+                    alt="Frugal Male Fashion Blog"
+                    width={200}
+                    height={150}
+                    className="logo"
+                    style={{paddingBottom: "20px", marginTop: "20px"}}
+                  />
             </div>
             <p className="fotter-logo-p text-sx ">
-              Digiunction is Premium Gossip Magazine/Blog Template, aliquam
-              neque nunc, vestibulum et aliquet.
+              FMF is a premier male fashion blog/gossip site. We are committed to promote the idea that frugality is not about being cheap. It's a choice one should be proud of!
             </p>
             <div className="fotter-social flex flex-col justify-center items-center">
               <h3 className="content-white">Social Icons</h3>
@@ -121,7 +129,7 @@ const Fotter = () => {
             </div>
           </div>
           {/* //// */}
-          <div class="pr-2 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-center items-center">
+          <div class="pr-10 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-center items-center">
             <div className="fotter-card-main h-175 w-full  flex justify-center items-center mt-8 ">
               {recentPosts[0] ? (
                 <div
@@ -132,8 +140,7 @@ const Fotter = () => {
                 >
                   <div
                     style={{
-                      // backgroundImage: `url(${API + recentPosts[0]?.image})`,
-                      backgroundImage: `url(${API + recentPosts[0]?.image.replace(/\.(jpeg|jpg|png)/, '.webp')})`,
+                      backgroundImage: `url(${API + recentPosts[0]?.image})`,
                     }}
                     className="fotter-img"
                   ></div>
@@ -154,8 +161,7 @@ const Fotter = () => {
                 >
                   <div
                     style={{
-                      // backgroundImage: `url(${API + recentPosts[1]?.image})`,
-                      backgroundImage: `url(${API + recentPosts[1]?.image.replace(/\.(jpeg|jpg|png)/, '.webp')})`,
+                      backgroundImage: `url(${API + recentPosts[1]?.image})`,
                     }}
                     className="fotter-img"
                   ></div>
@@ -178,8 +184,7 @@ const Fotter = () => {
                 >
                   <div
                     style={{
-                      // backgroundImage: `url(${API + recentPosts[2]?.image})`,
-                      backgroundImage: `url(${API + recentPosts[2]?.image.replace(/\.(jpeg|jpg|png)/, '.webp')})`,
+                      backgroundImage: `url(${API + recentPosts[2]?.image})`,
                     }}
                     className="fotter-img"
                   ></div>
@@ -200,8 +205,7 @@ const Fotter = () => {
                 >
                   <div
                     style={{
-                      // backgroundImage: `url(${API + recentPosts[3]?.image})`,
-                      backgroundImage: `url(${API + recentPosts[3]?.image.replace(/\.(jpeg|jpg|png)/, '.webp')})`,
+                      backgroundImage: `url(${API + recentPosts[3]?.image})`,
                     }}
                     className="fotter-img"
                   ></div>

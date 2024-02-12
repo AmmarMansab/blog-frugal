@@ -9,7 +9,9 @@ import Subscription from '@/components/subscription/Subscription'
 import Videosection from '@/components/Home/video/Videosection'
 import Model from '@/components/Modle/Model'
 
+
 const page = () => {
+
   const SEO = {
     title: 'Home Page',
     description: 'Description of your page for search engines.',

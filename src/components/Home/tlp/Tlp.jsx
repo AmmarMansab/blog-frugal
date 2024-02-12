@@ -203,13 +203,11 @@ const Tlp = () => {
               <div className="paralex-img"></div>
               <div className="overlay"></div>
               <div className="hero-content">
-                <div className="hero-line"></div>
+                {/* <div className="hero-line"></div> */}
                 <div className="hero-content-heading">
-                  {
-                    "lorem ipsom is gap sady masgy dady fams trag falam danam"}
+                  
                 </div>
                 <div className="hero-content-type">
-                  {`By Admin / 12 Dec, 2023 / Something`}
                 </div>
               </div>
             </div>
