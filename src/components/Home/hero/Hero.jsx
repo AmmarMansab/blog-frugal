@@ -10,7 +10,8 @@ import { useGetPosts } from '../../../app/api/blog';
 import Scrolldown from '../../../utils/Scrolldown';
 import useNavi from "@/utils/hooks/useNavi";
 import { sliceText } from "@/utils/Textslice";
-// import Showtext from "@/utils/showtext";
+
+
 
 const contentStyle = {
   margin: 0,
@@ -21,7 +22,18 @@ const contentStyle = {
 };
 
 
+
+
 const Hero = () => {
+
+
+
+
+
+
+
+
+
   const {handleNavigation}=useNavi();
   const { posts, postsLoading } = useGetPosts();
   const carouselRef = useRef(null);
