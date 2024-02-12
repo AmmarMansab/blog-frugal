@@ -51,7 +51,7 @@ const Fotter = () => {
                   />
             </div>
             <p className="fotter-logo-p text-sx ">
-              FMF is a premier male fashion blog/gossip site. We are committed to promote the idea that frugality is not about being cheap. It's a choice one should be proud of!
+              FMF is a premier male fashion blog/gossip site. We are committed to promote the idea that frugality is not about being cheap. It&apos;s a choice one should be proud of!
             </p>
             <div className="fotter-social flex flex-col justify-center items-center">
               <h3 className="content-white">Social Icons</h3>
