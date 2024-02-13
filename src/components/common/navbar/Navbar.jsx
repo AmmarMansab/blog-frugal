@@ -64,7 +64,6 @@ const Navbar = () => {
                     alt="Frugal Male Fashion Blog"
                     width={100}
                     height={100}
-                    className="logo"
                   />
                 </div>
                 <div className="hidden lg:block lg:ml-2">

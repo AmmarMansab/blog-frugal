@@ -70,6 +70,6 @@ export const generateSitemap = async () => {
   fsPromises.writeFile('./public/sitemap.xml', sitemapXml)
 }
 
-generateSitemap().catch(error =>
-  console.error('Error generating sitemap:', error)
-)
+// generateSitemap().catch(error =>
+//   console.error('Error generating sitemap:', error)
+// )
