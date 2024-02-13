@@ -117,6 +117,7 @@ const Navbar = () => {
                           cursor: "pointer",
                         }}
                       />
+                      <a href="https://www.pinterest.com/FMFblog" target="_blank" rel="noopener noreferrer">
                       <SiPinterest
                         style={{
                           color: "black",
@@ -125,6 +126,7 @@ const Navbar = () => {
                           cursor: "pointer",
                         }}
                       />
+                      </a>
                       <FaSquareXTwitter
                         style={{
                           color: "black",
