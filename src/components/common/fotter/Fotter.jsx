@@ -58,7 +58,9 @@ const Fotter = () => {
               <h3 className="content-white">Social Icons</h3>
               <div className="fotter-icons flex justify-between items-center ">
                 <RiInstagramFill style={{ color: "white" }} />
+                <a href="https://www.pinterest.com/FMFblog" target="_blank" rel="noopener noreferrer">
                 <SiPinterest style={{ color: "white" }} />
+                </a>
                 <FaSquareXTwitter style={{ color: "white" }} />
                 <FaReddit style={{ color: "white" }} />
               </div>
