@@ -41,23 +41,26 @@ const Fotter = () => {
           {/* //// */}
           <div class="pt-12 pr-2 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-start items-center">
             <div className="fotter-logo flex justify-center items-center ">
-            <Image
-                    src={wLogo}
-                    alt="Frugal Male Fashion Blog"
-                    width={200}
-                    height={150}
-                    className="logo"
-                    style={{paddingBottom: "20px", marginTop: "20px"}}
-                  />
+              <Image
+                src={wLogo}
+                alt="Frugal Male Fashion Blog"
+                width={200}
+                height={150}
+                style={{ paddingBottom: "20px", marginTop: "20px" }}
+              />
             </div>
             <p className="fotter-logo-p text-sx ">
-              FMF is a premier male fashion blog/gossip site. We are committed to promote the idea that frugality is not about being cheap. It&apos;s a choice one should be proud of!
+              FMF is a premier male fashion blog/gossip site. We are committed
+              to promote the idea that frugality is not about being cheap.
+              It&apos;s a choice one should be proud of!
             </p>
             <div className="fotter-social flex flex-col justify-center items-center">
               <h3 className="content-white">Social Icons</h3>
               <div className="fotter-icons flex justify-between items-center ">
                 <RiInstagramFill style={{ color: "white" }} />
+                <a href="https://www.pinterest.com/FMFblog" target="_blank" rel="noopener noreferrer">
                 <SiPinterest style={{ color: "white" }} />
+                </a>
                 <FaSquareXTwitter style={{ color: "white" }} />
                 <FaReddit style={{ color: "white" }} />
               </div>
@@ -70,8 +73,8 @@ const Fotter = () => {
                 Dressing Frugal ≠ Being Cheap
               </h3>
               <p className="text-center text-white text-sx ">
-                I talk about how dressing frugally doesnt mean being cheap.
-                Its all about how you carry yourself. Your aura, your haki (for
+                I talk about how dressing frugally doesnt mean being cheap. Its
+                all about how you carry yourself. Your aura, your haki (for
                 anime lovers) should be a magnet. You are capable of that.
                 Subscribe below 👇🏽 and Ill tell you how!
               </p>

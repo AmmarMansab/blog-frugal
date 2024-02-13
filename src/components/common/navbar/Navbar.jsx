@@ -64,7 +64,6 @@ const Navbar = () => {
                     alt="Frugal Male Fashion Blog"
                     width={100}
                     height={100}
-                    className="logo"
                   />
                 </div>
                 <div className="hidden lg:block lg:ml-2">
@@ -118,6 +117,7 @@ const Navbar = () => {
                           cursor: "pointer",
                         }}
                       />
+                      <a href="https://www.pinterest.com/FMFblog" target="_blank" rel="noopener noreferrer">
                       <SiPinterest
                         style={{
                           color: "black",
@@ -126,6 +126,7 @@ const Navbar = () => {
                           cursor: "pointer",
                         }}
                       />
+                      </a>
                       <FaSquareXTwitter
                         style={{
                           color: "black",
