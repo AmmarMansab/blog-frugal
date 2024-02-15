@@ -13,9 +13,9 @@
 
     .viewimg{
         height: 150px;
-        width: 300px;
+        width: 400px;
         background-size: cover;
-        /* background-position: center; */
+        background-position: center;
     }
 
     /* ///// */
@@ -134,7 +134,7 @@
         line-height: 23px;
         /* margin-bottom: 10px; */
         text-align: justify;
-        width: 65%;
+        /* width: 65%; */
         margin-left: 3%;
         display: -webkit-box;
         -webkit-box-orient: vertical;

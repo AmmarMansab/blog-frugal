@@ -82,7 +82,7 @@ const Starthere = () => {
                     <>
                       <div
                         onClick={() => handleNavigation(`/post/${_id}`)}
-                        class="  mt-8  here-card h-max-content w-95 flex justify-center items-center flex-col "
+                        class="  mt-8 here-card h-max-content w-95 flex justify-center items-center flex-col "
                       >
                         <img
                           style={{
@@ -134,7 +134,7 @@ const Starthere = () => {
           </div>
         </div>
         <div class=" pr-2 pb-0 rounded-md starthere-p w-1/2  ">
-          <h1 className="here-heading">Trending</h1>
+          <h1 className="here-heading" style={{color: "black"}}>Trending</h1>
           {topViewedData.length > 0 ? (
             // data.map((items) => {
             topViewedData.map((items, index) => {
@@ -155,7 +155,7 @@ const Starthere = () => {
                       ></div>
                       <div>
                       <h2 style={{ color: "black" }}>
-                        {sliceText(title, 100)}
+                        {sliceText(title, 150)}
                       </h2>
                       <p style={{color: "black", padding: "10px", width: '100%'}}>{sliceText(description, 150)}</p>
                       </div>
