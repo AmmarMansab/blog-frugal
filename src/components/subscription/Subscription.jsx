@@ -26,7 +26,7 @@ const Subscription = () => {
       >
         <div
           className="flex justify-start items-center"
-          style={{ height: "80vh", marginTop: "-10vh " }}
+          style={{ marginTop: "-5rem " }}
         >
           <div className="custom-modal-inner-container">
             <div className="custom-modal-inner-A"></div>

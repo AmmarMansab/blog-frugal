@@ -83,7 +83,7 @@ const Postcontent = ({ post, id }) => {
       {
         post ?
           <div className="conent-main-contaier">
-            <h1 style={{textAlign:'center'}} className="mt-32 w-[60%] font-bold" >{post.title}</h1>
+            <h1 style={{textAlign:'center', color: "black"}} className="mt-32 w-[60%] font-bold" >{post.title}</h1>
             {/* <img className="w-auto h-[80vh] mt-8" src={API + post?.image} alt="" /> */}
             <div className="w-[60vw] h-[80vh] mt-8" style={{ backgroundImage: `url(${API}${post?.image})`,backgroundSize:'cover', }} alt=""></div>
             <div className="container content-container" >

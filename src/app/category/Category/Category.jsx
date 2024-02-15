@@ -68,7 +68,7 @@ const Category = () => {
                 ></div>
                 <div className={`${styles["full-card-b"]}`}>
                   <p className={`${styles["full-heading"]}`}>
-                    {sliceText(title, 90)}
+                    {sliceText(title, 100)}
                   </p>
                   <p>{sliceText(description, 350)}</p>
                 </div>
@@ -81,8 +81,8 @@ const Category = () => {
               <div className={`shadow-md p-4 bg-white rounded-lg cursor-pointer ${styles["cate-cart"]}`} style={{ backgroundColor: '#ebf9fa' }}>
                 <div className={` h-40 ${styles["cate-cart-img"]}`} style={{ backgroundImage: `url(${API + image})` }}></div>
                 <div className={`mt-4 ${styles["cate-cart-content"]} `}>
-                  <h1 className="text-xl font-semibold mb-2">{sliceText(title, 20)}</h1>
-                  <p className="text-sm text-gray-600">{sliceText(description, 20)}</p>
+                  <h1 className="text-xl font-semibold mb-2">{sliceText(title, 45)}</h1>
+                  <p className="text-sm text-gray-600">{sliceText(description, 110)}</p>
                 </div>
               </div>
               </div>
