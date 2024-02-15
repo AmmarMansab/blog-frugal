@@ -71,11 +71,11 @@
 }
 
 .carousel-container {
-    width: 80%;
+    /* width: 80%; */
     /* border: solid 1px black; */
     margin: auto;
     position: relative;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
 .carousel-container h1 {

@@ -31,6 +31,7 @@
 .sub-h-content p{
   width: 90%;
   text-align: justify;
+  padding: 10px;
 }
 
 .sub-h-content input{
