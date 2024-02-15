@@ -67,7 +67,7 @@ const Subscription = () => {
         </div>
       </Modal>
 
-      <div className="sub-container container max-w-80 mx-auto flex justify-start items-center sm:flex-col flex-col md:flex-row lg:flex-row xl:flex-row ">
+      <div className="sub-container container max-w-80 mx-auto flex justify-start items-center sm:flex-col flex-col md:flex-row lg:flex-row xl:flex-row " style={{marginBottom: "20px"}}>
         <div className="sub-img">
           <img
             className="sub-h-img"
