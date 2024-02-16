@@ -32,6 +32,20 @@ export const metadata = {
   siteUrl: 'https://frugalmalefashionblog.com', // Update with your actual URL
   imageUrl: 'https://yourblog.com/cover-image.jpg', // Update with your actual image URL
   twitterHandle: '@yourTwitterHandle', // Update with your actual Twitter handle
+  icons: {
+    icon: [
+      {
+        media: '(prefers-color-scheme: light)',
+        url: '../images/icon.svg',
+        href: '../images/icon.svg',
+      },
+      {
+        media: '(prefers-color-scheme: dark)',
+        url: '../images/icon.svg',
+        href: '../images/icon.svg',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -40,6 +54,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head>
         <title>{metadata.title}</title>
+        {/* <link rel="icon" href="../images/icon.svg"/> */}
         <meta name="description" content={metadata.description} />
 
         {/* Open Graph Tags */}
