@@ -70,12 +70,14 @@ const Navbar = () => {
                   <div className="flex">
                     <Link
                       href="/"
+                      prefetch={false}
                       className="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700"
                     >
                       Home
                     </Link>
                     <Link
                       href="/starthere"
+                      prefetch={false}
                       className="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700"
                     >
                       Start Here
@@ -94,6 +96,7 @@ const Navbar = () => {
                     {/* <Link href='/contact' className="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700">Contact</Link> */}
                     <Link
                       href="/contact"
+                      prefetch={false}
                       className="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700"
                     >
                       Contact
@@ -102,7 +105,7 @@ const Navbar = () => {
                 </div>
               </div>
               <div className="flex-1 flex px-2 lg:ml-6 lg:justify-end">
-              {/* <div className="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-center"> */}
+                {/* <div className="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-center"> */}
                 <div className="max-w-lg w-full lg:max-w-xs">
                   <label htmlFor="search" className="sr-only">
                     Search
@@ -117,15 +120,19 @@ const Navbar = () => {
                           cursor: "pointer",
                         }}
                       />
-                      <a href="https://www.pinterest.com/FMFblog" target="_blank" rel="noopener noreferrer">
-                      <SiPinterest
-                        style={{
-                          color: "black",
-                          fontSize: "27px",
-                          marginLeft: "10px",
-                          cursor: "pointer",
-                        }}
-                      />
+                      <a
+                        href="https://www.pinterest.com/FMFblog"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <SiPinterest
+                          style={{
+                            color: "black",
+                            fontSize: "27px",
+                            marginLeft: "10px",
+                            cursor: "pointer",
+                          }}
+                        />
                       </a>
                       <FaSquareXTwitter
                         style={{
@@ -177,13 +184,14 @@ const Navbar = () => {
             />
           </div>
           <Image
-                    src={bLogo}
-                    alt="Description of the image"
-                    width={100}
-                    height={100}
-                  />
+            src={bLogo}
+            alt="Description of the image"
+            width={100}
+            height={100}
+          />
           <Link
             href="/"
+            prefetch={false}
             className="w-full pl-4 pb-2 pt-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 "
             style={{ color: "black" }}
           >
@@ -191,6 +199,7 @@ const Navbar = () => {
           </Link>
           <Link
             href="/starehere"
+            prefetch={false}
             className="w-full pl-4 pb-2 pt-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 "
             style={{ color: "black" }}
           >
@@ -198,6 +207,7 @@ const Navbar = () => {
           </Link>
           <Link
             href="/contact"
+            prefetch={false}
             className=" w-full pl-4 pb-2 pt-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 "
             style={{ color: "black" }}
           >
