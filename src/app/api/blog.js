@@ -166,6 +166,7 @@ export function useGetPostsByCategory(query, page) {
   const memoizedValue = useMemo(
     () => ({
       posts: data?.posts || [],
+      count: data?.count,
       uniqueTags: data?.uniqueTags || [],
       postsLoading: isLoading,
       postsError: error,
