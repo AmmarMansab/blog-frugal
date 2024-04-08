@@ -19,30 +19,19 @@ const Category = () => {
   const params = useParams();
   const { id } = params;
   const [page, setPage] = useState(0);
-  const { posts: recentPosts, postsLoading, uniqueTags } = useGetPostsByCategory(id, page);
-  const [p, setP] = useState(recentPosts)
-  useEffect(()=> {
-    setP(recentPosts)
-  }, [recentPosts])
-  let newrecentPosts = [...p];
+  const { posts: recentPosts, postsLoading, uniqueTags, count } = useGetPostsByCategory(id, page);
+
   const API = "https://server.blog.digiunction.com";
 
   const pageSize = 7; // Number of items to display per page
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
 
-  const totalPosts = newrecentPosts?.length;
+  const totalPosts = count//newrecentPosts?.length;
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-  };
-
-  const displayPosts = newrecentPosts?.slice(
-    (currentPage - 1) * pageSize,
-    currentPage * pageSize
-  );
-
-  const truncateText = (text, maxLength) => {
-    return text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+    setPage(page-1)
+    // console.log(page)
   };
 
   let isSpecialCard;
@@ -77,9 +66,9 @@ const Category = () => {
           </>
         ) : (
           <>
-            <div class="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-4 gap-2 sm:min-w-[340px] md:min-w-[240px] lg:min-w-[340px]  xl:min-w-[340px] " onClick={() => handleNavigation(`/post/${_id}`)}>
-              <div className={`shadow-md p-4 bg-white rounded-lg cursor-pointer ${styles["cate-cart"]}`} style={{ backgroundColor: '#ebf9fa' }}>
-                <div className={` h-40 ${styles["cate-cart-img"]}`} style={{ backgroundImage: `url(${API + image})` }}></div>
+            <div class="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-4 gap-2" onClick={() => handleNavigation(`/post/${_id}`)} style={{marginBottom: "20px"}}>
+              <div className={`shadow-md p-4 bg-white rounded-lg cursor-pointer`} style={{ backgroundColor: '#ebf9fa', height: '100%' }}>
+                <div className={`${styles["cate-cart-img"]}`} style={{ backgroundImage: `url(${API + image})` }}></div>
                 <div className={`mt-4 ${styles["cate-cart-content"]} `}>
                   <h1 className="text-xl font-semibold mb-2">{sliceText(title, 45)}</h1>
                   <p className="text-sm text-gray-600">{sliceText(description, 110)}</p>
@@ -141,8 +130,8 @@ const Category = () => {
         <div className={` ${styles["grid-main-container"]} `}>
           <div className={`${styles["grid-main"]} ${"container"}`}>
             <div className="grid grid-cols-12  md:gap-8 ">
-              {displayPosts.length > 0 ? (
-                displayPosts.map((post, index) => (
+              {recentPosts.length > 0 ? (
+                recentPosts?.map((post, index) => (
                   <React.Fragment key={index}>
                     {CategoryCard({ post: post, index: index })}
                   </React.Fragment>

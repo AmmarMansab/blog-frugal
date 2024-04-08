@@ -30,11 +30,11 @@ const page = () => {
     <Model/>
       <div className='parent-of-all' >
         <Navbar  />
-        <Hero />
-        <Category />
-        <Tlp />
-        <Subscription />
-        <Videosection />
+        {/* <Hero /> */}
+        {/* <Category /> */}
+        {/* <Tlp /> */}
+        {/* <Subscription /> */}
+        {/* <Videosection /> */}
         <Fotter />
       </div>
     </>

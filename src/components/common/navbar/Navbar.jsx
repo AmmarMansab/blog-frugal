@@ -21,9 +21,6 @@ const Navbar = () => {
   // Hooks and state variables
   const { handleNavigation } = useNavi();
   const { categories } = useGetCategories();
-  const [currentScrollTop, setCurrentScrollTop] = useState(0);
-  const [lastScrollTop, setLastScrollTop] = useState(0);
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
 
   const cate = categories?.map((item) => (
     <Menu.Item
@@ -47,7 +44,6 @@ const Navbar = () => {
     setOpen(false);
   };
 
-  // Render the Navbar component
   return (
     <>
       <nav
@@ -93,7 +89,6 @@ const Navbar = () => {
                         </div>
                       </Dropdown>
                     </div>
-                    {/* <Link href='/contact' className="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700">Contact</Link> */}
                     <Link
                       href="/contact"
                       prefetch={false}
@@ -105,7 +100,6 @@ const Navbar = () => {
                 </div>
               </div>
               <div className="flex-1 flex px-2 lg:ml-6 lg:justify-end">
-                {/* <div className="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-center"> */}
                 <div className="max-w-lg w-full lg:max-w-xs">
                   <label htmlFor="search" className="sr-only">
                     Search
@@ -224,5 +218,4 @@ const Navbar = () => {
   );
 };
 
-// Export the Navbar component
 export default Navbar;
