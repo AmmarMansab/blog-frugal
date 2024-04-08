@@ -8,6 +8,7 @@ import Navbar from '@/components/common/navbar/Navbar'
 import Subscription from '@/components/subscription/Subscription'
 import Videosection from '@/components/Home/video/Videosection'
 import Model from '@/components/Modle/Model'
+import H from '@/components/Home/hero/H';
 
 
 const page = () => {
@@ -30,11 +31,12 @@ const page = () => {
     <Model/>
       <div className='parent-of-all' >
         <Navbar  />
-        {/* <Hero /> */}
-        {/* <Category /> */}
-        {/* <Tlp /> */}
-        {/* <Subscription /> */}
-        {/* <Videosection /> */}
+        <H/>
+        <Hero />
+        <Category />
+        <Tlp />
+        <Subscription />
+        <Videosection />
         <Fotter />
       </div>
     </>

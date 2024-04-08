@@ -19,6 +19,7 @@ import { sliceText } from "@/utils/Textslice";
 import Image from "next/image";
 import wLogo from "../../../images/wLogo.svg";
 // import img from 'https://images.unsplash.com/photo-1682695797221-8164ff1fafc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8';
+import Link from "next/link";
 
 const Fotter = () => {
   const router = useRouter();
@@ -58,8 +59,12 @@ const Fotter = () => {
               <h3 className="content-white">Social Icons</h3>
               <div className="fotter-icons flex justify-between items-center ">
                 <RiInstagramFill style={{ color: "white" }} />
-                <a href="https://www.pinterest.com/FMFblog" target="_blank" rel="noopener noreferrer">
-                <SiPinterest style={{ color: "white" }} />
+                <a
+                  href="https://www.pinterest.com/fmfblog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <SiPinterest style={{ color: "white" }} />
                 </a>
                 <FaSquareXTwitter style={{ color: "white" }} />
                 <FaReddit style={{ color: "white" }} />
@@ -69,48 +74,20 @@ const Fotter = () => {
           {/* //// */}
           <div class="pt-0 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-start items-center">
             <div className="fotter-cate flex flex-col justify-start items-center">
-              <h3 className=" text-center content-white">
-                Dressing Frugal ≠ Being Cheap
-              </h3>
-              <p className="text-center text-white text-sx ">
-                I talk about how dressing frugally doesnt mean being cheap. Its
-                all about how you carry yourself. Your aura, your haki (for
-                anime lovers) should be a magnet. You are capable of that.
-                Subscribe below 👇🏽 and Ill tell you how!
-              </p>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleSubmit(
-                    "https://server.blog.digiunction.com/api/news/create"
-                  );
+              <h3 className=" text-center content-white">Quick Links</h3>
+              <ul
+                style={{
+                  listStyle: "circle",
+                  marginLeft: "15px",
+                  padding: "10px",
                 }}
               >
-                <input
-                  ref={nameref}
-                  onChange={handleChange}
-                  placeholder="Name"
-                  name="name"
-                  className="h-[35px] w-full mt-4 pl-4"
-                  type="text"
-                />
-                <input
-                  ref={emailref}
-                  onChange={handleChange}
-                  placeholder="Email"
-                  name="email"
-                  className="h-[35px] w-full mt-4 pl-4"
-                  type="text"
-                />
-                <button
-                  type="submit"
-                  className="h-[35px] w-full mt-4 sub-btn-fot"
-                >
-                  Subscribe
-                </button>
-              </form>
-              {isSuccess !== null &&
-                (isSuccess ? handleSuccess() : handleError())}
+                <li>
+                  <Link href="/">Home</Link>
+                </li>
+                <li><Link href="/contact">Contact us</Link></li>
+                <li><Link href="/starthere">Start Here</Link></li>
+              </ul>
             </div>
           </div>
           {/* //// */}
@@ -132,7 +109,7 @@ const Fotter = () => {
             </div>
           </div>
           {/* //// */}
-          <div class="pr-10 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-center items-center">
+          {/* <div class="pr-10 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-center items-center">
             <div className="fotter-card-main h-175 w-full  flex justify-center items-center mt-8 ">
               {recentPosts[0] ? (
                 <div
@@ -220,6 +197,52 @@ const Fotter = () => {
               ) : (
                 ""
               )}
+            </div>
+          </div> */}
+          <div class="pr-10 pb-0 rounded-md sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/1 flex flex-col justify-center items-center">
+            <div className="fotter-cate flex flex-col justify-start items-center">
+              <h3 className=" text-center content-white">
+                Dressing Frugal ≠ Being Cheap
+              </h3>
+              <p className="text-center text-white text-sx ">
+                I talk about how dressing frugally doesnt mean being cheap. Its
+                all about how you carry yourself. Your aura, your haki (for
+                anime lovers) should be a magnet. You are capable of that.
+                Subscribe below 👇🏽 and Ill tell you how!
+              </p>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSubmit(
+                    "https://server.blog.digiunction.com/api/news/create"
+                  );
+                }}
+              >
+                <input
+                  ref={nameref}
+                  onChange={handleChange}
+                  placeholder="Name"
+                  name="name"
+                  className="h-[35px] w-full mt-4 pl-4"
+                  type="text"
+                />
+                <input
+                  ref={emailref}
+                  onChange={handleChange}
+                  placeholder="Email"
+                  name="email"
+                  className="h-[35px] w-full mt-4 pl-4"
+                  type="text"
+                />
+                <button
+                  type="submit"
+                  className="h-[35px] w-full mt-4 sub-btn-fot"
+                >
+                  Subscribe
+                </button>
+              </form>
+              {isSuccess !== null &&
+                (isSuccess ? handleSuccess() : handleError())}
             </div>
           </div>
           {/* //// */}
