@@ -1,6 +1,5 @@
 import React from "react";
 import "./H.css";
-import Image from "next/image";
 
 const H = () => {
   return (
